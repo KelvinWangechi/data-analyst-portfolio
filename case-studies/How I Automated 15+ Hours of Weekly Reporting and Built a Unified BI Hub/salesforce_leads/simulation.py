@@ -15,7 +15,7 @@ for i in range(num_rows):
     date = start_date + timedelta(days=i % 90)
     lead_source = random.choice(lead_sources)
     lead_stage = random.choice(lead_stages)
-    revenue_potential = random.randint(50000, 500000)  # in KES (Localizing it to me for fun :))
+    revenue_potential = random.randint(50000, 500000)  # in KES (Localizing it to Kenya for fun :))
     region = random.choice(regions)
     data.append([date.strftime("%Y-%m-%d"), lead_source, lead_stage, revenue_potential, region])
 
