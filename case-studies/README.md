@@ -65,7 +65,7 @@
 | **Total** | **15** | **1.5** | **90%** |
 
 ### Business Impact
-- **$12,000 monthly savings** in analyst time
+- **$4,000+ monthly savings** in analyst time
 - **24-hour faster** decision making
 - **34% improvement** in campaign optimization speed
 - **Zero manual errors** in reporting
