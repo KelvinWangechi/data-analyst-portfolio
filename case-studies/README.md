@@ -29,7 +29,8 @@
 - Various APIs (Salesforce, GA4, Meta, TikTok)
 
 **Architecture:**
-[Include a simple flowchart diagram]
+![image](https://github.com/user-attachments/assets/317931f0-bbc4-4a19-8f77-84af58503dfc)
+
 
 ## Key Dashboards Created
 
