@@ -2,7 +2,9 @@
 
 ## Executive Summary
 **Challenge:** B2B company struggling with manual reporting across Salesforce, Google Analytics, TikTok, and Meta platforms
+
 **Solution:** Automated data integration and real-time dashboard system
+
 **Result:** 94% reduction in reporting time (15 hours → 1 hour weekly)
 
 ## The Problem
