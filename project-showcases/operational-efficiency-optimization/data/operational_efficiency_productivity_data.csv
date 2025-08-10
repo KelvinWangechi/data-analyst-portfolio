@@ -1,0 +1,600 @@
+Month,Department,Employee_ID,Tasks_Completed,Overtime_Hours,Satisfaction_Score,Stress_Level,Phase
+2023-03,Sales,Employee_002,28,10.4,3.9,8.5,Before_Optimization
+2023-03,Sales,Employee_048,27,1.9,3.5,7.3,Before_Optimization
+2023-03,Sales,Employee_018,19,5.7,4.0,6.8,Before_Optimization
+2023-03,Sales,Employee_016,25,1.0,3.1,6.9,Before_Optimization
+2023-03,Sales,Employee_015,19,2.1,3.6,6.1,Before_Optimization
+2023-03,Sales,Employee_009,27,5.2,3.9,8.1,Before_Optimization
+2023-03,Sales,Employee_007,29,12.0,3.7,7.1,Before_Optimization
+2023-03,Sales,Employee_035,20,10.8,3.1,8.2,Before_Optimization
+2023-03,Marketing,Employee_038,18,2.3,2.9,7.8,Before_Optimization
+2023-03,Marketing,Employee_028,16,2.4,3.3,8.7,Before_Optimization
+2023-03,Marketing,Employee_003,31,0.3,3.3,8.1,Before_Optimization
+2023-03,Marketing,Employee_002,22,2.6,3.7,7.1,Before_Optimization
+2023-03,Marketing,Employee_006,30,1.4,3.2,7.4,Before_Optimization
+2023-03,Marketing,Employee_014,20,3.3,3.9,7.5,Before_Optimization
+2023-03,Marketing,Employee_015,27,3.1,2.5,7.5,Before_Optimization
+2023-03,Marketing,Employee_033,25,11.6,3.2,7.0,Before_Optimization
+2023-03,Operations,Employee_002,19,11.2,2.9,6.7,Before_Optimization
+2023-03,Operations,Employee_036,25,8.8,3.4,6.3,Before_Optimization
+2023-03,Operations,Employee_013,22,11.4,3.0,7.4,Before_Optimization
+2023-03,Operations,Employee_046,21,2.9,4.0,8.1,Before_Optimization
+2023-03,Operations,Employee_042,19,3.9,3.3,8.5,Before_Optimization
+2023-03,Operations,Employee_045,26,8.5,2.5,8.3,Before_Optimization
+2023-03,Operations,Employee_035,27,2.8,3.7,8.4,Before_Optimization
+2023-03,Operations,Employee_027,23,6.6,2.5,6.2,Before_Optimization
+2023-03,Operations,Employee_015,18,5.7,4.0,8.0,Before_Optimization
+2023-03,Operations,Employee_029,15,5.5,2.7,8.8,Before_Optimization
+2023-03,Operations,Employee_038,24,0.9,3.2,6.7,Before_Optimization
+2023-03,Operations,Employee_018,30,14.3,2.8,7.4,Before_Optimization
+2023-03,Customer Success,Employee_049,28,10.1,2.8,6.3,Before_Optimization
+2023-03,Customer Success,Employee_011,33,1.3,3.7,8.7,Before_Optimization
+2023-03,Customer Success,Employee_045,34,19.6,3.3,7.1,Before_Optimization
+2023-03,Customer Success,Employee_028,24,1.6,3.1,6.5,Before_Optimization
+2023-03,Customer Success,Employee_022,31,7.3,3.3,6.2,Before_Optimization
+2023-03,Customer Success,Employee_018,35,3.1,2.7,7.0,Before_Optimization
+2023-03,Customer Success,Employee_010,25,9.3,2.7,6.4,Before_Optimization
+2023-03,Customer Success,Employee_014,24,0.2,3.7,6.1,Before_Optimization
+2023-03,Finance,Employee_007,31,29.4,3.4,8.2,Before_Optimization
+2023-03,Finance,Employee_006,18,14.6,3.5,7.5,Before_Optimization
+2023-03,Finance,Employee_025,28,7.2,3.8,7.1,Before_Optimization
+2023-03,Finance,Employee_050,18,10.4,2.7,6.6,Before_Optimization
+2023-03,Finance,Employee_023,19,0.5,3.5,7.1,Before_Optimization
+2023-03,Finance,Employee_046,18,13.3,2.9,6.6,Before_Optimization
+2023-03,Finance,Employee_039,26,4.1,2.8,8.3,Before_Optimization
+2023-03,Finance,Employee_017,20,12.3,2.8,7.9,Before_Optimization
+2023-03,Finance,Employee_003,29,6.1,2.8,7.3,Before_Optimization
+2023-03,Finance,Employee_030,26,7.5,3.1,6.8,Before_Optimization
+2023-04,Sales,Employee_008,19,8.3,3.5,7.1,Before_Optimization
+2023-04,Sales,Employee_025,21,11.9,3.2,7.8,Before_Optimization
+2023-04,Sales,Employee_006,23,14.4,3.5,7.5,Before_Optimization
+2023-04,Sales,Employee_036,24,9.1,3.3,7.9,Before_Optimization
+2023-04,Sales,Employee_019,30,6.6,2.6,6.1,Before_Optimization
+2023-04,Sales,Employee_041,21,15.3,3.3,7.6,Before_Optimization
+2023-04,Sales,Employee_040,23,1.0,3.6,8.8,Before_Optimization
+2023-04,Sales,Employee_024,24,19.7,2.6,8.3,Before_Optimization
+2023-04,Sales,Employee_037,27,2.8,3.5,8.4,Before_Optimization
+2023-04,Sales,Employee_013,18,0.9,3.8,7.5,Before_Optimization
+2023-04,Sales,Employee_005,30,1.1,2.6,6.8,Before_Optimization
+2023-04,Sales,Employee_003,21,0.2,3.3,7.2,Before_Optimization
+2023-04,Marketing,Employee_050,26,8.0,4.0,6.4,Before_Optimization
+2023-04,Marketing,Employee_019,24,4.3,3.5,7.5,Before_Optimization
+2023-04,Marketing,Employee_006,25,38.3,3.9,6.9,Before_Optimization
+2023-04,Marketing,Employee_015,18,46.9,2.9,7.1,Before_Optimization
+2023-04,Marketing,Employee_007,35,2.8,3.4,8.8,Before_Optimization
+2023-04,Marketing,Employee_025,30,10.7,2.8,8.5,Before_Optimization
+2023-04,Marketing,Employee_018,23,2.5,3.3,6.3,Before_Optimization
+2023-04,Marketing,Employee_030,27,10.1,3.3,6.1,Before_Optimization
+2023-04,Marketing,Employee_041,34,11.0,3.7,8.2,Before_Optimization
+2023-04,Operations,Employee_011,24,7.8,3.8,8.4,Before_Optimization
+2023-04,Operations,Employee_024,13,0.3,2.7,7.8,Before_Optimization
+2023-04,Operations,Employee_023,32,4.8,3.9,8.4,Before_Optimization
+2023-04,Operations,Employee_014,25,5.9,2.7,6.4,Before_Optimization
+2023-04,Operations,Employee_043,20,21.3,3.7,7.3,Before_Optimization
+2023-04,Operations,Employee_018,25,9.7,3.7,6.7,Before_Optimization
+2023-04,Operations,Employee_044,26,8.3,3.3,6.8,Before_Optimization
+2023-04,Operations,Employee_042,23,17.0,3.9,8.7,Before_Optimization
+2023-04,Operations,Employee_005,28,9.4,3.9,6.7,Before_Optimization
+2023-04,Operations,Employee_039,25,9.1,2.9,7.8,Before_Optimization
+2023-04,Customer Success,Employee_035,30,12.6,3.0,8.8,Before_Optimization
+2023-04,Customer Success,Employee_047,25,0.3,2.8,7.9,Before_Optimization
+2023-04,Customer Success,Employee_016,24,0.5,3.8,8.4,Before_Optimization
+2023-04,Customer Success,Employee_011,20,13.6,3.5,6.9,Before_Optimization
+2023-04,Customer Success,Employee_030,27,3.1,2.9,7.7,Before_Optimization
+2023-04,Customer Success,Employee_025,18,3.2,2.8,7.5,Before_Optimization
+2023-04,Customer Success,Employee_018,21,3.4,2.7,6.8,Before_Optimization
+2023-04,Customer Success,Employee_041,24,11.8,3.4,7.8,Before_Optimization
+2023-04,Customer Success,Employee_036,26,21.8,2.5,6.1,Before_Optimization
+2023-04,Finance,Employee_044,20,1.6,3.5,7.4,Before_Optimization
+2023-04,Finance,Employee_021,31,6.5,3.8,7.4,Before_Optimization
+2023-04,Finance,Employee_004,20,6.2,2.7,7.5,Before_Optimization
+2023-04,Finance,Employee_015,24,1.1,3.8,7.5,Before_Optimization
+2023-04,Finance,Employee_003,23,9.7,3.9,7.1,Before_Optimization
+2023-04,Finance,Employee_049,21,12.7,2.5,7.9,Before_Optimization
+2023-04,Finance,Employee_026,26,4.8,2.9,8.4,Before_Optimization
+2023-04,Finance,Employee_018,27,4.0,2.9,8.5,Before_Optimization
+2023-04,Finance,Employee_005,24,5.9,3.2,6.8,Before_Optimization
+2023-05,Sales,Employee_037,18,11.3,2.8,6.2,Before_Optimization
+2023-05,Sales,Employee_046,30,7.8,3.0,6.4,Before_Optimization
+2023-05,Sales,Employee_021,24,14.7,3.3,6.4,Before_Optimization
+2023-05,Sales,Employee_014,21,1.7,2.9,7.6,Before_Optimization
+2023-05,Sales,Employee_042,31,10.1,3.8,6.6,Before_Optimization
+2023-05,Sales,Employee_032,30,3.5,4.0,6.8,Before_Optimization
+2023-05,Sales,Employee_026,21,4.6,3.0,6.5,Before_Optimization
+2023-05,Sales,Employee_049,29,6.7,3.9,7.0,Before_Optimization
+2023-05,Sales,Employee_030,20,11.4,2.8,6.2,Before_Optimization
+2023-05,Marketing,Employee_017,27,45.6,3.8,7.5,Before_Optimization
+2023-05,Marketing,Employee_009,30,21.8,3.8,7.9,Before_Optimization
+2023-05,Marketing,Employee_016,27,7.9,3.7,8.9,Before_Optimization
+2023-05,Marketing,Employee_036,24,4.7,3.5,7.9,Before_Optimization
+2023-05,Marketing,Employee_035,17,12.5,2.9,7.0,Before_Optimization
+2023-05,Marketing,Employee_050,15,11.6,3.2,8.6,Before_Optimization
+2023-05,Marketing,Employee_038,23,3.4,3.6,7.7,Before_Optimization
+2023-05,Marketing,Employee_028,33,5.4,3.7,8.8,Before_Optimization
+2023-05,Marketing,Employee_044,23,7.7,3.2,9.0,Before_Optimization
+2023-05,Operations,Employee_024,24,30.3,3.8,6.5,Before_Optimization
+2023-05,Operations,Employee_015,33,3.8,3.9,7.6,Before_Optimization
+2023-05,Operations,Employee_009,19,10.2,2.8,7.8,Before_Optimization
+2023-05,Operations,Employee_033,28,9.5,3.8,7.4,Before_Optimization
+2023-05,Operations,Employee_032,23,7.4,3.8,7.0,Before_Optimization
+2023-05,Operations,Employee_006,23,6.6,2.8,8.5,Before_Optimization
+2023-05,Operations,Employee_004,22,5.8,3.4,6.5,Before_Optimization
+2023-05,Operations,Employee_008,29,1.0,3.3,8.1,Before_Optimization
+2023-05,Operations,Employee_010,14,13.0,3.7,6.7,Before_Optimization
+2023-05,Operations,Employee_041,27,8.0,3.8,6.2,Before_Optimization
+2023-05,Operations,Employee_011,29,6.6,3.5,8.8,Before_Optimization
+2023-05,Customer Success,Employee_039,15,1.6,4.0,8.1,Before_Optimization
+2023-05,Customer Success,Employee_005,27,16.9,3.7,8.0,Before_Optimization
+2023-05,Customer Success,Employee_025,22,6.9,3.6,6.3,Before_Optimization
+2023-05,Customer Success,Employee_048,27,11.6,3.3,6.4,Before_Optimization
+2023-05,Customer Success,Employee_050,25,1.6,3.8,6.0,Before_Optimization
+2023-05,Customer Success,Employee_030,22,0.8,2.9,6.2,Before_Optimization
+2023-05,Customer Success,Employee_034,26,9.7,2.6,6.2,Before_Optimization
+2023-05,Customer Success,Employee_017,22,8.2,3.7,6.4,Before_Optimization
+2023-05,Customer Success,Employee_036,31,1.9,3.4,7.1,Before_Optimization
+2023-05,Customer Success,Employee_001,26,2.6,3.9,7.1,Before_Optimization
+2023-05,Customer Success,Employee_008,21,9.5,2.7,6.4,Before_Optimization
+2023-05,Finance,Employee_049,24,10.0,2.6,8.9,Before_Optimization
+2023-05,Finance,Employee_018,26,1.3,3.7,8.7,Before_Optimization
+2023-05,Finance,Employee_042,22,3.5,2.6,8.0,Before_Optimization
+2023-05,Finance,Employee_022,30,37.0,2.6,8.0,Before_Optimization
+2023-05,Finance,Employee_008,24,4.9,2.9,8.1,Before_Optimization
+2023-05,Finance,Employee_019,28,14.4,3.0,8.2,Before_Optimization
+2023-05,Finance,Employee_028,18,3.0,3.4,7.9,Before_Optimization
+2023-05,Finance,Employee_011,23,3.7,3.5,8.0,Before_Optimization
+2023-05,Finance,Employee_030,19,11.2,2.7,6.2,Before_Optimization
+2023-05,Finance,Employee_001,25,2.8,3.6,6.5,Before_Optimization
+2023-05,Finance,Employee_017,31,7.0,2.8,6.2,Before_Optimization
+2023-05,Finance,Employee_033,24,0.8,3.9,8.9,Before_Optimization
+2023-06,Sales,Employee_033,20,0.3,3.4,6.2,Before_Optimization
+2023-06,Sales,Employee_007,37,2.9,3.7,6.7,Before_Optimization
+2023-06,Sales,Employee_041,21,2.6,2.8,6.8,Before_Optimization
+2023-06,Sales,Employee_020,31,3.6,3.2,8.9,Before_Optimization
+2023-06,Sales,Employee_048,19,10.5,3.9,6.5,Before_Optimization
+2023-06,Sales,Employee_050,21,0.2,3.4,8.0,Before_Optimization
+2023-06,Sales,Employee_039,26,0.6,2.8,6.9,Before_Optimization
+2023-06,Sales,Employee_013,30,0.4,3.1,7.2,Before_Optimization
+2023-06,Sales,Employee_010,24,0.8,3.6,7.0,Before_Optimization
+2023-06,Marketing,Employee_049,22,2.3,3.5,6.8,Before_Optimization
+2023-06,Marketing,Employee_011,25,17.1,3.8,7.7,Before_Optimization
+2023-06,Marketing,Employee_035,21,9.9,2.5,7.3,Before_Optimization
+2023-06,Marketing,Employee_034,31,3.0,3.8,6.5,Before_Optimization
+2023-06,Marketing,Employee_001,20,3.5,3.6,6.5,Before_Optimization
+2023-06,Marketing,Employee_039,21,24.4,3.1,7.0,Before_Optimization
+2023-06,Marketing,Employee_021,24,5.7,3.2,8.3,Before_Optimization
+2023-06,Marketing,Employee_032,27,2.0,3.6,8.1,Before_Optimization
+2023-06,Marketing,Employee_002,15,1.7,3.9,7.6,Before_Optimization
+2023-06,Marketing,Employee_008,30,5.4,3.0,8.5,Before_Optimization
+2023-06,Operations,Employee_020,24,4.8,4.0,8.6,Before_Optimization
+2023-06,Operations,Employee_016,28,1.4,3.9,7.3,Before_Optimization
+2023-06,Operations,Employee_004,21,20.0,3.1,7.7,Before_Optimization
+2023-06,Operations,Employee_049,30,2.1,4.0,8.9,Before_Optimization
+2023-06,Operations,Employee_037,31,2.8,3.9,6.8,Before_Optimization
+2023-06,Operations,Employee_006,26,12.6,2.8,8.0,Before_Optimization
+2023-06,Operations,Employee_045,17,1.4,3.1,8.5,Before_Optimization
+2023-06,Operations,Employee_032,25,24.7,3.2,8.1,Before_Optimization
+2023-06,Operations,Employee_005,34,18.6,3.9,8.8,Before_Optimization
+2023-06,Operations,Employee_035,21,16.3,3.0,7.8,Before_Optimization
+2023-06,Customer Success,Employee_009,18,4.2,3.4,7.2,Before_Optimization
+2023-06,Customer Success,Employee_043,26,9.3,3.5,7.3,Before_Optimization
+2023-06,Customer Success,Employee_031,24,5.8,3.4,7.4,Before_Optimization
+2023-06,Customer Success,Employee_036,22,0.6,3.9,6.1,Before_Optimization
+2023-06,Customer Success,Employee_011,38,4.3,2.9,6.0,Before_Optimization
+2023-06,Customer Success,Employee_017,21,8.6,3.0,8.3,Before_Optimization
+2023-06,Customer Success,Employee_034,25,4.1,2.8,6.6,Before_Optimization
+2023-06,Customer Success,Employee_039,25,19.4,3.3,8.9,Before_Optimization
+2023-06,Customer Success,Employee_028,35,5.5,2.7,6.7,Before_Optimization
+2023-06,Finance,Employee_035,27,1.3,3.2,6.1,Before_Optimization
+2023-06,Finance,Employee_049,29,7.9,3.7,6.4,Before_Optimization
+2023-06,Finance,Employee_047,25,2.4,2.7,7.0,Before_Optimization
+2023-06,Finance,Employee_045,26,1.1,3.2,6.8,Before_Optimization
+2023-06,Finance,Employee_013,31,14.6,3.1,8.2,Before_Optimization
+2023-06,Finance,Employee_020,25,4.0,3.7,7.3,Before_Optimization
+2023-06,Finance,Employee_026,24,14.3,3.5,7.0,Before_Optimization
+2023-06,Finance,Employee_043,28,21.4,3.8,7.9,Before_Optimization
+2023-06,Finance,Employee_042,23,6.8,4.0,6.7,Before_Optimization
+2023-07,Sales,Employee_029,16,8.2,3.9,6.0,Before_Optimization
+2023-07,Sales,Employee_034,28,10.5,3.0,8.5,Before_Optimization
+2023-07,Sales,Employee_050,21,13.8,2.9,6.6,Before_Optimization
+2023-07,Sales,Employee_008,28,5.8,2.9,6.1,Before_Optimization
+2023-07,Sales,Employee_016,24,18.9,2.6,7.3,Before_Optimization
+2023-07,Sales,Employee_015,14,8.6,3.5,6.1,Before_Optimization
+2023-07,Sales,Employee_005,29,0.3,3.2,8.1,Before_Optimization
+2023-07,Sales,Employee_022,22,2.2,3.7,8.9,Before_Optimization
+2023-07,Sales,Employee_002,24,4.5,3.0,6.8,Before_Optimization
+2023-07,Sales,Employee_038,26,2.4,3.5,6.1,Before_Optimization
+2023-07,Marketing,Employee_015,16,16.8,3.6,6.1,Before_Optimization
+2023-07,Marketing,Employee_038,25,8.4,3.6,8.6,Before_Optimization
+2023-07,Marketing,Employee_050,26,3.6,2.5,6.7,Before_Optimization
+2023-07,Marketing,Employee_001,28,19.9,2.6,6.5,Before_Optimization
+2023-07,Marketing,Employee_005,30,1.0,4.0,8.4,Before_Optimization
+2023-07,Marketing,Employee_041,24,9.1,3.7,8.4,Before_Optimization
+2023-07,Marketing,Employee_004,17,0.1,2.6,8.7,Before_Optimization
+2023-07,Marketing,Employee_048,25,14.6,3.9,8.6,Before_Optimization
+2023-07,Marketing,Employee_046,25,1.3,3.1,7.1,Before_Optimization
+2023-07,Marketing,Employee_003,26,30.7,3.6,7.9,Before_Optimization
+2023-07,Marketing,Employee_022,22,2.7,3.7,6.6,Before_Optimization
+2023-07,Marketing,Employee_042,28,1.5,2.9,7.5,Before_Optimization
+2023-07,Operations,Employee_016,24,10.6,3.4,8.5,Before_Optimization
+2023-07,Operations,Employee_018,20,3.7,2.9,6.5,Before_Optimization
+2023-07,Operations,Employee_043,26,1.8,4.0,8.4,Before_Optimization
+2023-07,Operations,Employee_032,29,5.1,3.1,8.8,Before_Optimization
+2023-07,Operations,Employee_014,23,19.3,3.4,7.7,Before_Optimization
+2023-07,Operations,Employee_035,23,1.1,3.6,7.4,Before_Optimization
+2023-07,Operations,Employee_009,19,23.6,3.1,8.7,Before_Optimization
+2023-07,Operations,Employee_037,22,0.2,3.3,7.9,Before_Optimization
+2023-07,Operations,Employee_048,21,8.3,3.5,8.3,Before_Optimization
+2023-07,Operations,Employee_031,22,32.0,3.8,8.9,Before_Optimization
+2023-07,Operations,Employee_050,23,7.7,2.6,8.5,Before_Optimization
+2023-07,Operations,Employee_041,28,0.7,3.8,6.2,Before_Optimization
+2023-07,Customer Success,Employee_013,17,1.2,3.9,7.4,Before_Optimization
+2023-07,Customer Success,Employee_007,26,6.0,3.0,8.4,Before_Optimization
+2023-07,Customer Success,Employee_049,24,10.3,3.7,8.4,Before_Optimization
+2023-07,Customer Success,Employee_043,29,1.6,3.0,7.0,Before_Optimization
+2023-07,Customer Success,Employee_028,26,21.6,3.6,8.5,Before_Optimization
+2023-07,Customer Success,Employee_023,24,4.0,3.4,6.4,Before_Optimization
+2023-07,Customer Success,Employee_046,26,4.6,3.9,7.8,Before_Optimization
+2023-07,Customer Success,Employee_027,20,9.0,3.0,6.2,Before_Optimization
+2023-07,Customer Success,Employee_030,25,14.4,2.7,8.1,Before_Optimization
+2023-07,Customer Success,Employee_004,24,9.3,3.6,6.5,Before_Optimization
+2023-07,Customer Success,Employee_048,33,21.7,3.0,8.8,Before_Optimization
+2023-07,Finance,Employee_026,23,11.5,3.6,7.8,Before_Optimization
+2023-07,Finance,Employee_047,25,7.8,3.1,7.7,Before_Optimization
+2023-07,Finance,Employee_022,24,7.4,3.6,8.8,Before_Optimization
+2023-07,Finance,Employee_007,26,0.3,3.6,6.8,Before_Optimization
+2023-07,Finance,Employee_016,26,2.5,3.3,8.9,Before_Optimization
+2023-07,Finance,Employee_013,37,3.0,3.7,8.6,Before_Optimization
+2023-07,Finance,Employee_045,27,1.0,3.1,6.1,Before_Optimization
+2023-07,Finance,Employee_035,27,17.3,3.5,7.4,Before_Optimization
+2023-08,Sales,Employee_009,25,3.3,2.8,8.5,Before_Optimization
+2023-08,Sales,Employee_028,33,10.4,2.7,7.8,Before_Optimization
+2023-08,Sales,Employee_012,28,2.2,3.8,8.2,Before_Optimization
+2023-08,Sales,Employee_018,17,1.1,3.3,7.9,Before_Optimization
+2023-08,Sales,Employee_030,26,19.2,2.5,7.0,Before_Optimization
+2023-08,Sales,Employee_016,28,4.3,2.5,7.9,Before_Optimization
+2023-08,Sales,Employee_005,15,8.4,3.0,7.0,Before_Optimization
+2023-08,Sales,Employee_029,39,2.5,3.0,6.8,Before_Optimization
+2023-08,Sales,Employee_036,25,5.4,3.1,6.6,Before_Optimization
+2023-08,Sales,Employee_007,25,6.2,3.5,7.9,Before_Optimization
+2023-08,Sales,Employee_004,24,2.7,2.5,7.9,Before_Optimization
+2023-08,Marketing,Employee_001,21,11.0,3.9,8.9,Before_Optimization
+2023-08,Marketing,Employee_006,28,0.1,3.8,6.4,Before_Optimization
+2023-08,Marketing,Employee_016,31,8.3,3.2,6.6,Before_Optimization
+2023-08,Marketing,Employee_011,18,1.1,3.2,7.9,Before_Optimization
+2023-08,Marketing,Employee_027,30,0.5,3.0,6.9,Before_Optimization
+2023-08,Marketing,Employee_032,33,3.7,2.6,8.7,Before_Optimization
+2023-08,Marketing,Employee_031,31,1.6,3.2,7.5,Before_Optimization
+2023-08,Marketing,Employee_014,25,2.4,3.0,7.3,Before_Optimization
+2023-08,Marketing,Employee_026,18,13.3,3.7,7.2,Before_Optimization
+2023-08,Marketing,Employee_004,25,9.0,3.1,7.3,Before_Optimization
+2023-08,Marketing,Employee_047,32,0.2,2.8,7.4,Before_Optimization
+2023-08,Marketing,Employee_025,24,6.2,3.5,7.4,Before_Optimization
+2023-08,Operations,Employee_025,24,4.2,3.3,6.8,Before_Optimization
+2023-08,Operations,Employee_017,32,1.3,2.6,6.0,Before_Optimization
+2023-08,Operations,Employee_030,24,0.2,3.3,8.0,Before_Optimization
+2023-08,Operations,Employee_019,17,10.9,4.0,8.0,Before_Optimization
+2023-08,Operations,Employee_028,21,7.3,2.8,8.6,Before_Optimization
+2023-08,Operations,Employee_045,24,10.3,3.5,8.2,Before_Optimization
+2023-08,Operations,Employee_036,25,15.2,3.5,8.7,Before_Optimization
+2023-08,Operations,Employee_043,28,1.5,3.6,6.9,Before_Optimization
+2023-08,Customer Success,Employee_010,22,16.6,3.8,7.9,Before_Optimization
+2023-08,Customer Success,Employee_013,25,7.5,3.1,7.1,Before_Optimization
+2023-08,Customer Success,Employee_019,23,8.3,3.2,8.9,Before_Optimization
+2023-08,Customer Success,Employee_014,17,4.3,2.5,7.1,Before_Optimization
+2023-08,Customer Success,Employee_004,21,3.3,3.6,7.5,Before_Optimization
+2023-08,Customer Success,Employee_038,18,0.8,3.8,8.8,Before_Optimization
+2023-08,Customer Success,Employee_035,27,18.0,2.8,6.6,Before_Optimization
+2023-08,Customer Success,Employee_046,21,5.8,3.6,8.8,Before_Optimization
+2023-08,Customer Success,Employee_021,34,3.6,3.7,7.8,Before_Optimization
+2023-08,Customer Success,Employee_043,29,5.5,2.6,7.8,Before_Optimization
+2023-08,Customer Success,Employee_041,14,12.9,3.4,9.0,Before_Optimization
+2023-08,Finance,Employee_031,24,8.8,4.0,8.1,Before_Optimization
+2023-08,Finance,Employee_033,27,8.6,3.8,7.7,Before_Optimization
+2023-08,Finance,Employee_034,23,12.2,3.3,6.5,Before_Optimization
+2023-08,Finance,Employee_011,21,13.1,2.9,7.1,Before_Optimization
+2023-08,Finance,Employee_004,16,0.0,2.6,6.0,Before_Optimization
+2023-08,Finance,Employee_049,27,2.8,3.9,6.6,Before_Optimization
+2023-08,Finance,Employee_006,23,4.5,3.3,6.2,Before_Optimization
+2023-08,Finance,Employee_012,30,12.9,2.9,7.3,Before_Optimization
+2023-08,Finance,Employee_005,22,2.7,3.4,7.1,Before_Optimization
+2023-08,Finance,Employee_039,22,1.3,3.9,9.0,Before_Optimization
+2023-08,Finance,Employee_042,29,4.1,3.6,8.9,Before_Optimization
+2023-08,Finance,Employee_016,24,29.5,3.8,6.7,Before_Optimization
+2023-09,Sales,Employee_008,41,1.0,4.6,4.4,After_Optimization
+2023-09,Sales,Employee_037,36,3.2,4.7,3.5,After_Optimization
+2023-09,Sales,Employee_016,45,0.2,4.7,4.1,After_Optimization
+2023-09,Sales,Employee_038,37,1.3,4.0,5.4,After_Optimization
+2023-09,Sales,Employee_039,41,0.4,4.4,4.9,After_Optimization
+2023-09,Sales,Employee_003,26,4.8,3.6,5.6,After_Optimization
+2023-09,Sales,Employee_040,43,1.3,3.5,5.5,After_Optimization
+2023-09,Sales,Employee_006,32,2.5,3.9,4.5,After_Optimization
+2023-09,Sales,Employee_027,46,8.9,4.8,4.0,After_Optimization
+2023-09,Sales,Employee_047,38,3.0,3.9,5.9,After_Optimization
+2023-09,Sales,Employee_049,42,3.1,4.1,5.5,After_Optimization
+2023-09,Marketing,Employee_021,41,0.6,4.8,4.7,After_Optimization
+2023-09,Marketing,Employee_017,54,1.0,3.8,4.7,After_Optimization
+2023-09,Marketing,Employee_014,38,3.1,4.3,3.8,After_Optimization
+2023-09,Marketing,Employee_043,40,0.7,3.9,4.0,After_Optimization
+2023-09,Marketing,Employee_046,38,6.6,5.0,5.0,After_Optimization
+2023-09,Marketing,Employee_050,45,1.7,3.7,5.5,After_Optimization
+2023-09,Marketing,Employee_016,52,1.3,3.7,3.8,After_Optimization
+2023-09,Marketing,Employee_049,35,8.7,3.6,3.0,After_Optimization
+2023-09,Marketing,Employee_026,42,6.4,4.0,3.9,After_Optimization
+2023-09,Marketing,Employee_009,35,2.6,3.8,4.3,After_Optimization
+2023-09,Marketing,Employee_020,39,0.1,4.3,5.1,After_Optimization
+2023-09,Marketing,Employee_030,53,0.3,3.6,4.3,After_Optimization
+2023-09,Operations,Employee_049,42,3.4,3.8,4.4,After_Optimization
+2023-09,Operations,Employee_005,50,2.1,4.9,5.2,After_Optimization
+2023-09,Operations,Employee_001,45,1.6,3.6,4.8,After_Optimization
+2023-09,Operations,Employee_030,46,0.5,3.5,5.4,After_Optimization
+2023-09,Operations,Employee_040,42,1.1,4.3,5.2,After_Optimization
+2023-09,Operations,Employee_037,39,4.7,3.8,3.2,After_Optimization
+2023-09,Operations,Employee_007,41,4.4,4.6,5.6,After_Optimization
+2023-09,Operations,Employee_050,43,0.9,4.7,3.5,After_Optimization
+2023-09,Operations,Employee_035,44,1.2,4.0,4.7,After_Optimization
+2023-09,Operations,Employee_014,48,8.5,4.4,6.0,After_Optimization
+2023-09,Customer Success,Employee_017,30,5.3,4.8,4.3,After_Optimization
+2023-09,Customer Success,Employee_009,44,0.1,4.4,5.6,After_Optimization
+2023-09,Customer Success,Employee_023,38,4.8,4.0,3.0,After_Optimization
+2023-09,Customer Success,Employee_005,56,5.1,4.7,3.2,After_Optimization
+2023-09,Customer Success,Employee_016,33,1.2,4.5,4.9,After_Optimization
+2023-09,Customer Success,Employee_024,40,1.4,4.3,4.4,After_Optimization
+2023-09,Customer Success,Employee_019,32,0.2,4.1,5.1,After_Optimization
+2023-09,Customer Success,Employee_011,37,0.6,4.9,4.6,After_Optimization
+2023-09,Customer Success,Employee_029,41,1.1,3.9,4.0,After_Optimization
+2023-09,Customer Success,Employee_035,39,0.8,3.9,4.3,After_Optimization
+2023-09,Customer Success,Employee_020,43,1.0,3.8,4.1,After_Optimization
+2023-09,Customer Success,Employee_034,49,3.4,4.2,3.5,After_Optimization
+2023-09,Finance,Employee_043,36,6.3,4.2,4.7,After_Optimization
+2023-09,Finance,Employee_036,42,2.1,3.5,4.0,After_Optimization
+2023-09,Finance,Employee_020,33,0.2,4.3,3.6,After_Optimization
+2023-09,Finance,Employee_050,54,1.2,4.9,4.3,After_Optimization
+2023-09,Finance,Employee_007,57,1.1,4.5,5.7,After_Optimization
+2023-09,Finance,Employee_009,42,1.5,3.8,5.7,After_Optimization
+2023-09,Finance,Employee_017,52,0.0,3.7,4.7,After_Optimization
+2023-09,Finance,Employee_008,36,0.2,4.2,4.7,After_Optimization
+2023-10,Sales,Employee_048,42,1.1,4.5,5.5,After_Optimization
+2023-10,Sales,Employee_036,44,0.6,4.1,4.5,After_Optimization
+2023-10,Sales,Employee_010,35,1.0,4.5,4.4,After_Optimization
+2023-10,Sales,Employee_018,38,1.2,4.8,4.5,After_Optimization
+2023-10,Sales,Employee_019,42,2.3,3.9,5.2,After_Optimization
+2023-10,Sales,Employee_039,47,3.9,4.3,5.1,After_Optimization
+2023-10,Sales,Employee_014,38,0.9,3.6,4.2,After_Optimization
+2023-10,Sales,Employee_022,39,3.9,3.6,3.7,After_Optimization
+2023-10,Marketing,Employee_044,45,3.7,4.4,5.9,After_Optimization
+2023-10,Marketing,Employee_041,42,1.3,3.7,5.8,After_Optimization
+2023-10,Marketing,Employee_017,30,0.8,4.8,3.9,After_Optimization
+2023-10,Marketing,Employee_033,32,5.0,4.8,3.2,After_Optimization
+2023-10,Marketing,Employee_032,32,0.1,3.6,3.8,After_Optimization
+2023-10,Marketing,Employee_048,28,5.4,4.0,5.2,After_Optimization
+2023-10,Marketing,Employee_004,30,1.1,4.6,3.4,After_Optimization
+2023-10,Marketing,Employee_006,49,1.3,4.9,4.7,After_Optimization
+2023-10,Marketing,Employee_049,37,17.3,3.9,5.6,After_Optimization
+2023-10,Operations,Employee_018,33,2.2,5.0,4.7,After_Optimization
+2023-10,Operations,Employee_003,32,5.8,4.2,5.3,After_Optimization
+2023-10,Operations,Employee_001,32,1.5,4.4,3.1,After_Optimization
+2023-10,Operations,Employee_022,45,3.2,3.5,5.5,After_Optimization
+2023-10,Operations,Employee_009,33,0.9,4.6,4.0,After_Optimization
+2023-10,Operations,Employee_041,44,4.2,3.5,3.8,After_Optimization
+2023-10,Operations,Employee_017,40,0.6,4.9,5.9,After_Optimization
+2023-10,Operations,Employee_011,45,0.9,4.5,3.4,After_Optimization
+2023-10,Operations,Employee_029,54,23.8,4.2,5.3,After_Optimization
+2023-10,Operations,Employee_036,35,4.9,3.7,4.3,After_Optimization
+2023-10,Operations,Employee_028,40,2.0,4.0,4.1,After_Optimization
+2023-10,Customer Success,Employee_001,43,0.8,4.8,5.6,After_Optimization
+2023-10,Customer Success,Employee_008,40,1.4,4.6,5.0,After_Optimization
+2023-10,Customer Success,Employee_005,34,0.9,3.5,5.1,After_Optimization
+2023-10,Customer Success,Employee_045,43,2.2,4.9,4.8,After_Optimization
+2023-10,Customer Success,Employee_010,43,0.5,4.0,4.6,After_Optimization
+2023-10,Customer Success,Employee_035,46,1.3,3.9,3.8,After_Optimization
+2023-10,Customer Success,Employee_003,54,0.5,4.6,5.2,After_Optimization
+2023-10,Customer Success,Employee_024,43,1.6,3.7,5.4,After_Optimization
+2023-10,Customer Success,Employee_038,43,1.3,3.8,3.3,After_Optimization
+2023-10,Customer Success,Employee_036,59,0.2,4.9,4.6,After_Optimization
+2023-10,Customer Success,Employee_046,46,2.5,4.1,5.3,After_Optimization
+2023-10,Customer Success,Employee_028,46,2.4,3.6,3.4,After_Optimization
+2023-10,Finance,Employee_003,43,11.6,4.6,4.5,After_Optimization
+2023-10,Finance,Employee_020,48,1.8,3.9,3.3,After_Optimization
+2023-10,Finance,Employee_024,45,2.4,4.1,4.4,After_Optimization
+2023-10,Finance,Employee_050,31,1.7,4.7,3.6,After_Optimization
+2023-10,Finance,Employee_023,34,5.6,4.2,5.2,After_Optimization
+2023-10,Finance,Employee_014,45,0.9,4.8,4.2,After_Optimization
+2023-10,Finance,Employee_044,57,1.7,4.3,4.2,After_Optimization
+2023-10,Finance,Employee_016,34,4.2,4.5,3.7,After_Optimization
+2023-10,Finance,Employee_007,44,0.6,4.5,5.5,After_Optimization
+2023-11,Sales,Employee_050,40,1.1,4.2,3.4,After_Optimization
+2023-11,Sales,Employee_036,43,4.7,4.2,3.9,After_Optimization
+2023-11,Sales,Employee_027,33,8.0,3.7,3.5,After_Optimization
+2023-11,Sales,Employee_040,39,1.0,3.9,4.9,After_Optimization
+2023-11,Sales,Employee_010,41,0.3,4.5,4.4,After_Optimization
+2023-11,Sales,Employee_016,38,7.7,4.7,3.7,After_Optimization
+2023-11,Sales,Employee_011,35,1.1,4.4,4.3,After_Optimization
+2023-11,Sales,Employee_012,59,2.7,4.8,4.4,After_Optimization
+2023-11,Sales,Employee_048,37,7.3,4.9,5.5,After_Optimization
+2023-11,Sales,Employee_002,37,12.0,4.0,3.8,After_Optimization
+2023-11,Marketing,Employee_048,41,0.1,4.9,5.8,After_Optimization
+2023-11,Marketing,Employee_022,33,5.3,4.5,4.2,After_Optimization
+2023-11,Marketing,Employee_027,51,0.6,4.9,3.3,After_Optimization
+2023-11,Marketing,Employee_043,44,1.5,4.1,3.5,After_Optimization
+2023-11,Marketing,Employee_016,51,6.7,4.8,4.0,After_Optimization
+2023-11,Marketing,Employee_018,44,4.3,4.3,3.9,After_Optimization
+2023-11,Marketing,Employee_011,38,7.1,3.7,4.7,After_Optimization
+2023-11,Marketing,Employee_007,35,0.2,4.5,3.5,After_Optimization
+2023-11,Marketing,Employee_025,42,4.2,4.6,4.6,After_Optimization
+2023-11,Operations,Employee_031,49,7.5,4.3,4.5,After_Optimization
+2023-11,Operations,Employee_015,34,0.5,4.8,5.0,After_Optimization
+2023-11,Operations,Employee_013,35,1.5,4.2,5.6,After_Optimization
+2023-11,Operations,Employee_030,40,6.7,3.5,5.7,After_Optimization
+2023-11,Operations,Employee_023,28,0.1,4.8,4.4,After_Optimization
+2023-11,Operations,Employee_020,30,2.0,3.8,3.0,After_Optimization
+2023-11,Operations,Employee_049,38,0.3,3.9,4.9,After_Optimization
+2023-11,Operations,Employee_044,40,10.4,4.8,3.8,After_Optimization
+2023-11,Customer Success,Employee_043,39,2.0,4.7,3.5,After_Optimization
+2023-11,Customer Success,Employee_013,45,2.3,4.8,3.4,After_Optimization
+2023-11,Customer Success,Employee_026,42,1.6,3.9,4.1,After_Optimization
+2023-11,Customer Success,Employee_022,31,1.0,4.6,3.1,After_Optimization
+2023-11,Customer Success,Employee_018,43,0.3,4.0,3.7,After_Optimization
+2023-11,Customer Success,Employee_005,41,10.1,4.9,4.3,After_Optimization
+2023-11,Customer Success,Employee_046,46,2.4,4.6,3.7,After_Optimization
+2023-11,Customer Success,Employee_023,27,1.7,4.3,4.1,After_Optimization
+2023-11,Finance,Employee_026,39,4.4,3.7,5.3,After_Optimization
+2023-11,Finance,Employee_044,44,4.0,4.2,3.6,After_Optimization
+2023-11,Finance,Employee_035,42,0.2,5.0,3.2,After_Optimization
+2023-11,Finance,Employee_022,25,10.5,4.0,4.2,After_Optimization
+2023-11,Finance,Employee_002,42,6.8,4.3,4.4,After_Optimization
+2023-11,Finance,Employee_008,39,5.1,4.1,5.8,After_Optimization
+2023-11,Finance,Employee_017,54,9.4,4.1,4.9,After_Optimization
+2023-11,Finance,Employee_012,43,7.0,4.3,4.2,After_Optimization
+2023-11,Finance,Employee_038,48,8.9,4.9,4.1,After_Optimization
+2023-11,Finance,Employee_049,39,3.2,4.0,5.4,After_Optimization
+2023-11,Finance,Employee_003,31,0.7,3.6,4.9,After_Optimization
+2023-11,Finance,Employee_007,32,0.0,4.7,5.4,After_Optimization
+2023-12,Sales,Employee_028,33,1.7,3.9,4.9,After_Optimization
+2023-12,Sales,Employee_023,33,0.1,4.9,3.2,After_Optimization
+2023-12,Sales,Employee_047,41,0.0,4.2,4.1,After_Optimization
+2023-12,Sales,Employee_021,41,0.2,4.4,4.3,After_Optimization
+2023-12,Sales,Employee_050,42,1.2,4.3,4.8,After_Optimization
+2023-12,Sales,Employee_039,38,1.0,3.8,4.0,After_Optimization
+2023-12,Sales,Employee_033,34,2.5,4.1,4.0,After_Optimization
+2023-12,Sales,Employee_008,35,7.5,4.5,5.2,After_Optimization
+2023-12,Sales,Employee_025,47,0.2,4.4,3.6,After_Optimization
+2023-12,Sales,Employee_037,41,4.6,4.0,4.5,After_Optimization
+2023-12,Sales,Employee_013,42,4.3,5.0,3.0,After_Optimization
+2023-12,Sales,Employee_017,39,0.4,4.9,6.0,After_Optimization
+2023-12,Marketing,Employee_046,33,1.0,4.8,3.9,After_Optimization
+2023-12,Marketing,Employee_028,27,1.7,4.9,3.9,After_Optimization
+2023-12,Marketing,Employee_001,39,2.0,4.5,3.8,After_Optimization
+2023-12,Marketing,Employee_034,36,0.0,4.5,4.2,After_Optimization
+2023-12,Marketing,Employee_035,36,5.4,4.3,3.1,After_Optimization
+2023-12,Marketing,Employee_044,39,2.4,4.5,3.1,After_Optimization
+2023-12,Marketing,Employee_043,40,1.3,4.5,3.7,After_Optimization
+2023-12,Marketing,Employee_013,37,2.7,5.0,5.9,After_Optimization
+2023-12,Operations,Employee_028,41,6.9,4.4,4.1,After_Optimization
+2023-12,Operations,Employee_005,47,0.1,4.7,4.6,After_Optimization
+2023-12,Operations,Employee_043,37,2.7,3.8,4.0,After_Optimization
+2023-12,Operations,Employee_022,43,2.3,4.6,5.3,After_Optimization
+2023-12,Operations,Employee_040,43,6.0,4.2,3.1,After_Optimization
+2023-12,Operations,Employee_021,35,0.2,3.7,5.1,After_Optimization
+2023-12,Operations,Employee_048,49,0.8,3.6,4.8,After_Optimization
+2023-12,Operations,Employee_008,39,5.8,3.9,3.9,After_Optimization
+2023-12,Operations,Employee_020,47,1.6,4.0,3.3,After_Optimization
+2023-12,Operations,Employee_033,43,1.1,4.9,6.0,After_Optimization
+2023-12,Customer Success,Employee_043,39,4.0,3.9,3.2,After_Optimization
+2023-12,Customer Success,Employee_027,32,3.9,4.5,3.4,After_Optimization
+2023-12,Customer Success,Employee_021,43,5.9,3.5,5.1,After_Optimization
+2023-12,Customer Success,Employee_026,42,4.4,3.6,5.5,After_Optimization
+2023-12,Customer Success,Employee_045,35,7.7,4.0,4.5,After_Optimization
+2023-12,Customer Success,Employee_019,39,2.7,4.6,5.8,After_Optimization
+2023-12,Customer Success,Employee_036,48,3.8,4.7,4.5,After_Optimization
+2023-12,Customer Success,Employee_009,31,5.5,4.4,5.2,After_Optimization
+2023-12,Customer Success,Employee_013,38,0.1,3.7,5.3,After_Optimization
+2023-12,Customer Success,Employee_049,58,0.1,4.0,3.1,After_Optimization
+2023-12,Finance,Employee_044,34,8.3,3.6,4.7,After_Optimization
+2023-12,Finance,Employee_048,35,0.7,4.4,3.2,After_Optimization
+2023-12,Finance,Employee_012,39,1.0,3.8,5.6,After_Optimization
+2023-12,Finance,Employee_040,38,1.4,3.5,5.2,After_Optimization
+2023-12,Finance,Employee_037,37,2.7,4.2,5.9,After_Optimization
+2023-12,Finance,Employee_020,37,1.1,5.0,4.3,After_Optimization
+2023-12,Finance,Employee_026,42,4.0,3.9,4.3,After_Optimization
+2023-12,Finance,Employee_036,39,0.2,4.8,4.9,After_Optimization
+2023-12,Finance,Employee_001,40,5.6,3.9,5.4,After_Optimization
+2023-12,Finance,Employee_045,43,3.4,4.4,4.8,After_Optimization
+2023-12,Finance,Employee_019,36,4.3,3.9,4.3,After_Optimization
+2024-01,Sales,Employee_028,44,2.7,4.4,5.1,After_Optimization
+2024-01,Sales,Employee_038,37,1.2,4.7,3.4,After_Optimization
+2024-01,Sales,Employee_039,49,1.2,4.9,3.3,After_Optimization
+2024-01,Sales,Employee_042,31,9.6,4.4,4.7,After_Optimization
+2024-01,Sales,Employee_021,44,4.3,4.1,5.5,After_Optimization
+2024-01,Sales,Employee_030,35,2.2,4.1,4.9,After_Optimization
+2024-01,Sales,Employee_029,37,1.9,4.3,3.4,After_Optimization
+2024-01,Sales,Employee_044,41,1.5,3.9,5.8,After_Optimization
+2024-01,Sales,Employee_014,43,3.1,4.8,4.2,After_Optimization
+2024-01,Marketing,Employee_031,47,5.2,4.3,3.7,After_Optimization
+2024-01,Marketing,Employee_048,46,0.4,4.1,3.8,After_Optimization
+2024-01,Marketing,Employee_011,28,6.6,4.5,3.7,After_Optimization
+2024-01,Marketing,Employee_043,41,3.9,4.5,5.9,After_Optimization
+2024-01,Marketing,Employee_006,46,1.3,4.9,4.5,After_Optimization
+2024-01,Marketing,Employee_019,31,3.6,5.0,4.0,After_Optimization
+2024-01,Marketing,Employee_033,40,1.3,3.7,5.8,After_Optimization
+2024-01,Marketing,Employee_047,40,2.9,3.5,5.8,After_Optimization
+2024-01,Marketing,Employee_041,37,0.6,4.1,5.4,After_Optimization
+2024-01,Marketing,Employee_040,38,2.1,4.7,5.1,After_Optimization
+2024-01,Marketing,Employee_022,37,0.9,4.4,5.9,After_Optimization
+2024-01,Marketing,Employee_046,34,0.4,4.7,4.1,After_Optimization
+2024-01,Operations,Employee_044,34,3.1,4.3,5.2,After_Optimization
+2024-01,Operations,Employee_020,37,0.3,3.6,4.4,After_Optimization
+2024-01,Operations,Employee_015,36,0.1,3.7,5.6,After_Optimization
+2024-01,Operations,Employee_013,41,5.5,4.2,5.3,After_Optimization
+2024-01,Operations,Employee_010,40,1.2,4.2,4.0,After_Optimization
+2024-01,Operations,Employee_002,37,0.4,3.6,3.1,After_Optimization
+2024-01,Operations,Employee_003,31,2.7,3.8,5.7,After_Optimization
+2024-01,Operations,Employee_016,46,3.9,4.0,3.1,After_Optimization
+2024-01,Operations,Employee_031,50,8.9,4.4,3.9,After_Optimization
+2024-01,Customer Success,Employee_050,40,0.1,4.0,5.2,After_Optimization
+2024-01,Customer Success,Employee_005,40,1.2,4.8,4.6,After_Optimization
+2024-01,Customer Success,Employee_030,40,1.2,4.2,5.4,After_Optimization
+2024-01,Customer Success,Employee_027,45,0.5,4.6,3.8,After_Optimization
+2024-01,Customer Success,Employee_041,51,1.1,3.6,5.1,After_Optimization
+2024-01,Customer Success,Employee_037,49,8.3,3.7,3.3,After_Optimization
+2024-01,Customer Success,Employee_013,37,7.9,4.0,4.2,After_Optimization
+2024-01,Customer Success,Employee_025,44,5.1,3.6,5.4,After_Optimization
+2024-01,Customer Success,Employee_032,42,1.8,3.9,4.4,After_Optimization
+2024-01,Customer Success,Employee_026,39,1.0,3.6,3.4,After_Optimization
+2024-01,Customer Success,Employee_016,44,5.8,4.5,5.3,After_Optimization
+2024-01,Customer Success,Employee_010,47,5.2,4.3,5.7,After_Optimization
+2024-01,Finance,Employee_049,49,1.4,4.3,5.0,After_Optimization
+2024-01,Finance,Employee_007,36,1.4,4.3,5.9,After_Optimization
+2024-01,Finance,Employee_028,45,0.2,3.8,4.4,After_Optimization
+2024-01,Finance,Employee_015,46,2.3,4.8,5.7,After_Optimization
+2024-01,Finance,Employee_012,34,1.1,4.5,5.9,After_Optimization
+2024-01,Finance,Employee_045,29,6.5,4.6,6.0,After_Optimization
+2024-01,Finance,Employee_034,38,0.6,3.7,4.7,After_Optimization
+2024-01,Finance,Employee_030,37,6.5,3.8,5.2,After_Optimization
+2024-02,Sales,Employee_036,36,0.4,4.6,3.3,After_Optimization
+2024-02,Sales,Employee_016,39,0.6,3.9,5.6,After_Optimization
+2024-02,Sales,Employee_008,49,0.6,3.7,3.5,After_Optimization
+2024-02,Sales,Employee_030,41,1.2,4.1,4.8,After_Optimization
+2024-02,Sales,Employee_009,28,0.7,3.5,4.6,After_Optimization
+2024-02,Sales,Employee_047,41,0.9,4.5,3.4,After_Optimization
+2024-02,Sales,Employee_043,40,0.5,4.6,5.3,After_Optimization
+2024-02,Sales,Employee_034,27,10.9,3.8,5.5,After_Optimization
+2024-02,Marketing,Employee_039,41,0.4,4.2,4.2,After_Optimization
+2024-02,Marketing,Employee_021,46,6.3,4.8,5.8,After_Optimization
+2024-02,Marketing,Employee_029,39,2.7,4.0,6.0,After_Optimization
+2024-02,Marketing,Employee_040,23,6.7,3.6,5.7,After_Optimization
+2024-02,Marketing,Employee_033,44,1.7,4.6,4.7,After_Optimization
+2024-02,Marketing,Employee_028,52,1.2,3.6,5.8,After_Optimization
+2024-02,Marketing,Employee_036,40,5.1,4.8,4.9,After_Optimization
+2024-02,Marketing,Employee_048,39,3.7,4.8,5.9,After_Optimization
+2024-02,Marketing,Employee_011,40,10.0,3.7,3.1,After_Optimization
+2024-02,Marketing,Employee_031,48,0.1,3.7,4.2,After_Optimization
+2024-02,Marketing,Employee_043,34,11.1,4.6,5.1,After_Optimization
+2024-02,Marketing,Employee_017,30,4.0,4.5,3.7,After_Optimization
+2024-02,Operations,Employee_041,38,3.3,4.6,4.8,After_Optimization
+2024-02,Operations,Employee_018,39,0.2,4.5,6.0,After_Optimization
+2024-02,Operations,Employee_034,46,1.0,4.5,5.7,After_Optimization
+2024-02,Operations,Employee_032,41,0.5,4.6,5.1,After_Optimization
+2024-02,Operations,Employee_050,58,4.2,4.2,4.7,After_Optimization
+2024-02,Operations,Employee_016,47,1.3,4.7,4.7,After_Optimization
+2024-02,Operations,Employee_049,30,2.7,4.9,3.6,After_Optimization
+2024-02,Operations,Employee_029,46,0.8,3.9,5.6,After_Optimization
+2024-02,Operations,Employee_005,34,1.9,5.0,5.5,After_Optimization
+2024-02,Customer Success,Employee_016,42,0.9,3.6,4.8,After_Optimization
+2024-02,Customer Success,Employee_018,39,2.2,4.0,4.9,After_Optimization
+2024-02,Customer Success,Employee_022,37,9.2,4.9,5.4,After_Optimization
+2024-02,Customer Success,Employee_021,38,4.7,3.9,4.9,After_Optimization
+2024-02,Customer Success,Employee_035,47,2.0,4.4,6.0,After_Optimization
+2024-02,Customer Success,Employee_006,42,3.9,4.6,5.1,After_Optimization
+2024-02,Customer Success,Employee_009,39,1.9,3.5,3.7,After_Optimization
+2024-02,Customer Success,Employee_010,36,0.4,4.5,3.0,After_Optimization
+2024-02,Customer Success,Employee_015,39,5.7,4.9,5.9,After_Optimization
+2024-02,Customer Success,Employee_025,39,2.7,4.0,4.3,After_Optimization
+2024-02,Finance,Employee_046,28,0.8,4.2,4.4,After_Optimization
+2024-02,Finance,Employee_014,41,3.5,4.5,4.6,After_Optimization
+2024-02,Finance,Employee_005,30,9.5,5.0,5.2,After_Optimization
+2024-02,Finance,Employee_027,34,1.6,4.8,5.2,After_Optimization
+2024-02,Finance,Employee_047,49,0.4,3.7,3.1,After_Optimization
+2024-02,Finance,Employee_022,41,4.0,4.5,4.0,After_Optimization
+2024-02,Finance,Employee_035,33,4.0,4.2,4.0,After_Optimization
+2024-02,Finance,Employee_030,48,2.2,4.6,5.4,After_Optimization
+2024-02,Finance,Employee_050,44,1.4,4.7,4.6,After_Optimization
