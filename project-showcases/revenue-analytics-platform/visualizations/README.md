@@ -28,7 +28,7 @@ I designed and implemented a unified **Revenue Analytics Platform** that became 
 - Implemented data quality checks ensuring 97%+ accuracy
 
 **Phase 2: Intelligence Layer (Week 3-4)**  
-- Developed real-time **Tableau** dashboards with role-based access
+- Developed real-time **Power BI** dashboards with role-based access
 - Created automated alert system for performance anomalies
 - Built predictive models for lead scoring and revenue forecasting
 - Established automated reporting cadence (daily/weekly/monthly)
@@ -71,7 +71,7 @@ I designed and implemented a unified **Revenue Analytics Platform** that became 
 **Architecture:**
 ```
 Data Sources → ETL Pipeline → Data Warehouse → BI Layer → User Interface
-(4 platforms) → (Python/APIs) → (SQL Server) → (Tableau) → (Web Dashboards)
+(4 platforms) → (Python/APIs) → (SQL Server) → (Power BI) → (Web Dashboards)
 ```
 
 **Key Features:**
@@ -83,7 +83,7 @@ Data Sources → ETL Pipeline → Data Warehouse → BI Layer → User Interface
 **Tech Stack:**
 - **Backend:** Python (Pandas, SQLAlchemy, Requests)
 - **Database:** SQL Server with optimized indexing
-- **Visualization:** Tableau with embedded analytics
+- **Visualization:** Power BI with embedded analytics
 - **Infrastructure:** Automated deployment with error handling
 
 ---
@@ -115,14 +115,5 @@ Data Sources → ETL Pipeline → Data Warehouse → BI Layer → User Interface
 **Then you need a Revenue Analytics Platform.**
 
 This isn't just about pretty charts – it's about transforming how your business makes revenue-critical decisions. Every day without unified analytics is money left on the table.
-
----
-
-### 📊 **Live Demo Available**
-
-Experience the transformation yourself:
-- **Interactive Tableau Dashboard:** [View Demo](#)
-- **Technical Documentation:** [GitHub Repository](#)
-- **Case Study Deep Dive:** [Download PDF](#)
 
 *Ready to turn your data chaos into revenue growth? Let's talk.*
