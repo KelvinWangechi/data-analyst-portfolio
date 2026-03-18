@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelvin Wangechi — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a; --surface: #111111; --surface2: #1a1a1a;
+    --border: #222222; --accent: #e8ff47; --accent2: #47ffd4;
+    --text: #f0f0f0; --text-muted: #666666; --text-dim: #333333;
+    --font-display: 'Syne', sans-serif; --font-mono: 'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-display); overflow-x: hidden; cursor: none; }
+  .cursor { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s; mix-blend-mode: difference; }
+  .cursor-ring { width: 36px; height: 36px; border: 1px solid var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease-out, width 0.3s, height 0.3s; opacity: 0.5; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; border-bottom: 1px solid transparent; transition: border-color 0.3s, background 0.3s; }
+  nav.scrolled { border-color: var(--border); background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); }
+  .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-family: var(--font-mono); }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+  #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 4rem; position: relative; overflow: hidden; }
+  .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size: 80px 80px; animation: gridPulse 8s ease-in-out infinite; }
+  @keyframes gridPulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+  .hero-orb { position: absolute; border-radius: 50%; filter: blur(120px); animation: orbFloat 10s ease-in-out infinite; }
+  .orb1 { width: 500px; height: 500px; background: rgba(232,255,71,0.07); top: -100px; right: -100px; }
+  .orb2 { width: 300px; height: 300px; background: rgba(71,255,212,0.05); bottom: 100px; left: 20%; animation-delay: -4s; }
+  @keyframes orbFloat { 0%,100%{transform:translate(0,0)} 33%{transform:translate(-20px,30px)} 66%{transform:translate(20px,-20px)} }
+  .hero-label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+  h1 { font-size: clamp(3.5rem,8vw,8rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+  h1 .line2 { color: var(--text-muted); }
+  h1 .accent-word { color: var(--accent); }
+  .hero-sub { display: flex; justify-content: space-between; align-items: flex-end; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+  .hero-desc { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-muted); max-width: 360px; line-height: 1.7; }
+  .hero-cta { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary { background: var(--accent); color: #0a0a0a; padding: 0.9rem 2rem; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: none; cursor: none; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
+  .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--accent2); }
+  .btn-ghost { color: var(--text-muted); padding: 0.9rem 2rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none; border: 1px solid var(--border); cursor: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
+  .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom,var(--accent),transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { to{opacity:1} }
+  .ticker { background: var(--accent); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; }
+  .ticker-inner { display: inline-flex; animation: ticker 20s linear infinite; }
+  .ticker-item { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; color: #0a0a0a; padding: 0 3rem; letter-spacing: 0.1em; }
+  .ticker-sep { color: rgba(0,0,0,0.3); }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  section { padding: 6rem 3rem; }
+  .section-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); opacity: 0.4; }
+  h2 { font-size: clamp(2rem,4vw,3.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 3rem; }
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; border-top: 1px solid var(--border); }
+  .about-text p { font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+  .about-text p strong { color: var(--text); font-weight: 400; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .skill-cell { background: var(--surface); padding: 1.2rem; transition: background 0.2s; }
+  .skill-cell:hover { background: var(--surface2); }
+  .skill-cat { font-size: 0.65rem; font-family: var(--font-mono); color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .skill-list { font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); line-height: 1.6; }
+  #metrics { border-top: 1px solid var(--border); }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); }
+  .metric-card { background: var(--surface); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
+  .metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+  .metric-card:hover { background: var(--surface2); }
+  .metric-card:hover::before { transform: scaleX(1); }
+  .metric-num { font-size: clamp(2.5rem,4vw,4rem); font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+  .metric-label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+  .metric-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: var(--accent); opacity: 0.15; transition: opacity 0.3s; }
+  .metric-card:hover .metric-bar { opacity: 0.4; }
+  #projects { border-top: 1px solid var(--border); }
+  .filter-bar { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .filter-btn { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.2rem; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: none; transition: all 0.2s; }
+  .filter-btn:hover { border-color: var(--text-muted); color: var(--text); }
+  .filter-btn.active { background: var(--accent); color: #0a0a0a; border-color: var(--accent); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); }
+  .project-card { background: var(--surface); padding: 2rem; position: relative; overflow: hidden; transition: background 0.3s; display: flex; flex-direction: column; }
+  .project-card.hidden { display: none; }
+  .project-card:hover { background: var(--surface2); }
+  .project-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .project-num { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim); }
+  .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.3; }
+  .project-desc { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 1.5rem; }
+  .project-impact { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); padding: 0.5rem 0; border-top: 1px solid var(--border); }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .tool-tag { font-family: var(--font-mono); font-size: 0.62rem; padding: 0.2rem 0.6rem; border: 1px solid var(--border); color: var(--text-muted); }
+  #experience { border-top: 1px solid var(--border); }
+  .exp-list { display: flex; flex-direction: column; gap: 1px; }
+  .exp-item { background: var(--surface); padding: 2.5rem 2rem; display: grid; grid-template-columns: 200px 1fr auto; gap: 2rem; align-items: start; transition: background 0.2s; }
+  .exp-item:hover { background: var(--surface2); }
+  .exp-company { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+  .exp-duration { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+  .exp-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .exp-bullets li { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); padding-left: 1rem; position: relative; line-height: 1.6; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; }
+  .exp-badge { font-family: var(--font-mono); font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.1em; white-space: nowrap; height: fit-content; }
+  #contact { border-top: 1px solid var(--border); text-align: center; padding: 8rem 3rem; }
+  .contact-headline { font-size: clamp(2.5rem,6vw,6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 2rem; }
+  .contact-headline .muted { color: var(--text-muted); }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; flex-wrap: wrap; }
+  footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+  footer span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
+  .footer-status { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent2); }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (max-width:900px) { nav{padding:1.2rem 1.5rem} .nav-links{gap:1.5rem} #hero{padding:0 1.5rem 3rem} .hero-sub{flex-direction:column;align-items:flex-start;gap:2rem} section{padding:4rem 1.5rem} #about{grid-template-columns:1fr;gap:3rem} .metrics-grid{grid-template-columns:repeat(2,1fr)} .projects-grid{grid-template-columns:1fr 1fr} .exp-item{grid-template-columns:1fr;gap:1rem} footer{flex-direction:column;gap:1rem;text-align:center} }
+  @media (max-width:600px) { h1{font-size:3rem} .projects-grid{grid-template-columns:1fr} .metrics-grid{grid-template-columns:1fr 1fr} .skills-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<nav id="navbar">
+  <div class="nav-logo">KW.dev</div>
+  <div class="nav-links">
+    <a href="#about">About</a><a href="#metrics">Impact</a>
+    <a href="#projects">Projects</a><a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb orb1"></div><div class="hero-orb orb2"></div>
+  <div class="hero-label">// Data Analyst — Nairobi, Kenya</div>
+  <h1>Kelvin<br><span class="line2">Wan<span class="accent-word">gechi</span></span></h1>
+  <div class="hero-sub">
+    <p class="hero-desc">Turning messy data into revenue-driving insights.<br>BI · Automation · Statistical Modeling.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Work</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><div class="scroll-line"></div></div>
+</section>
+<div class="ticker"><div class="ticker-inner" id="ticker-inner"></div></div>
+<section id="about">
+  <div class="about-left">
+    <div class="section-label">01 / About</div>
+    <h2>Data that<br>drives decisions</h2>
+    <div class="about-text">
+      <p>Based in <strong>Nairobi, Kenya</strong>, I specialize in business intelligence for small and growing businesses. I bridge the gap between raw data and the strategic decisions that move companies forward.</p>
+      <p>With <strong>5+ years</strong> across financial services and product analytics, I've built pipelines, dashboards, and automation systems that reduce manual effort by 30%+ and push data reliability above 97%.</p>
+      <p>I believe data without context is just noise. My job is to make yours sing.</p>
+    </div>
+  </div>
+  <div class="about-right reveal">
+    <div class="skills-grid">
+      <div class="skill-cell"><div class="skill-cat">Visualization</div><div class="skill-list">Power BI · Tableau<br>Metabase</div></div>
+      <div class="skill-cell"><div class="skill-cat">Programming</div><div class="skill-list">Python · SQL · R<br>Pandas · NumPy</div></div>
+      <div class="skill-cell"><div class="skill-cat">Platforms</div><div class="skill-list">Salesforce · GA4<br>Mixpanel · Airtable</div></div>
+      <div class="skill-cell"><div class="skill-cat">Automation</div><div class="skill-list">Zapier · APIs<br>Python Workflows</div></div>
+      <div class="skill-cell" style="grid-column:span 2"><div class="skill-cat">Methodologies</div><div class="skill-list">Data Governance · Statistical Analysis · QA · Cross-Platform Integration · ETL Pipelines</div></div>
+    </div>
+  </div>
+</section>
+<section id="metrics">
+  <div class="section-label">02 / Impact</div>
+  <h2>Numbers that<br>tell the story</h2>
+  <div class="metrics-grid">
+    <div class="metric-card reveal" data-target="30" data-suffix="%+"><div class="metric-num">0%+</div><div class="metric-label">Reduction in<br>manual effort</div><div class="metric-bar" style="width:75%"></div></div>
+    <div class="metric-card reveal" data-target="97" data-suffix="%+"><div class="metric-num">0%+</div><div class="metric-label">Data reliability<br>achieved</div><div class="metric-bar" style="width:97%"></div></div>
+    <div class="metric-card reveal" data-target="34" data-suffix="%"><div class="metric-num">0%</div><div class="metric-label">Lead conversion<br>increase</div><div class="metric-bar" style="width:68%"></div></div>
+    <div class="metric-card reveal" data-target="15" data-suffix="hrs/wk"><div class="metric-num">0hrs/wk</div><div class="metric-label">Saved weekly via<br>automation</div><div class="metric-bar" style="width:50%"></div></div>
+  </div>
+</section>
+<section id="projects">
+  <div class="section-label">03 / Projects</div>
+  <h2>Featured<br>work</h2>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="sql">SQL</button>
+    <button class="filter-btn" data-filter="python">Python</button>
+    <button class="filter-btn" data-filter="powerbi">Power BI</button>
+    <button class="filter-btn" data-filter="excel">Excel</button>
+    <button class="filter-btn" data-filter="r">R</button>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal" data-category="python sql"><span class="project-num">001</span><div class="project-tag">Python · SQL</div><div class="project-title">Revenue Intelligence Hub</div><div class="project-desc">Unified Salesforce, product analytics, and marketing data into a single source of truth. Built ETL pipelines in Python with SQL transformation layers for real-time revenue visibility.</div><div class="project-impact">↑ 34% lead conversion rate</div><div class="project-tools"><span class="tool-tag">Python</span><span class="tool-tag">SQL</span><span class="tool-tag">Salesforce</span><span class="tool-tag">GA4</span></div></div>
+    <div class="project-card reveal" data-category="python"><span class="project-num">002</span><div class="project-tag">Python · Automation</div><div class="project-title">Automated Reporting Engine</div><div class="project-desc">Designed a Python-based automated reporting pipeline integrated with Zapier. Eliminated 15+ hours of manual weekly reporting across sales, ops, and product teams.</div><div class="project-impact">↓ 30%+ manual effort reduction</div><div class="project-tools"><span class="tool-tag">Python</span><span class="tool-tag">Zapier</span><span class="tool-tag">Pandas</span><span class="tool-tag">Metabase</span></div></div>
+    <div class="project-card reveal" data-category="powerbi"><span class="project-num">003</span><div class="project-tag">Power BI · Analytics</div><div class="project-title">Product Performance Dashboard</div><div class="project-desc">Built a comprehensive Power BI suite tracking feature adoption, user retention, and product KPIs across Mixpanel and internal databases. Used to guide roadmap decisions.</div><div class="project-impact">↑ 10.6% operational efficiency</div><div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">Mixpanel</span><span class="tool-tag">DAX</span></div></div>
+    <div class="project-card reveal" data-category="sql"><span class="project-num">004</span><div class="project-tag">SQL · Data Governance</div><div class="project-title">Data Quality Framework</div><div class="project-desc">Established end-to-end data governance and QA processes across CRM and marketing data sources. Built SQL-based validation layers and monitoring alerts for data integrity.</div><div class="project-impact">↑ 97%+ data reliability</div><div class="project-tools"><span class="tool-tag">SQL</span><span class="tool-tag">Salesforce</span><span class="tool-tag">Python</span></div></div>
+    <div class="project-card reveal" data-category="excel"><span class="project-num">005</span><div class="project-tag">Excel · BI</div><div class="project-title">Small Business KPI Tracker</div><div class="project-desc">Designed a multi-sheet Excel BI system for SMB clients, integrating operational and financial KPIs with dynamic charts and automated summaries using Power Query.</div><div class="project-impact">↓ Manual reporting by 20hrs/mo</div><div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Power Query</span><span class="tool-tag">VBA</span></div></div>
+    <div class="project-card reveal" data-category="r"><span class="project-num">006</span><div class="project-tag">R · Statistical Analysis</div><div class="project-title">Customer Segmentation Model</div><div class="project-desc">Applied clustering and statistical modeling in R to segment customer base by behavior and value. Enabled targeted campaigns that improved conversion by identifying high-value cohorts.</div><div class="project-impact">↑ Targeting precision by 40%</div><div class="project-tools"><span class="tool-tag">R</span><span class="tool-tag">ggplot2</span><span class="tool-tag">tidyverse</span></div></div>
+  </div>
+</section>
+<section id="experience">
+  <div class="section-label">04 / Experience</div>
+  <h2>Where I've<br>made an impact</h2>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-meta"><div class="exp-company">Allan Grey</div><div class="exp-duration">3 yrs 6 mos · Remote</div></div>
+      <div><div class="exp-role">Lead Data Analyst</div><ul class="exp-bullets"><li>Automated workflows using Python + Zapier, saving 15+ hours/week across teams</li><li>Built 20+ Metabase dashboards for real-time KPI tracking across business units</li><li>Integrated Salesforce, GA4, TikTok, and Meta data into a unified BI hub</li><li>Established 97%+ data reliability via governance framework and QA processes</li></ul></div>
+      <div class="exp-badge">Current</div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta"><div class="exp-company">Zutari</div><div class="exp-duration">1 yr 5 mos · Remote</div></div>
+      <div><div class="exp-role">Product Data Analyst</div><ul class="exp-bullets"><li>Created Power BI and Mixpanel dashboards tracking feature adoption and usage</li><li>Enabled 34% conversion increase with sales performance analytics</li><li>Implemented QA processes ensuring analytics accuracy across data pipelines</li><li>Translated complex statistical analysis into executive-ready decision briefs</li></ul></div>
+      <div class="exp-badge">Previous</div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="section-label" style="justify-content:center">05 / Contact</div>
+  <div class="contact-headline reveal">Let's turn your<br><span class="muted">data into growth.</span></div>
+  <p style="font-family:var(--font-mono);color:var(--text-muted);font-size:0.9rem;margin-top:1rem">Open to freelance, consulting, and full-time roles.</p>
+  <div class="contact-links">
+    <a href="mailto:kingoriwa@gmail.com" class="btn-primary">kingoriwa@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kingoriwangechi/" target="_blank" class="btn-ghost">LinkedIn →</a>
+    <a href="https://github.com/KelvinWangechi" target="_blank" class="btn-ghost">GitHub →</a>
+  </div>
+</section>
+<footer>
+  <span>© 2026 Kelvin Wangechi. All rights reserved.</span>
+  <div class="footer-status"><div class="status-dot"></div>Available for new projects</div>
+  <span>Built with intention.</span>
+</footer>
+<script>
+  const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  function animCursor(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCursor);}
+  animCursor();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='60px';ring.style.height='60px';});
+    el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='36px';ring.style.height='36px';});
+  });
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
+  const items=['30%+ Manual Effort Reduced','97%+ Data Reliability','34% Lead Conversion Increase','15hrs/wk Saved via Automation','20+ Dashboards Built','10.6% Efficiency Gain','Power BI · Tableau · Metabase','Python · SQL · R','Salesforce · GA4 · Mixpanel'];
+  const ti=document.getElementById('ticker-inner');
+  ti.innerHTML=[...items,...items].map(i=>`<span class="ticker-item">${i} <span class="ticker-sep">·</span></span>`).join('');
+  const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  function animateCount(el,target,suffix){let start=0;const step=ts=>{if(!start)start=ts;const p=Math.min((ts-start)/1800,1);const ease=1-Math.pow(1-p,4);el.textContent=Math.floor(ease*target)+suffix;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
+  const mObs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const c=entry.target;animateCount(c.querySelector('.metric-num'),parseInt(c.dataset.target),c.dataset.suffix);mObs.unobserve(c);}});},{threshold:0.4});
+  document.querySelectorAll('.metric-card').forEach(c=>mObs.observe(c));
+  document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.project-card').forEach(card=>{const cats=card.dataset.category||'';card.classList.toggle('hidden',f!=='all'&&!cats.includes(f));});});});
+</script>
+</body>
+</html>
