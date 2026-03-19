@@ -7,41 +7,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-  /* ============================================================
-     CSS CUSTOM PROPERTIES — everything dynamic lives here
-  ============================================================ */
+  /* =====================================================
+     DESIGN TOKENS — all values live here, nothing hardcoded
+  ===================================================== */
   :root {
-    --bg: #0a0a0a;
-    --surface: #111111;
-    --surface2: #1a1a1a;
-    --border: #222222;
-    --accent: #e8ff47;
-    --accent2: #47ffd4;
-    --accent3: #ff6b47;
-    --text: #f0f0f0;
-    --text-muted: #666666;
-    --text-dim: #333333;
+    --bg:          #0a0a0a;
+    --surface:     #111111;
+    --surface2:    #1a1a1a;
+    --border:      #222222;
+    --accent:      #e8ff47;
+    --accent2:     #47ffd4;
+    --accent3:     #ff6b47;
+    --text:        #f0f0f0;
+    --text-muted:  #666666;
+    --text-dim:    #333333;
     --font-display: 'Syne', sans-serif;
-    --font-mono: 'DM Mono', monospace;
+    --font-mono:    'DM Mono', monospace;
 
-    /* fluid spacing tokens — never hardcode padding again */
-    --space-xs:  clamp(0.5rem,  1vw, 0.75rem);
-    --space-sm:  clamp(0.75rem, 1.5vw, 1.25rem);
-    --space-md:  clamp(1rem,    2.5vw, 2rem);
-    --space-lg:  clamp(1.5rem,  4vw,   3.5rem);
-    --space-xl:  clamp(2rem,    6vw,   6rem);
-    --space-2xl: clamp(2.5rem,  8vw,   8rem);
-
-    /* fluid section horizontal padding */
+    /* fluid horizontal page padding — works on phones to 4K TVs */
     --page-x: clamp(1.25rem, 5vw, 5rem);
-
-    /* nav height for hero offset */
+    /* fluid section vertical padding */
+    --section-y: clamp(3.5rem, 7vw, 7rem);
+    /* nav height used to offset hero */
     --nav-h: 4rem;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -50,9 +42,9 @@
     cursor: none;
   }
 
-  /* ============================================================
-     CUSTOM CURSOR (desktop only)
-  ============================================================ */
+  /* =====================================================
+     CUSTOM CURSOR — hidden on touch devices
+  ===================================================== */
   .cursor {
     width: 12px; height: 12px;
     background: var(--accent);
@@ -75,36 +67,35 @@
     transition: transform 0.15s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
     opacity: 0.5;
   }
+  /* hide cursor on touch screens */
   @media (hover: none) {
     .cursor, .cursor-ring { display: none; }
     body { cursor: auto; }
     a, button { cursor: pointer; }
   }
 
-  /* ============================================================
+  /* =====================================================
      NOISE OVERLAY
-  ============================================================ */
+  ===================================================== */
   body::before {
     content: '';
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1000;
     opacity: 0.4;
   }
 
-  /* ============================================================
-     NAVIGATION — desktop full links, mobile hamburger
-  ============================================================ */
+  /* =====================================================
+     NAVIGATION
+  ===================================================== */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
+    position: fixed; top: 0; left: 0; right: 0;
     z-index: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-sm) var(--page-x);
+    padding: 0 var(--page-x);
     height: var(--nav-h);
     border-bottom: 1px solid transparent;
     transition: border-color 0.3s, background 0.3s, backdrop-filter 0.3s;
@@ -116,22 +107,18 @@
     -webkit-backdrop-filter: blur(16px);
   }
   .nav-logo {
+    font-family: var(--font-mono);
     font-size: clamp(0.75rem, 1.5vw, 1rem);
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--accent);
-    font-family: var(--font-mono);
     text-decoration: none;
     flex-shrink: 0;
   }
 
-  /* Desktop nav links */
-  .nav-links {
-    display: flex;
-    gap: clamp(1rem, 2.5vw, 2rem);
-    align-items: center;
-  }
+  /* Desktop links */
+  .nav-links { display: flex; gap: clamp(1rem, 2.5vw, 2rem); align-items: center; }
   .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
@@ -154,15 +141,15 @@
   .nav-links a:hover { color: var(--text); }
   .nav-links a:hover::after { width: 100%; }
 
-  /* Hamburger button — hidden on desktop */
+  /* Hamburger button */
   .nav-hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
-    cursor: none;
     background: none;
     border: none;
-    padding: 4px;
+    padding: 6px;
+    cursor: none;
     z-index: 600;
   }
   .nav-hamburger span {
@@ -190,8 +177,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: var(--space-xl) var(--space-lg);
-    gap: var(--space-md);
+    padding: 3rem 2.5rem;
+    gap: 2rem;
     transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .nav-drawer.open { right: 0; }
@@ -203,14 +190,12 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: color 0.2s, transform 0.2s;
-    display: block;
   }
   .nav-drawer a:hover { color: var(--accent); transform: translateX(8px); }
 
-  /* Drawer overlay */
+  /* Drawer backdrop overlay */
   .nav-overlay {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: rgba(0,0,0,0.6);
     z-index: 540;
     opacity: 0;
@@ -219,117 +204,15 @@
   }
   .nav-overlay.open { opacity: 1; pointer-events: all; }
 
-  /* ============================================================
-     HERO
-  ============================================================ */
-  #hero {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: calc(var(--nav-h) + var(--space-lg)) var(--page-x) var(--space-lg);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(232,255,71,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(232,255,71,0.03) 1px, transparent 1px);
-    background-size: clamp(40px, 8vw, 80px) clamp(40px, 8vw, 80px);
-    animation: gridPulse 8s ease-in-out infinite;
-  }
-  @keyframes gridPulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-  }
-
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    animation: orbFloat 10s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .orb1 {
-    width: clamp(200px, 40vw, 500px);
-    height: clamp(200px, 40vw, 500px);
-    background: rgba(232,255,71,0.07);
-    top: -80px; right: -80px;
-  }
-  .orb2 {
-    width: clamp(150px, 25vw, 300px);
-    height: clamp(150px, 25vw, 300px);
-    background: rgba(71,255,212,0.05);
-    bottom: 80px; left: 15%;
-    animation-delay: -4s;
-  }
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(-20px, 30px); }
-    66% { transform: translate(20px, -20px); }
-  }
-
-  .hero-label {
-    font-family: var(--font-mono);
-    font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: var(--space-md);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-    position: relative; z-index: 1;
-  }
-
-  h1 {
-    font-size: clamp(2.6rem, 9vw, 8rem);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-md);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
-    position: relative; z-index: 1;
-  }
-  h1 .line2 { color: var(--text-muted); }
-  h1 .accent-word { color: var(--accent); }
-
-  /* Hero sub — description + CTAs side by side on large screens */
-  .hero-sub {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: var(--space-lg);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-    position: relative; z-index: 1;
-  }
-  .hero-desc {
-    font-family: var(--font-mono);
-    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-    color: var(--text-muted);
-    max-width: 380px;
-    line-height: 1.7;
-    flex-shrink: 0;
-  }
-  .hero-cta {
-    display: flex;
-    gap: var(--space-sm);
-    align-items: center;
-    flex-shrink: 0;
-  }
-
-  /* ============================================================
-     BUTTONS — primary (filled) vs ghost (outlined)
-     "Get in Touch" is primary — larger, more prominent
-  ============================================================ */
+  /* =====================================================
+     BUTTONS
+     btn-primary = filled accent (PRIMARY CTA — Get in Touch)
+     btn-ghost   = outline (secondary)
+  ===================================================== */
   .btn-primary {
     background: var(--accent);
     color: #0a0a0a;
-    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.25rem, 2.5vw, 2.2rem);
+    padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.4rem, 2.5vw, 2.2rem);
     font-family: var(--font-display);
     font-weight: 800;
     font-size: clamp(0.75rem, 1.3vw, 0.9rem);
@@ -340,15 +223,12 @@
     cursor: none;
     transition: transform 0.2s, box-shadow 0.2s;
     white-space: nowrap;
-    position: relative;
     display: inline-block;
   }
   .btn-primary:hover {
     transform: translate(-3px, -3px);
     box-shadow: 5px 5px 0 var(--accent2);
   }
-
-  /* Ghost — slightly smaller/quieter */
   .btn-ghost {
     color: var(--text-muted);
     padding: clamp(0.65rem, 1.2vw, 0.85rem) clamp(1rem, 2vw, 1.75rem);
@@ -364,541 +244,276 @@
   }
   .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
 
-  /* Scroll indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: var(--space-md); left: 50%;
-    transform: translateX(-50%);
+  /* =====================================================
+     HERO
+  ===================================================== */
+  #hero {
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0;
-    animation: fadeIn 1s 1.2s forwards;
+    justify-content: center;
+    padding: calc(var(--nav-h) + clamp(1.5rem, 4vw, 3rem)) var(--page-x) clamp(2rem, 4vw, 4rem);
+    position: relative;
+    overflow: hidden;
   }
-  .scroll-line {
-    width: 1px; height: 50px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(232,255,71,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,255,71,0.03) 1px, transparent 1px);
+    background-size: clamp(40px, 8vw, 80px) clamp(40px, 8vw, 80px);
+    animation: gridPulse 8s ease-in-out infinite;
   }
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.2); }
-  }
+  @keyframes gridPulse { 0%,100%{opacity:.5} 50%{opacity:1} }
 
-  /* Hero photo layout */
+  .hero-orb { position: absolute; border-radius: 50%; filter: blur(100px); animation: orbFloat 10s ease-in-out infinite; pointer-events: none; }
+  .orb1 { width: clamp(200px,40vw,500px); height: clamp(200px,40vw,500px); background: rgba(232,255,71,0.07); top: -80px; right: -80px; }
+  .orb2 { width: clamp(150px,25vw,300px); height: clamp(150px,25vw,300px); background: rgba(71,255,212,0.05); bottom: 80px; left: 15%; animation-delay: -4s; }
+  @keyframes orbFloat { 0%,100%{transform:translate(0,0)} 33%{transform:translate(-20px,30px)} 66%{transform:translate(20px,-20px)} }
+
   .hero-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
     gap: clamp(1.5rem, 4vw, 4rem);
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1;
   }
   .hero-text { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 9vw, 8rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+  h1 .line2 { color: var(--text-muted); }
+  h1 .accent-word { color: var(--accent); }
+
+  .hero-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: clamp(1rem, 3vw, 2rem);
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-desc {
+    font-family: var(--font-mono);
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: var(--text-muted);
+    max-width: 380px;
+    line-height: 1.7;
+    flex-shrink: 0;
+  }
+  .hero-cta { display: flex; gap: clamp(0.5rem, 1.5vw, 1rem); align-items: center; flex-shrink: 0; }
+
+  /* Photo */
   .hero-photo-wrap {
     flex-shrink: 0;
     width: clamp(140px, 18vw, 260px);
     height: clamp(170px, 22vw, 320px);
     position: relative;
     align-self: flex-end;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.8s forwards;
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
   }
   .hero-photo-wrap::before {
     content: '';
     position: absolute;
     inset: 10px -10px -10px 10px;
     border: 1px solid var(--accent);
-    opacity: 0.35;
-    z-index: 0;
+    opacity: 0.35; z-index: 0;
   }
   .hero-photo-wrap::after {
     content: '';
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 60%);
     z-index: 1;
   }
-  .hero-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    filter: grayscale(15%) contrast(1.08);
-  }
+  .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; filter: grayscale(15%) contrast(1.08); }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+  .scroll-indicator {
+    position: absolute; bottom: clamp(1rem,2vw,2rem); left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    opacity: 0; animation: fadeIn 1s 1.2s forwards;
   }
-  @keyframes fadeIn { to { opacity: 1; } }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { to{opacity:1} }
 
-  /* ============================================================
+  /* =====================================================
      TICKER
-  ============================================================ */
-  .ticker {
-    background: var(--accent);
-    padding: 0.85rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .ticker-inner {
-    display: inline-flex;
-    animation: ticker 20s linear infinite;
-  }
-  .ticker-item {
-    font-family: var(--font-mono);
-    font-size: clamp(0.65rem, 1.2vw, 0.8rem);
-    font-weight: 500;
-    color: #0a0a0a;
-    padding: 0 clamp(1rem, 3vw, 3rem);
-    letter-spacing: 0.1em;
-  }
+  ===================================================== */
+  .ticker { background: var(--accent); padding: 0.85rem 0; overflow: hidden; white-space: nowrap; }
+  .ticker-inner { display: inline-flex; animation: ticker 20s linear infinite; }
+  .ticker-item { font-family: var(--font-mono); font-size: clamp(0.65rem,1.2vw,0.8rem); font-weight: 500; color: #0a0a0a; padding: 0 clamp(1rem,3vw,3rem); letter-spacing: 0.1em; }
   .ticker-sep { color: rgba(0,0,0,0.3); }
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-  /* ============================================================
-     SECTIONS — fluid padding
-  ============================================================ */
-  section {
-    padding: var(--space-xl) var(--page-x);
-  }
+  /* =====================================================
+     SECTIONS
+  ===================================================== */
+  section { padding: var(--section-y) var(--page-x); }
   .section-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
+    letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 1rem;
   }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--accent);
-    opacity: 0.4;
-  }
-  h2 {
-    font-size: clamp(1.8rem, 4vw, 3.5rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  }
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); opacity: 0.4; }
+  h2 { font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: clamp(1.5rem, 4vw, 3rem); }
 
-  /* ============================================================
+  /* =====================================================
      ABOUT
-  ============================================================ */
-  #about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(2rem, 6vw, 6rem);
-    align-items: center;
-    border-top: 1px solid var(--border);
-  }
-  .about-text p {
-    font-family: var(--font-mono);
-    font-size: clamp(0.8rem, 1.4vw, 0.95rem);
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
+  ===================================================== */
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; border-top: 1px solid var(--border); }
+  .about-text p { font-family: var(--font-mono); font-size: clamp(0.8rem,1.4vw,0.95rem); color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
   .about-text p strong { color: var(--text); font-weight: 400; }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-  }
-  .skill-cell {
-    background: var(--surface);
-    padding: clamp(0.9rem, 1.5vw, 1.2rem);
-    transition: background 0.2s;
-  }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .skill-cell { background: var(--surface); padding: clamp(0.9rem,1.5vw,1.2rem); transition: background 0.2s; }
   .skill-cell:hover { background: var(--surface2); }
-  .skill-cat {
-    font-size: 0.65rem;
-    font-family: var(--font-mono);
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .skill-list {
-    font-size: 0.8rem;
-    font-family: var(--font-mono);
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .skill-cat { font-size: 0.65rem; font-family: var(--font-mono); color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .skill-list { font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); line-height: 1.6; }
 
-  /* ============================================================
-     METRICS — fluid numbers, never shrink the KPIs
-  ============================================================ */
+  /* =====================================================
+     METRICS — KPI numbers stay BIG with clamp
+  ===================================================== */
   #metrics { border-top: 1px solid var(--border); }
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-  }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
   .metric-card {
     background: var(--surface);
-    padding: clamp(1.2rem, 2vw, 1.75rem) clamp(1rem, 1.8vw, 1.5rem) clamp(1.5rem, 2.5vw, 2rem);
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
+    padding: clamp(1.2rem,2vw,1.75rem) clamp(1rem,1.8vw,1.5rem) clamp(1.5rem,2.5vw,2rem);
+    position: relative; overflow: hidden; transition: background 0.3s;
   }
   .metric-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
   }
   .metric-card:hover { background: var(--surface2); }
   .metric-card:hover::before { transform: scaleX(1); }
-
-  /* KPI number — fluid but stays BIG. clamp min is still readable.
-     No white-space: nowrap — allows "15hrs/wk" to wrap rather than clip. */
+  /* Numbers: fluid font, allow natural wrap — no clipping */
   .metric-num {
     font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1.05;
-    margin-bottom: 0.5rem;
+    font-weight: 800; color: var(--accent);
+    line-height: 1.05; margin-bottom: 0.5rem;
     font-variant-numeric: tabular-nums;
     word-break: break-word;
   }
-  .metric-label {
-    font-family: var(--font-mono);
-    font-size: clamp(0.65rem, 1.1vw, 0.75rem);
-    color: var(--text-muted);
-    line-height: 1.5;
-    letter-spacing: 0.05em;
-  }
-  .metric-bar {
-    position: absolute;
-    bottom: 0; left: 0;
-    height: 3px;
-    background: var(--accent);
-    opacity: 0.15;
-    transition: opacity 0.3s;
-  }
+  .metric-label { font-family: var(--font-mono); font-size: clamp(0.65rem,1.1vw,0.75rem); color: var(--text-muted); line-height: 1.5; letter-spacing: 0.05em; }
+  .metric-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: var(--accent); opacity: 0.15; transition: opacity 0.3s; }
   .metric-card:hover .metric-bar { opacity: 0.4; }
 
-  /* ============================================================
+  /* =====================================================
      PROJECTS
-  ============================================================ */
+  ===================================================== */
   #projects { border-top: 1px solid var(--border); }
-  .filter-bar {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-  .filter-btn {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.5rem 1.2rem;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-muted);
-    cursor: none;
-    transition: all 0.2s;
-  }
+  .filter-bar { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .filter-btn { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.2rem; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: none; transition: all 0.2s; }
   .filter-btn:hover { border-color: var(--text-muted); color: var(--text); }
-  .filter-btn.active {
-    background: var(--accent);
-    color: #0a0a0a;
-    border-color: var(--accent);
-  }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-  }
-  .project-card {
-    background: var(--surface);
-    padding: clamp(1.25rem, 2.5vw, 2rem);
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
+  .filter-btn.active { background: var(--accent); color: #0a0a0a; border-color: var(--accent); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+  .project-card { background: var(--surface); padding: clamp(1.25rem,2.5vw,2rem); position: relative; overflow: hidden; transition: background 0.3s; display: flex; flex-direction: column; }
   .project-card.hidden { display: none; }
-  .project-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, transparent 60%, rgba(232,255,71,0.03));
-    pointer-events: none;
-  }
+  .project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,transparent 60%,rgba(232,255,71,0.03)); pointer-events: none; }
   .project-card:hover { background: var(--surface2); }
-  .project-tag {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--accent2);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  .project-num {
-    position: absolute;
-    top: 1.5rem; right: 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text-dim);
-  }
-  .project-title {
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-  .project-desc {
-    font-family: var(--font-mono);
-    font-size: clamp(0.72rem, 1.1vw, 0.8rem);
-    color: var(--text-muted);
-    line-height: 1.7;
-    flex: 1;
-    margin-bottom: 1.5rem;
-  }
-  .project-impact {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-    padding: 0.5rem 0;
-    border-top: 1px solid var(--border);
-  }
-  .project-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 1rem;
-  }
-  .tool-tag {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    padding: 0.2rem 0.6rem;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-  }
+  .project-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .project-num { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim); }
+  .project-title { font-size: clamp(0.95rem,1.5vw,1.1rem); font-weight: 700; margin-bottom: 0.75rem; line-height: 1.3; }
+  .project-desc { font-family: var(--font-mono); font-size: clamp(0.72rem,1.1vw,0.8rem); color: var(--text-muted); line-height: 1.7; flex: 1; margin-bottom: 1.5rem; }
+  .project-impact { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); padding: 0.5rem 0; border-top: 1px solid var(--border); }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .tool-tag { font-family: var(--font-mono); font-size: 0.62rem; padding: 0.2rem 0.6rem; border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.05em; }
 
-  /* ============================================================
+  /* =====================================================
      EXPERIENCE
-  ============================================================ */
+  ===================================================== */
   #experience { border-top: 1px solid var(--border); }
   .exp-list { display: flex; flex-direction: column; gap: 1px; }
-  .exp-item {
-    background: var(--surface);
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
-    display: grid;
-    grid-template-columns: clamp(130px, 15vw, 200px) 1fr auto;
-    gap: clamp(1rem, 2.5vw, 2rem);
-    align-items: start;
-    transition: background 0.2s;
-    cursor: default;
-  }
+  .exp-item { background: var(--surface); padding: clamp(1.5rem,3vw,2.5rem) clamp(1rem,2.5vw,2rem); display: grid; grid-template-columns: clamp(130px,15vw,200px) 1fr auto; gap: clamp(1rem,2.5vw,2rem); align-items: start; transition: background 0.2s; }
   .exp-item:hover { background: var(--surface2); }
-  .exp-company {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 0.3rem;
-  }
-  .exp-duration {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-  }
-  .exp-role {
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
+  .exp-company { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+  .exp-duration { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
+  .exp-role { font-size: clamp(0.95rem,1.5vw,1.1rem); font-weight: 700; margin-bottom: 0.75rem; }
   .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-  .exp-bullets li {
-    font-family: var(--font-mono);
-    font-size: clamp(0.72rem, 1.1vw, 0.8rem);
-    color: var(--text-muted);
-    padding-left: 1rem;
-    position: relative;
-    line-height: 1.6;
-  }
-  .exp-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 0.7rem;
-  }
-  .exp-badge {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    padding: 0.4rem 0.8rem;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-    height: fit-content;
-  }
+  .exp-bullets li { font-family: var(--font-mono); font-size: clamp(0.72rem,1.1vw,0.8rem); color: var(--text-muted); padding-left: 1rem; position: relative; line-height: 1.6; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; }
+  .exp-badge { font-family: var(--font-mono); font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.1em; white-space: nowrap; height: fit-content; }
 
-  /* ============================================================
+  /* =====================================================
      CONTACT
-  ============================================================ */
-  #contact {
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: var(--space-2xl) var(--page-x);
-  }
-  .contact-headline {
-    font-size: clamp(2rem, 6vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 2rem;
-  }
+  ===================================================== */
+  #contact { border-top: 1px solid var(--border); text-align: center; padding: clamp(4rem,10vw,8rem) var(--page-x); }
+  .contact-headline { font-size: clamp(2rem, 6vw, 6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 2rem; }
   .contact-headline .muted { color: var(--text-muted); }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-  }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; flex-wrap: wrap; }
 
-  /* ============================================================
+  /* =====================================================
      FOOTER
-  ============================================================ */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem var(--page-x);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  footer span {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--text-dim);
-  }
-  .footer-status {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--accent2);
-  }
-  .status-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent2);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-  }
+  ===================================================== */
+  footer { border-top: 1px solid var(--border); padding: 2rem var(--page-x); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
+  .footer-status { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent2); }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
-  /* ============================================================
+  /* =====================================================
      REVEAL ANIMATION
-  ============================================================ */
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: opacity 0.7s, transform 0.7s;
-  }
-  .reveal.will-animate {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+     Default = visible. JS adds .will-animate before
+     observing, so content is never hidden without JS.
+  ===================================================== */
+  .reveal { opacity: 1; transform: none; transition: opacity 0.7s, transform 0.7s; }
+  .reveal.will-animate { opacity: 0; transform: translateY(24px); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ============================================================
-     RESPONSIVE BREAKPOINTS
-     Tablet: 1024px | Mobile: 640px | Small: 400px
-  ============================================================ */
+  /* =====================================================
+     RESPONSIVE
+  ===================================================== */
 
-  /* ---- TABLET (≤ 1024px) ---- */
+  /* Tablet & below: hamburger takes over */
   @media (max-width: 1024px) {
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    @media (hover: none) {
-      .nav-hamburger { cursor: pointer; }
-    }
-
-    .hero-photo-wrap { width: clamp(120px, 20vw, 200px); height: clamp(148px, 25vw, 250px); }
-
+    @media (hover: none) { .nav-hamburger { cursor: pointer; } }
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
     .projects-grid { grid-template-columns: repeat(2, 1fr); }
-
-    #about { grid-template-columns: 1fr; gap: var(--space-lg); }
-
+    #about { grid-template-columns: 1fr; gap: clamp(2rem,5vw,3.5rem); }
     .exp-item { grid-template-columns: 1fr; }
-    .exp-badge { width: fit-content; }
   }
 
-  /* ---- MOBILE (≤ 640px) ---- */
+  /* Mobile */
   @media (max-width: 640px) {
-    /* Hero stacks: text first, photo below/right as accent */
-    .hero-content { flex-direction: column-reverse; align-items: flex-start; gap: var(--space-md); }
-    .hero-photo-wrap {
-      width: clamp(100px, 35vw, 150px);
-      height: clamp(124px, 43vw, 185px);
-      align-self: flex-end;
-      margin-right: 0;
-    }
-    .hero-sub { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
-    .hero-cta { flex-direction: row; width: 100%; gap: var(--space-xs); }
+    .hero-content { flex-direction: column-reverse; align-items: flex-start; gap: 1.25rem; }
+    .hero-photo-wrap { width: clamp(100px,35vw,150px); height: clamp(124px,43vw,185px); align-self: flex-end; }
+    .hero-sub { flex-direction: column; align-items: flex-start; }
+    .hero-cta { flex-direction: row; width: 100%; }
     .btn-primary, .btn-ghost { flex: 1; text-align: center; justify-content: center; }
-
-    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-    .metric-num { font-size: clamp(1.6rem, 8vw, 2.4rem); word-break: break-word; }
-
+    .metric-num { font-size: clamp(1.6rem, 8vw, 2.4rem); }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
-
     footer { flex-direction: column; text-align: center; }
   }
 
-  /* ---- SMALL PHONES (≤ 400px) ---- */
+  /* Small phones */
   @media (max-width: 400px) {
     .hero-cta { flex-direction: column; }
     .btn-primary, .btn-ghost { flex: none; width: 100%; }
     .metrics-grid { grid-template-columns: 1fr; }
   }
 
-  /* ---- LARGE / TV (≥ 2000px) ---- */
+  /* Large screens / TV */
   @media (min-width: 2000px) {
-    :root {
-      --page-x: clamp(5rem, 10vw, 14rem);
-    }
-    .metrics-grid { grid-template-columns: repeat(4, 1fr); }
-    .projects-grid { grid-template-columns: repeat(3, 1fr); }
+    :root { --page-x: clamp(5rem, 10vw, 14rem); }
   }
 </style>
 </head>
@@ -907,16 +522,16 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
-<!-- Drawer overlay -->
+<!-- Drawer backdrop -->
 <div class="nav-overlay" id="nav-overlay"></div>
 
-<!-- Right-side drawer for mobile/tablet -->
+<!-- Right-side mobile drawer -->
 <div class="nav-drawer" id="nav-drawer">
-  <a href="#about" class="drawer-link">About</a>
-  <a href="#metrics" class="drawer-link">Impact</a>
-  <a href="#projects" class="drawer-link">Projects</a>
+  <a href="#about"      class="drawer-link">About</a>
+  <a href="#metrics"    class="drawer-link">Impact</a>
+  <a href="#projects"   class="drawer-link">Projects</a>
   <a href="#experience" class="drawer-link">Experience</a>
-  <a href="#contact" class="drawer-link">Contact</a>
+  <a href="#contact"    class="drawer-link">Contact</a>
 </div>
 
 <nav id="navbar">
@@ -929,9 +544,7 @@
     <a href="#contact">Contact</a>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
 </nav>
 
@@ -947,7 +560,7 @@
       <div class="hero-sub">
         <p class="hero-desc">Turning messy data into revenue-driving insights.<br>BI · Automation · Statistical Modeling.</p>
         <div class="hero-cta">
-          <!-- "Get in Touch" is the PRIMARY action — filled, bold, prominent -->
+          <!-- Get in Touch = PRIMARY action: filled, bold, prominent -->
           <a href="#contact" class="btn-primary">Get in Touch</a>
           <a href="#projects" class="btn-ghost">View Work</a>
         </div>
@@ -971,39 +584,18 @@
     <div class="section-label">01 / About</div>
     <h2>Data that<br>drives decisions</h2>
     <div class="about-text">
-      <p>
-        Based in <strong>Nairobi, Kenya</strong>, I specialize in business intelligence for small and growing businesses. I bridge the gap between raw data and the strategic decisions that move companies forward.
-      </p>
-      <p>
-        With <strong>5+ years</strong> across financial services and product analytics, I've built pipelines, dashboards, and automation systems that reduce manual effort by 30%+ and push data reliability above 97%.
-      </p>
-      <p>
-        I believe data without context is just noise. My job is to make yours sing.
-      </p>
+      <p>Based in <strong>Nairobi, Kenya</strong>, I specialize in business intelligence for small and growing businesses. I bridge the gap between raw data and the strategic decisions that move companies forward.</p>
+      <p>With <strong>5+ years</strong> across financial services and product analytics, I've built pipelines, dashboards, and automation systems that reduce manual effort by 30%+ and push data reliability above 97%.</p>
+      <p>I believe data without context is just noise. My job is to make yours sing.</p>
     </div>
   </div>
   <div class="about-right reveal">
     <div class="skills-grid">
-      <div class="skill-cell">
-        <div class="skill-cat">Visualization</div>
-        <div class="skill-list">Power BI · Tableau<br>Metabase</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cat">Programming</div>
-        <div class="skill-list">Python · SQL · R<br>Pandas · NumPy</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cat">Platforms</div>
-        <div class="skill-list">Salesforce · GA4<br>Mixpanel · Airtable</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-cat">Automation</div>
-        <div class="skill-list">Zapier · APIs<br>Python Workflows</div>
-      </div>
-      <div class="skill-cell" style="grid-column: span 2;">
-        <div class="skill-cat">Methodologies</div>
-        <div class="skill-list">Data Governance · Statistical Analysis · QA · Cross-Platform Integration · ETL Pipelines</div>
-      </div>
+      <div class="skill-cell"><div class="skill-cat">Visualization</div><div class="skill-list">Power BI · Tableau<br>Metabase</div></div>
+      <div class="skill-cell"><div class="skill-cat">Programming</div><div class="skill-list">Python · SQL · R<br>Pandas · NumPy</div></div>
+      <div class="skill-cell"><div class="skill-cat">Platforms</div><div class="skill-list">Salesforce · GA4<br>Mixpanel · Airtable</div></div>
+      <div class="skill-cell"><div class="skill-cat">Automation</div><div class="skill-list">Zapier · APIs<br>Python Workflows</div></div>
+      <div class="skill-cell" style="grid-column:span 2"><div class="skill-cat">Methodologies</div><div class="skill-list">Data Governance · Statistical Analysis · QA · Cross-Platform Integration · ETL Pipelines</div></div>
     </div>
   </div>
 </section>
@@ -1016,22 +608,22 @@
     <div class="metric-card reveal" data-target="30" data-suffix="%+">
       <div class="metric-num">0%+</div>
       <div class="metric-label">Reduction in<br>manual effort</div>
-      <div class="metric-bar" style="width: 75%;"></div>
+      <div class="metric-bar" style="width:75%"></div>
     </div>
     <div class="metric-card reveal" data-target="97" data-suffix="%+">
       <div class="metric-num">0%+</div>
       <div class="metric-label">Data reliability<br>achieved</div>
-      <div class="metric-bar" style="width: 97%;"></div>
+      <div class="metric-bar" style="width:97%"></div>
     </div>
     <div class="metric-card reveal" data-target="34" data-suffix="%">
       <div class="metric-num">0%</div>
       <div class="metric-label">Lead conversion<br>increase</div>
-      <div class="metric-bar" style="width: 68%;"></div>
+      <div class="metric-bar" style="width:68%"></div>
     </div>
     <div class="metric-card reveal" data-target="15" data-suffix="hrs/wk">
       <div class="metric-num">0hrs/wk</div>
       <div class="metric-label">Saved weekly via<br>automation</div>
-      <div class="metric-bar" style="width: 50%;"></div>
+      <div class="metric-bar" style="width:50%"></div>
     </div>
   </div>
 </section>
@@ -1055,12 +647,7 @@
       <div class="project-title">Revenue Intelligence Hub</div>
       <div class="project-desc">Unified Salesforce, product analytics, and marketing data into a single source of truth. Built ETL pipelines in Python with SQL transformation layers for real-time revenue visibility.</div>
       <div class="project-impact">↑ 34% lead conversion rate</div>
-      <div class="project-tools">
-        <span class="tool-tag">Python</span>
-        <span class="tool-tag">SQL</span>
-        <span class="tool-tag">Salesforce</span>
-        <span class="tool-tag">GA4</span>
-      </div>
+      <div class="project-tools"><span class="tool-tag">Python</span><span class="tool-tag">SQL</span><span class="tool-tag">Salesforce</span><span class="tool-tag">GA4</span></div>
     </div>
     <div class="project-card reveal" data-category="python">
       <span class="project-num">002</span>
@@ -1068,12 +655,7 @@
       <div class="project-title">Automated Reporting Engine</div>
       <div class="project-desc">Designed a Python-based automated reporting pipeline integrated with Zapier. Eliminated 15+ hours of manual weekly reporting across sales, ops, and product teams.</div>
       <div class="project-impact">↓ 30%+ manual effort reduction</div>
-      <div class="project-tools">
-        <span class="tool-tag">Python</span>
-        <span class="tool-tag">Zapier</span>
-        <span class="tool-tag">Pandas</span>
-        <span class="tool-tag">Metabase</span>
-      </div>
+      <div class="project-tools"><span class="tool-tag">Python</span><span class="tool-tag">Zapier</span><span class="tool-tag">Pandas</span><span class="tool-tag">Metabase</span></div>
     </div>
     <div class="project-card reveal" data-category="powerbi">
       <span class="project-num">003</span>
@@ -1081,11 +663,7 @@
       <div class="project-title">Product Performance Dashboard</div>
       <div class="project-desc">Built a comprehensive Power BI suite tracking feature adoption, user retention, and product KPIs across Mixpanel + internal databases. Used to guide roadmap decisions.</div>
       <div class="project-impact">↑ 10.6% operational efficiency</div>
-      <div class="project-tools">
-        <span class="tool-tag">Power BI</span>
-        <span class="tool-tag">Mixpanel</span>
-        <span class="tool-tag">DAX</span>
-      </div>
+      <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">Mixpanel</span><span class="tool-tag">DAX</span></div>
     </div>
     <div class="project-card reveal" data-category="sql">
       <span class="project-num">004</span>
@@ -1093,11 +671,7 @@
       <div class="project-title">Data Quality Framework</div>
       <div class="project-desc">Established end-to-end data governance and QA processes across CRM and marketing data sources. Built SQL-based validation layers and monitoring alerts for data integrity.</div>
       <div class="project-impact">↑ 97%+ data reliability</div>
-      <div class="project-tools">
-        <span class="tool-tag">SQL</span>
-        <span class="tool-tag">Salesforce</span>
-        <span class="tool-tag">Python</span>
-      </div>
+      <div class="project-tools"><span class="tool-tag">SQL</span><span class="tool-tag">Salesforce</span><span class="tool-tag">Python</span></div>
     </div>
     <div class="project-card reveal" data-category="excel">
       <span class="project-num">005</span>
@@ -1105,11 +679,7 @@
       <div class="project-title">Small Business KPI Tracker</div>
       <div class="project-desc">Designed a multi-sheet Excel BI system for SMB clients, integrating operational and financial KPIs with dynamic charts and automated summaries using Power Query.</div>
       <div class="project-impact">↓ Manual reporting by 20hrs/mo</div>
-      <div class="project-tools">
-        <span class="tool-tag">Excel</span>
-        <span class="tool-tag">Power Query</span>
-        <span class="tool-tag">VBA</span>
-      </div>
+      <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">Power Query</span><span class="tool-tag">VBA</span></div>
     </div>
     <div class="project-card reveal" data-category="r">
       <span class="project-num">006</span>
@@ -1117,11 +687,7 @@
       <div class="project-title">Customer Segmentation Model</div>
       <div class="project-desc">Applied clustering and statistical modeling in R to segment customer base by behavior and value. Enabled targeted campaigns that improved conversion by identifying high-value cohorts.</div>
       <div class="project-impact">↑ Targeting precision by 40%</div>
-      <div class="project-tools">
-        <span class="tool-tag">R</span>
-        <span class="tool-tag">ggplot2</span>
-        <span class="tool-tag">tidyverse</span>
-      </div>
+      <div class="project-tools"><span class="tool-tag">R</span><span class="tool-tag">ggplot2</span><span class="tool-tag">tidyverse</span></div>
     </div>
   </div>
 </section>
@@ -1168,16 +734,15 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label" style="justify-content: center;">05 / Contact</div>
+  <div class="section-label" style="justify-content:center">05 / Contact</div>
   <div class="contact-headline reveal">
-    Let's turn your<br>
-    <span class="muted">data into growth.</span>
+    Let's turn your<br><span class="muted">data into growth.</span>
   </div>
-  <p style="font-family: var(--font-mono); color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">
+  <p style="font-family:var(--font-mono);color:var(--text-muted);font-size:0.9rem;margin-top:1rem;">
     Open to freelance, consulting, and full-time roles.
   </p>
   <div class="contact-links">
-    <a href="/cdn-cgi/l/email-protection#afc4c6c1c8c0ddc681d8cec1c8caccc7c6efc8c2cec6c381ccc0c2" class="btn-primary">Get in Touch</a>
+    <a href="mailto:kingori.wangechi@gmail.com" class="btn-primary">Get in Touch</a>
     <a href="https://www.linkedin.com/in/kingoriwangechi/" target="_blank" class="btn-ghost">LinkedIn →</a>
     <a href="https://github.com/KelvinWangechi" target="_blank" class="btn-ghost">GitHub →</a>
   </div>
@@ -1185,19 +750,14 @@
 
 <footer>
   <span>© 2026 Kelvin Wangechi. All rights reserved.</span>
-  <div class="footer-status">
-    <div class="status-dot"></div>
-    Available for new projects
-  </div>
+  <div class="footer-status"><div class="status-dot"></div>Available for new projects</div>
   <span>Built with intention.</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  /* ============================================================
-     CUSTOM CURSOR
-  ============================================================ */
+<script>
+  /* ---- CUSTOM CURSOR (desktop only) ---- */
   const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
+  const ring   = document.getElementById('cursor-ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
 
   if (window.matchMedia('(hover: hover)').matches) {
@@ -1209,129 +769,102 @@
       requestAnimationFrame(animCursor);
     })();
     document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width = '20px'; cursor.style.height = '20px';
-        ring.style.width = '60px'; ring.style.height = '60px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width = '12px'; cursor.style.height = '12px';
-        ring.style.width = '36px'; ring.style.height = '36px';
-      });
+      el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; ring.style.width = '60px'; ring.style.height = '60px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.width = '12px'; cursor.style.height = '12px'; ring.style.width = '36px'; ring.style.height = '36px'; });
     });
   }
 
-  /* ============================================================
-     HAMBURGER / DRAWER
-  ============================================================ */
+  /* ---- HAMBURGER / DRAWER ---- */
   const hamburger = document.getElementById('hamburger');
-  const drawer = document.getElementById('nav-drawer');
-  const overlay = document.getElementById('nav-overlay');
+  const drawer    = document.getElementById('nav-drawer');
+  const overlay   = document.getElementById('nav-overlay');
 
-  function openDrawer() {
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    hamburger.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
+  function openDrawer()  { drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true');  document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
 
-  hamburger.addEventListener('click', () => {
-    drawer.classList.contains('open') ? closeDrawer() : openDrawer();
-  });
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
   overlay.addEventListener('click', closeDrawer);
-  document.querySelectorAll('.drawer-link').forEach(a => {
-    a.addEventListener('click', closeDrawer);
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeDrawer();
-  });
+  document.querySelectorAll('.drawer-link').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-  /* ============================================================
-     NAV SCROLL CLASS
-  ============================================================ */
+  /* ---- NAV SCROLL CLASS ---- */
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
 
-  /* ============================================================
-     TICKER
-  ============================================================ */
-  const items = [
-    '30%+ Manual Effort Reduced', '97%+ Data Reliability', '34% Lead Conversion Increase',
-    '15hrs/wk Saved via Automation', '20+ Dashboards Built', '10.6% Efficiency Gain',
-    'Power BI · Tableau · Metabase', 'Python · SQL · R', 'Salesforce · GA4 · Mixpanel'
+  /* ---- TICKER ---- */
+  const tickerItems = [
+    '30%+ Manual Effort Reduced','97%+ Data Reliability','34% Lead Conversion Increase',
+    '15hrs/wk Saved via Automation','20+ Dashboards Built','10.6% Efficiency Gain',
+    'Power BI · Tableau · Metabase','Python · SQL · R','Salesforce · GA4 · Mixpanel'
   ];
   const ti = document.getElementById('ticker-inner');
-  ti.innerHTML = [...items, ...items].map(i =>
-    `<span class="ticker-item">${i} <span class="ticker-sep">·</span></span>`
-  ).join('');
+  ti.innerHTML = [...tickerItems, ...tickerItems]
+    .map(t => `<span class="ticker-item">${t} <span class="ticker-sep">·</span></span>`)
+    .join('');
 
-  /* ============================================================
-     REVEAL ON SCROLL
-  ============================================================ */
+  /* ---- REVEAL ON SCROLL ---- */
+  // Content visible by default; JS opts elements into the animation
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObserver.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
     });
   }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      // Already in view on load — show immediately, no animation needed
-      el.classList.add('visible');
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      el.classList.add('visible'); // already on screen — show immediately
     } else {
-      // Below the fold — set up the hide-then-reveal animation
-      el.classList.add('will-animate');
+      el.classList.add('will-animate'); // below fold — animate on scroll
       revealObserver.observe(el);
     }
   });
 
-  /* ============================================================
-     COUNTER ANIMATION — triggers when card enters viewport
-  ============================================================ */
+  /* ---- COUNTER ANIMATION ---- */
   function animateCount(el, target, suffix) {
+    if (!el) return;
     let start = 0;
     const duration = 1800;
-    const step = ts => {
+    (function step(ts) {
       if (!start) start = ts;
-      const progress = Math.min((ts - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 4);
+      const p = Math.min((ts - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 4);
       el.textContent = Math.floor(ease * target) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
   }
+
   const metricObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const card = entry.target;
-        const numEl = card.querySelector('.metric-num');
-        animateCount(numEl, parseInt(card.dataset.target), card.dataset.suffix);
+        animateCount(card.querySelector('.metric-num'), parseInt(card.dataset.target), card.dataset.suffix);
         metricObserver.unobserve(card);
       }
     });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('.metric-card').forEach(c => metricObserver.observe(c));
+  }, { threshold: 0.1 });
 
-  /* ============================================================
-     PROJECT FILTER
-  ============================================================ */
+  document.querySelectorAll('.metric-card').forEach(card => {
+    if (card.getBoundingClientRect().top < window.innerHeight) {
+      // Already visible on load — fire after brief delay so animation is seen
+      setTimeout(() => animateCount(card.querySelector('.metric-num'), parseInt(card.dataset.target), card.dataset.suffix), 400);
+    } else {
+      metricObserver.observe(card);
+    }
+  });
+
+  /* ---- PROJECT FILTER ---- */
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const filter = btn.dataset.filter;
+      const f = btn.dataset.filter;
       document.querySelectorAll('.project-card').forEach(card => {
         const cats = card.dataset.category || '';
-        const s
+        card.classList.toggle('hidden', f !== 'all' && !cats.split(' ').includes(f));
+      });
+    });
+  });
+</script>
+</body>
+</html>
