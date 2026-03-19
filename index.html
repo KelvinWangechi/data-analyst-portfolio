@@ -571,15 +571,16 @@
   .metric-card:hover { background: var(--surface2); }
   .metric-card:hover::before { transform: scaleX(1); }
 
-  /* KPI number — fluid but stays BIG. clamp min is still readable. */
+  /* KPI number — fluid but stays BIG. clamp min is still readable.
+     No white-space: nowrap — allows "15hrs/wk" to wrap rather than clip. */
   .metric-num {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 800;
     color: var(--accent);
-    line-height: 1;
+    line-height: 1.05;
     margin-bottom: 0.5rem;
     font-variant-numeric: tabular-nums;
-    white-space: nowrap;
+    word-break: break-word;
   }
   .metric-label {
     font-family: var(--font-mono);
@@ -869,7 +870,7 @@
     .btn-primary, .btn-ghost { flex: 1; text-align: center; justify-content: center; }
 
     .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-    .metric-num { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+    .metric-num { font-size: clamp(1.6rem, 8vw, 2.4rem); word-break: break-word; }
 
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
@@ -1169,7 +1170,7 @@
     Open to freelance, consulting, and full-time roles.
   </p>
   <div class="contact-links">
-    <a href="mailto:kingori.wangechi@gmail.com" class="btn-primary">Get in Touch</a>
+    <a href="/cdn-cgi/l/email-protection#afc4c6c1c8c0ddc681d8cec1c8caccc7c6efc8c2cec6c381ccc0c2" class="btn-primary">Get in Touch</a>
     <a href="https://www.linkedin.com/in/kingoriwangechi/" target="_blank" class="btn-ghost">LinkedIn →</a>
     <a href="https://github.com/KelvinWangechi" target="_blank" class="btn-ghost">GitHub →</a>
   </div>
@@ -1184,7 +1185,7 @@
   <span>Built with intention.</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ============================================================
      CUSTOM CURSOR
   ============================================================ */
@@ -1315,11 +1316,4 @@
       const filter = btn.dataset.filter;
       document.querySelectorAll('.project-card').forEach(card => {
         const cats = card.dataset.category || '';
-        const show = filter === 'all' || cats.split(' ').includes(filter);
-        card.classList.toggle('hidden', !show);
-      });
-    });
-  });
-</script>
-</body>
-</html>
+        const s
