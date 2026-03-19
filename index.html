@@ -825,11 +825,18 @@
      REVEAL ANIMATION
   ============================================================ */
   .reveal {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 1;
+    transform: none;
     transition: opacity 0.7s, transform 0.7s;
   }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.will-animate {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   /* ============================================================
      RESPONSIVE BREAKPOINTS
@@ -1270,14 +1277,25 @@
      REVEAL ON SCROLL
   ============================================================ */
   const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
+    entries.forEach(e => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        e.target.classList.add('visible');
         revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      // Already in view on load — show immediately, no animation needed
+      el.classList.add('visible');
+    } else {
+      // Below the fold — set up the hide-then-reveal animation
+      el.classList.add('will-animate');
+      revealObserver.observe(el);
+    }
+  });
 
   /* ============================================================
      COUNTER ANIMATION — triggers when card enters viewport
