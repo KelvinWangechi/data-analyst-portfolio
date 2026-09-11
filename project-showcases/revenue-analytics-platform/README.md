@@ -1,119 +1,70 @@
-# Revenue Analytics Platform: From Chaos to Clarity
+# Revenue analytics: check the metric before moving the budget
 
-### 🔥 **The Breaking Point** (Challenge)
+**A portfolio demonstration using simulated data.** The source [data note](data/README.md) describes these as anonymized simulated data for visualizations. These findings describe the sample, not a real client's revenue, savings or return on investment.
 
-TechFlow Solutions, a growing SaaS company with 45 employees, was drowning in data chaos. Their sales team was burning 15+ hours every week manually pulling reports from four different platforms:
+## The decision
 
-- **Salesforce** for lead tracking
-- **Google Ads** for search performance  
-- **TikTok Business** for social media ROI
-- **Meta Ads** for Facebook campaigns
+Which channel deserves further investigation before a marketing team reallocates spend?
 
-**The real problem?** Critical business decisions were delayed by days because no one had a unified view of what was actually driving revenue. Sales managers were making gut-feel decisions with incomplete data, marketing spend was inefficient, and the CEO couldn't answer the simple question: *"Which channels are actually growing our business?"*
+I started by checking the denominators and the relationship between the two supplied files. The result is a bounded cost-per-lead comparison and a reconciliation issue to resolve before connecting marketing to sales outcomes.
 
-**Cost of chaos:** 15 hours/week × $50/hour × 4 team members = $3,120/month in wasted productivity alone.
+![Recorded spend per lead by channel in simulated data. LinkedIn Ads 70.00, Google Ads 61.81, TikTok Ads 46.29, Facebook Ads 35.77, Email Marketing 2.14, Organic Search 0.00. Currency unspecified; zero recorded spend excludes unrecorded costs.](channel_cost_per_lead.png)
 
----
+## What the sample supports
 
-### ⚡ **The Transformation** (Solution)
+Across 108 channel-month rows, recorded spend totals **435,579.51** and recorded leads total **14,607**. Dividing the totals gives **29.82 currency units per lead**. Averaging each row's spend-per-lead ratio equally gives **36.57**, because a small row receives the same weight as a large one.
 
-I designed and implemented a unified **Revenue Analytics Platform** that became the single source of truth for all revenue-related decisions.
+| Channel | Recorded spend | Recorded leads | Spend per lead |
+|---|---:|---:|---:|
+| LinkedIn Ads | 87,011.60 | 1,243 | 70.00 |
+| Google Ads | 150,506.26 | 2,435 | 61.81 |
+| TikTok Ads | 76,849.24 | 1,660 | 46.29 |
+| Facebook Ads | 112,633.24 | 3,149 | 35.77 |
+| Email Marketing | 8,579.17 | 4,006 | 2.14 |
+| Organic Search | 0.00 | 2,114 | 0.00 |
 
-**Phase 1: Data Integration (Week 1-2)**
-- Built automated ETL pipeline using **Python** and **Pandas**
-- Connected APIs from Salesforce, Google Ads, TikTok Business, and Meta
-- Established data warehouse in **SQL Server** with proper schema design
-- Implemented data quality checks ensuring 97%+ accuracy
+Currency is not explicitly documented in the CSV. The ratio uses the supplied `Ad_Spend` and `Leads_Generated` fields without assuming a currency or that lead counts represent deduplicated people.
 
-**Phase 2: Intelligence Layer (Week 3-4)**  
-- Developed real-time **Power BI** dashboards with role-based access
-- Created automated alert system for performance anomalies
-- Built predictive models for lead scoring and revenue forecasting
-- Established automated reporting cadence (daily/weekly/monthly)
+This is a lead-cost comparison. Email and organic leads may represent different audiences, intent and costs. Zero recorded organic ad spend does not mean content, labour or acquisition are free. Customer outcomes and attribution are needed before recommending a budget change.
 
-**Phase 3: User Adoption (Week 5-6)**
-- Trained sales and marketing teams on new workflows
-- Documented processes and created self-service capabilities
-- Implemented feedback loop for continuous improvement
+## Three checks that change the interpretation
 
----
+1. **Name the denominator.** The marketing file includes `Cost_Per_Acquisition`, but no acquired-customer count or definition of acquisition. I recomputed recorded spend per lead instead of presenting that field as customer acquisition cost. In 71 of 108 rows, the supplied value differs from recomputed spend per lead by more than 0.01. The generation method is undocumented, so I retain the source field and report the discrepancy.
+2. **Reconcile totals before joining.** Marketing has one row per month and channel. Sales has one row per day, with no channel key. Aggregating both to month shows different lead totals in all 18 months. January 2023 contains 632 marketing leads and 5,457 sales leads. Different definitions or sample generation might explain this; the files do not. A raw month join would also repeat monthly spend for every matching day.
+3. **Separate phase labels from evidence of impact.** The files have `Before` and `After` labels. Simulated observations cannot establish that a platform caused higher revenue, saved reporting hours or generated an ROI. Daily revenue also does not establish monthly recurring revenue without subscription and recognition definitions.
 
-### 🚀 **The Results That Matter** (Impact)
+## Data and method
 
-**Within 90 days of implementation:**
+| File | Grain and coverage | Key limitations |
+|---|---|---|
+| [Marketing CSV](data/revenue_analytics_marketing_data.csv) | 108 rows, six channels across 18 months, January 2023 to June 2024 | No customer IDs, acquisition counts, attribution rules or documented currency |
+| [Sales CSV](data/revenue_analytics_sales_data.csv) | 547 daily rows, January 1, 2023 to June 30, 2024 | No channel, lead/customer join key or documented conversion denominator |
 
-#### Revenue Growth: +18%
-- Monthly recurring revenue increased from $180K to $212K
-- Average deal size grew 12% due to better lead qualification
-- Sales cycle shortened by 8 days through improved pipeline visibility
+The analysis uses Python's standard library and SQLite. Checks cover unique source grains, nonempty fields, nonnegative marketing spend and counts, rate ranges, daily date coverage, six channel rows per month, and agreement between channel aggregates and source totals. Structural checks pass; the semantic gaps above remain open.
 
-#### Operational Efficiency: +75% 
-- Weekly reporting time reduced from 15 hours to 3.5 hours
-- Real-time dashboards eliminated manual report requests
-- Data-driven decisions made 5x faster than before
+For a real CRM integration, I would establish the lead/customer identity, source rule, reporting timezone, stage definition and acquisition event with the business owner. I would then deduplicate and reconcile source counts before calculating attribution or conversion. That integration is a proposed next step, not an implemented component of this demonstration.
 
-#### Marketing Optimization: 25% Better ROI
-- Cost per acquisition decreased from $58 to $43 across all channels
-- Identified top-performing campaigns for budget reallocation  
-- Eliminated $12K/month in underperforming ad spend
+## Reproduce or inspect
 
-#### Team Transformation
-- Sales team confidence increased (more data-driven conversations)
-- Marketing team could optimize campaigns in real-time
-- Executive team gained strategic visibility into growth drivers
+From this directory, with Python 3:
 
----
-
-### 🛠 **Technical Excellence**
-
-**Architecture:**
-```
-Data Sources → ETL Pipeline → Data Warehouse → BI Layer → User Interface
-(4 platforms) → (Python/APIs) → (SQL Server) → (Power BI) → (Web Dashboards)
+```sh
+python run_analysis.py
 ```
 
-**Key Features:**
-- **Automated data refresh** every 15 minutes
-- **Custom KPI calculations** for business-specific metrics
-- **Mobile-responsive dashboards** for executives on-the-go
-- **Data governance framework** ensuring consistency and accuracy
+No third-party packages are needed for the analysis. To regenerate the optional chart, install matplotlib and run `python run_analysis.py --chart`.
 
-**Tech Stack:**
-- **Backend:** Python (Pandas, SQLAlchemy, Requests)
-- **Database:** SQL Server with optimized indexing
-- **Visualization:** Power BI with embedded analytics
-- **Infrastructure:** Automated deployment with error handling
+- [Runnable analysis and checks](run_analysis.py)
+- [Channel aggregation SQL](channel_metrics.sql)
+- [Calculated channel table](channel_metrics.csv)
+- [Monthly lead reconciliation](monthly_reconciliation.csv)
+- [Results, limitations and source file hashes](summary.json)
+- [Browser-readable chart](channel_cost_per_lead.png)
 
----
+The original [Power BI file and dashboard images](visualizations/) are retained as earlier visualization artifacts. Their original ROI and impact labels are not validated by this review; the recomputed table and chart above are the current evidence. No API integration, deployed SQL Server warehouse, predictive model or live refresh is demonstrated by the files in this case.
 
-### 💰 **ROI Calculation**
+Reviewed September 11, 2026 against source CSVs from repository commit `f8ac07bc742a56c83462bffac383889808e0dad4`. This revision replaces the earlier client-impact narrative with reproducible sample findings.
 
-**Investment:** 120 hours of development @ $75/hour = $9,000
+## Discuss a reporting question
 
-**Monthly Savings:**
-- Reduced manual reporting: $3,120/month  
-- Marketing efficiency gains: $2,400/month
-- Faster decision-making value: $1,800/month
-- **Total monthly benefit:** $7,320
-
-**Payback period:** 1.2 months  
-**Annual ROI:** 877%
-
----
-
-### 🎯 **Why This Matters for Your SMB**
-
-**If your business has any of these symptoms:**
-- Multiple data sources that don't talk to each other
-- Weekly meetings spent discussing "what the numbers really mean"  
-- Marketing and sales teams pointing fingers about lead quality
-- Executives making decisions based on gut feel instead of data
-- Reporting takes longer than acting on insights
-
-**Then you need a Revenue Analytics Platform.**
-
-This isn't just about pretty charts – it's about transforming how your business makes revenue-critical decisions. Every day without unified analytics is money left on the table.
-
----
-*Ready to turn your data chaos into revenue growth? Let's talk.*
-
+I work on marketing and CRM analytics, reporting and data quality. If your team needs to reconcile campaign and CRM numbers, [message me on LinkedIn](https://www.linkedin.com/in/kelvinwangechi/) with the decision you need the analysis to support.

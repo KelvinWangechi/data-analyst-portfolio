@@ -1,0 +1,27 @@
+{
+  "data_origin": "Source data/README.md describes anonymized simulated data for visualizations.",
+  "period": [
+    "2023-01-01",
+    "2024-06-30"
+  ],
+  "marketing_rows": 108,
+  "sales_rows": 547,
+  "recorded_spend": "435579.51",
+  "recorded_leads": 14607,
+  "recorded_spend_per_lead": "29.82",
+  "unweighted_mean_of_row_spend_per_lead": 36.57,
+  "supplied_cpa_disagrees_with_spend_per_lead_by_more_than_one_cent_rows": 71,
+  "months_with_different_lead_totals": 18,
+  "structural_checks": "Passed: unique grains, nonempty values, nonnegative marketing counts/spend, rates in range, complete daily coverage, six channel rows per month, aggregate reconciliation.",
+  "files_sha256": {
+    "revenue_analytics_marketing_data.csv": "ae6381cc77c3f496e47a4fe3254931cf857fd9516caa077e337a67972486eadb",
+    "revenue_analytics_sales_data.csv": "e90595e4937211ec24b80f47e0a2891145a88a6853a257cf653214cd38534001"
+  },
+  "limitations": [
+    "Currency not explicitly documented.",
+    "No customer acquisition counts, customer IDs or attribution keys.",
+    "Sales daily lead totals and marketing lead totals have no documented reconciliation.",
+    "Zero recorded organic ad spend does not establish zero total acquisition cost.",
+    "Before/After labels do not establish causal impact."
+  ]
+}
