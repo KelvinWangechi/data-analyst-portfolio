@@ -1,6 +1,6 @@
 # Revenue analytics: check the metric before moving the budget
 
-**A portfolio demonstration using simulated data.** The source [data note](data/README.md) describes these as anonymized simulated data for visualizations. These findings describe the sample, not a real client's revenue, savings or return on investment.
+**A portfolio demonstration using simulated marketing and sales data.** [Dataset description](data/README.md).
 
 ## The decision
 
@@ -61,9 +61,9 @@ No third-party packages are needed for the analysis. To regenerate the optional 
 - [Results, limitations and source file hashes](summary.json)
 - [Browser-readable chart](channel_cost_per_lead.png)
 
-The original [Power BI file and dashboard images](visualizations/) are retained as earlier visualization artifacts. Their original ROI and impact labels are not validated by this review; the recomputed table and chart above are the current evidence. No API integration, deployed SQL Server warehouse, predictive model or live refresh is demonstrated by the files in this case.
+## Scope
 
-Reviewed September 11, 2026 against source CSVs from repository commit `f8ac07bc742a56c83462bffac383889808e0dad4`. This revision replaces the earlier client-impact narrative with reproducible sample findings.
+This example covers CSV analysis, SQL aggregation and reporting checks. It runs locally without live CRM connections. The [Power BI visualizations](visualizations/) explore the same simulated scenario; their ROI and business-impact figures are illustrative assumptions, not measured client outcomes.
 
 ## Discuss a reporting question
 
