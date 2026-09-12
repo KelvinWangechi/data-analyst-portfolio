@@ -602,6 +602,26 @@
   @media(max-width:400px) { .metrics-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero-cta { flex-direction:row; } .hero-cta .btn-primary,.hero-cta .btn-ghost { width:auto; flex:0 1 auto; } }
   .hero-text { container-type:inline-size; width:100%; }
   h1 { font-size:clamp(2rem,12cqw,7.5rem); }
+  [hidden] { display:none !important; }
+  #contact { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(2rem,5vw,5rem); align-items:center; text-align:left; padding-block:4rem; }
+  .contact-headline { font-size:clamp(2rem,4vw,4.5rem); line-height:1.16; }
+  .contact-intro { font-size:1.15rem; color:var(--text-muted); max-width:42ch; margin:1rem 0 0; line-height:1.6; }
+  .contact-panel { width:100%; max-width:640px; padding:clamp(1.25rem,3vw,2rem); background:var(--surface); text-align:left; }
+  .contact-panel h3 { font-size:1.25rem; line-height:1.4; }
+  .contact-hint { color:var(--text-muted); font-size:1rem; line-height:1.6; margin:.5rem 0 1.25rem; }
+  .contact-providers { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+  .contact-providers a { text-align:center; min-height:48px; display:flex; align-items:center; justify-content:center; }
+  .contact-panel .btn-ghost { background:transparent; border-color:var(--text-muted); }
+  .contact-email-label { display:block; margin:1.75rem 0 .5rem; color:var(--text-muted); font-size:.95rem; }
+  .contact-email-row { display:flex; align-items:stretch; gap:.5rem; }
+  .contact-email { font-family:var(--font-body); font-size:1.08rem; min-width:0; flex:1; width:100%; padding:.75rem; border:1px solid var(--border); background:var(--bg); color:var(--text); border-radius:0; }
+  .contact-email:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+  .contact-email-row button { min-height:48px; flex:0 0 auto; }
+  .contact-status { min-height:1.6em; color:var(--text-muted); font-size:.95rem; line-height:1.6; margin-top:.5rem; }
+  .contact-secondary { display:flex; flex-wrap:wrap; gap:1rem 1.5rem; margin-top:1.25rem; }
+  .contact-secondary a { color:var(--text); text-underline-offset:4px; padding:.35rem 0; }
+  @media(max-width:900px) { #contact { grid-template-columns:1fr; gap:1.5rem; padding-block:3rem; } .contact-headline { margin-bottom:1rem; } }
+  @media(max-width:480px) { .contact-providers { grid-template-columns:1fr; } .contact-email-row { flex-direction:column; } .contact-email-row button { width:100%; } .contact-intro { font-size:1.05rem; } }
 </style>
 </head>
 <body>
@@ -723,16 +743,27 @@
 <!-- CONTACT -->
 <section id="contact">
 
-  <div class="contact-headline reveal">
-    What does your<br><span class="muted">next decision need?</span>
+  <div class="contact-heading">
+    <h2 class="contact-headline">Have a role<br>or project in mind?</h2>
+    <p class="contact-intro">Open to remote data analyst and Salesforce administrator roles, and analytics consulting.</p>
   </div>
-  <p style="font-family:var(--font-mono);color:var(--text-muted);font-size:0.9rem;margin-top:1rem;">
-    Open to remote data analyst and Salesforce administrator roles, and analytics consulting.
-  </p>
-  <div class="contact-links">
-    <a href="mailto:kingoriwa@gmail.com" class="btn-primary">Get in Touch</a>
-    <a href="https://www.linkedin.com/in/kelvinwangechi" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
-    <a href="https://github.com/KelvinWangechi" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
+  <div class="contact-panel">
+    <h3>Start a conversation</h3>
+    <p class="contact-hint">Choose your email service. My address and a subject are filled in, so you can go straight to your message.</p>
+    <div class="contact-providers">
+      <a class="btn-primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=kingoriwa%40gmail.com&amp;su=Hello%20from%20your%20portfolio&amp;body=Hi%20Kelvin%2C%0A%0A" target="_blank" rel="noopener noreferrer">Write in Gmail</a>
+      <a class="btn-ghost" href="https://outlook.office.com/mail/deeplink/compose?to=kingoriwa%40gmail.com&amp;subject=Hello%20from%20your%20portfolio&amp;body=Hi%20Kelvin%2C%0A%0A" target="_blank" rel="noopener noreferrer">Write in Outlook</a>
+    </div>
+    <label class="contact-email-label" for="contact-email">Prefer another email service?</label>
+    <div class="contact-email-row">
+      <input class="contact-email" id="contact-email" type="text" value="kingoriwa@gmail.com" readonly aria-label="Kelvin's email address" spellcheck="false">
+      <button type="button" class="btn-ghost" id="copy-email" hidden>Copy email</button>
+    </div>
+    <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+    <div class="contact-secondary">
+      <a href="https://www.linkedin.com/in/kelvinwangechi/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+      <a href="https://outlook.live.com/mail/0/deeplink/compose?to=kingoriwa%40gmail.com&amp;subject=Hello%20from%20your%20portfolio&amp;body=Hi%20Kelvin%2C%0A%0A" target="_blank" rel="noopener noreferrer">Use Outlook.com / Hotmail</a>
+    </div>
   </div>
 </section>
 
@@ -780,6 +811,32 @@
   });
   window.matchMedia('(min-width:1025px)').addEventListener('change', event => {
     if (event.matches) closeDrawer();
+  });
+  const emailField = document.getElementById('contact-email');
+  const copyEmail = document.getElementById('copy-email');
+  const contactStatus = document.getElementById('contact-status');
+  let copyStatusTimer;
+  copyEmail.hidden = false;
+  emailField.addEventListener('click', () => emailField.select());
+  copyEmail.addEventListener('click', async () => {
+    clearTimeout(copyStatusTimer);
+    copyEmail.disabled = true;
+    copyEmail.textContent = 'Copying…';
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(emailField.value);
+      copyEmail.textContent = 'Email copied';
+      contactStatus.textContent = 'Email copied. Paste it into your preferred email service.';
+      copyStatusTimer = setTimeout(() => { copyEmail.textContent = 'Copy email'; }, 3000);
+    } catch {
+      emailField.focus();
+      emailField.select();
+      emailField.setSelectionRange(0, emailField.value.length);
+      copyEmail.textContent = 'Copy email';
+      contactStatus.textContent = 'Select and copy the email address above, or use one of the email links.';
+    } finally {
+      copyEmail.disabled = false;
+    }
   });
 </script>
 </body>
