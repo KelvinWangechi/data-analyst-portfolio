@@ -6,6 +6,7 @@ I help teams understand where growth comes from, where reporting breaks down, an
 
 | Business question | What you can inspect |
 |---|---|
+| [What did “too expensive” actually mean?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/) | Open feedback, evidence-linked themes, R analysis, SQL reconciliation and an interactive coding explorer |
 | [Would you cut the channel costing 70 per lead?](project-showcases/revenue-analytics-platform/) | SQL aggregation, channel economics, monthly reconciliation and a reproducible analysis |
 | [Which process deserves attention first?](project-showcases/operational-efficiency-optimization/) | Process comparisons, workload questions, a chart and an employee-record quality check |
 

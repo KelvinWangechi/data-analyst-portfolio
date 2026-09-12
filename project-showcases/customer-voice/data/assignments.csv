@@ -1,0 +1,435 @@
+response_id,theme_id,sentiment,evidence_quote
+R001,pause_control,negative,I need to skip a week without cancelling everything.
+R001,food_quality,positive,The meals taste good.
+R002,value,negative,"For what arrives, I do not see the value."
+R003,affordability,negative,"I need to spend less on food, even if the service stays the same."
+R004,value,negative,I can afford it; I just do not think it is worth the price.
+R005,value,negative,"For what arrives, I do not see the value."
+R005,pause_control,negative,I could not stop next week's box in time.
+R006,food_quality,negative,The last meals tasted bland.
+R007,value,negative,It is not about having the money. I am not getting enough out of it.
+R008,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R008,billing_clarity,negative,The extra charge appeared only at checkout.
+R008,food_quality,positive,The meals taste good.
+R009,affordability,negative,My food budget is smaller now and this no longer fits.
+R010,portion_size,negative,There is not enough food in each tray.
+R010,food_quality,positive,The meals taste good.
+R011,portion_size,negative,Two small portions do not cover dinner for us.
+R011,value,negative,Paying for food I do not end up eating feels like a waste.
+R011,food_quality,positive,The meals taste good.
+R012,portion_size,negative,There is not enough food in each tray.
+R012,billing_clarity,negative,The amount taken from my account was a surprise.
+R012,food_quality,positive,The meals taste good.
+R014,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R015,portion_size,negative,I end up cooking something extra because the meals are small.
+R015,billing_clarity,negative,The extra charge appeared only at checkout.
+R015,food_quality,positive,The meals taste good.
+R016,food_quality,negative,The quality changes too much between orders.
+R016,affordability,negative,"I need to spend less on food, even if the service stays the same."
+R017,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R018,value,negative,"For what arrives, I do not see the value."
+R018,packaging,negative,The lid leaked inside the bag.
+R018,food_quality,positive,The meals taste good.
+R019,value,negative,I can afford it; I just do not think it is worth the price.
+R019,billing_clarity,negative,The amount taken from my account was a surprise.
+R020,value,negative,"For what arrives, I do not see the value."
+R020,billing_clarity,negative,I could not tell why this week's total was higher.
+R021,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R021,food_quality,positive,The meals taste good.
+R022,value,negative,Paying for food I do not end up eating feels like a waste.
+R023,food_quality,negative,The food was not fresh by the time I opened it.
+R024,affordability,negative,I cannot fit the weekly price into my budget.
+R025,affordability,negative,A lower weekly price would help me stay.
+R025,food_quality,positive,The meals taste good.
+R026,portion_size,negative,The portions leave me hungry.
+R027,food_quality,negative,The quality changes too much between orders.
+R028,affordability,negative,I cannot fit the weekly price into my budget.
+R029,value,negative,I expected this to save more effort than it does.
+R030,support,negative,I had to explain the same problem to three people.
+R031,food_quality,negative,The vegetables arrived soggy.
+R032,portion_size,negative,The portions leave me hungry.
+R033,packaging,negative,Less wrapping would make this easier to use.
+R033,food_quality,positive,The meals taste good.
+R035,delivery_flexibility,negative,A Thursday option would work better than Tuesday.
+R036,delivery_reliability,negative,The delivery did not arrive when you said it would.
+R036,food_quality,positive,The meals taste good.
+R037,affordability,negative,"I like it, but I cannot afford this every week."
+R038,pause_control,negative,Make it easier to pause when I am away.
+R039,pause_control,negative,I could not stop next week's box in time.
+R039,food_quality,positive,The meals taste good.
+R040,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R040,packaging,negative,The packaging is difficult to recycle.
+R041,affordability,negative,I cannot fit the weekly price into my budget.
+R041,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R041,food_quality,positive,The meals taste good.
+R042,value,negative,It costs more than the benefit I get from it.
+R042,food_quality,positive,The meals taste good.
+R043,value,negative,It costs more than the benefit I get from it.
+R043,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R043,food_quality,positive,The meals taste good.
+R044,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R045,pause_control,negative,I need to skip a week without cancelling everything.
+R045,portion_size,negative,The portions leave me hungry.
+R045,food_quality,positive,The meals taste good.
+R046,affordability,negative,My food budget is smaller now and this no longer fits.
+R046,food_quality,positive,The meals taste good.
+R047,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R048,value,negative,I expected this to save more effort than it does.
+R049,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R049,support,negative,Nobody replied when I asked for help.
+R050,delivery_reliability,negative,I waited at home and the order never came.
+R050,support,negative,I had to explain the same problem to three people.
+R053,portion_size,negative,The portions leave me hungry.
+R054,food_quality,negative,The vegetables arrived soggy.
+R055,pause_control,negative,I could not stop next week's box in time.
+R057,billing_clarity,negative,Please show the delivery fee before I choose the meals.
+R058,affordability,negative,My food budget is smaller now and this no longer fits.
+R059,value,negative,It is not about having the money. I am not getting enough out of it.
+R059,support,negative,Support took days to answer a simple question.
+R059,food_quality,positive,The meals taste good.
+R061,support,negative,Nobody replied when I asked for help.
+R061,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R062,affordability,negative,A lower weekly price would help me stay.
+R063,affordability,negative,A lower weekly price would help me stay.
+R064,delivery_reliability,negative,I waited at home and the order never came.
+R065,pause_control,negative,I could not stop next week's box in time.
+R065,food_quality,positive,The meals taste good.
+R066,value,negative,It costs more than the benefit I get from it.
+R067,pause_control,negative,I need to skip a week without cancelling everything.
+R067,food_quality,positive,The meals taste good.
+R068,affordability,negative,I cannot fit the weekly price into my budget.
+R069,affordability,negative,I cannot fit the weekly price into my budget.
+R070,pause_control,negative,Make it easier to pause when I am away.
+R070,portion_size,negative,There is not enough food in each tray.
+R071,value,negative,It is not about having the money. I am not getting enough out of it.
+R072,value,negative,"For what arrives, I do not see the value."
+R073,value,negative,Paying for food I do not end up eating feels like a waste.
+R073,food_quality,positive,The meals taste good.
+R074,portion_size,negative,Two small portions do not cover dinner for us.
+R075,affordability,negative,I cannot fit the weekly price into my budget.
+R075,food_quality,positive,The meals taste good.
+R076,affordability,negative,I cannot fit the weekly price into my budget.
+R077,value,negative,Paying for food I do not end up eating feels like a waste.
+R077,food_quality,positive,The meals taste good.
+R078,value,negative,I can afford it; I just do not think it is worth the price.
+R079,value,negative,I expected this to save more effort than it does.
+R079,food_quality,negative,The last meals tasted bland.
+R080,billing_clarity,negative,The amount taken from my account was a surprise.
+R080,food_quality,positive,The meals taste good.
+R081,delivery_flexibility,negative,I cannot change the day once my rota comes out.
+R081,delivery_reliability,negative,Some weeks it comes on time and some weeks it does not.
+R081,food_quality,positive,The meals taste good.
+R082,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R083,delivery_reliability,negative,My box was late twice this month.
+R084,pause_control,negative,Let me stop and restart without starting a new subscription.
+R084,value,negative,It costs more than the benefit I get from it.
+R084,food_quality,positive,The meals taste good.
+R085,billing_clarity,negative,The extra charge appeared only at checkout.
+R085,delivery_reliability,negative,My box was late twice this month.
+R085,food_quality,positive,The meals taste good.
+R087,affordability,negative,My food budget is smaller now and this no longer fits.
+R088,affordability,negative,My food budget is smaller now and this no longer fits.
+R089,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R089,support,negative,I could not find anyone to help with my order.
+R089,food_quality,positive,The meals taste good.
+R090,affordability,negative,A lower weekly price would help me stay.
+R090,food_quality,positive,The meals taste good.
+R091,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R091,food_quality,positive,The meals taste good.
+R093,portion_size,negative,There is not enough food in each tray.
+R094,portion_size,negative,A bigger serving would make a difference.
+R094,value,negative,It costs more than the benefit I get from it.
+R095,affordability,negative,I cannot fit the weekly price into my budget.
+R096,affordability,negative,"I like it, but I cannot afford this every week."
+R097,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R099,billing_clarity,negative,I want to know the full cost before I commit.
+R100,pause_control,negative,Let me stop and restart without starting a new subscription.
+R100,delivery_reliability,negative,My box was late twice this month.
+R101,value,negative,It costs more than the benefit I get from it.
+R101,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R102,portion_size,negative,There is not enough food in each tray.
+R103,affordability,negative,"I like it, but I cannot afford this every week."
+R104,value,negative,"For what arrives, I do not see the value."
+R104,food_quality,positive,The meals taste good.
+R105,pause_control,negative,The skip option is buried and I missed it again.
+R105,delivery_flexibility,negative,A Thursday option would work better than Tuesday.
+R106,delivery_reliability,negative,The delivery did not arrive when you said it would.
+R107,portion_size,negative,The portions leave me hungry.
+R107,support,negative,Getting a useful answer from support takes too long.
+R107,food_quality,positive,The meals taste good.
+R108,value,negative,It costs more than the benefit I get from it.
+R109,value,negative,"For what arrives, I do not see the value."
+R109,packaging,negative,Less wrapping would make this easier to use.
+R110,pause_control,negative,I need to skip a week without cancelling everything.
+R110,food_quality,positive,The meals taste good.
+R111,value,negative,It is not about having the money. I am not getting enough out of it.
+R112,delivery_flexibility,negative,A Thursday option would work better than Tuesday.
+R113,support,negative,Getting a useful answer from support takes too long.
+R113,billing_clarity,negative,The amount taken from my account was a surprise.
+R114,affordability,negative,"I like it, but I cannot afford this every week."
+R115,value,negative,Paying for food I do not end up eating feels like a waste.
+R115,food_quality,positive,The meals taste good.
+R116,value,negative,I expected this to save more effort than it does.
+R116,food_quality,positive,The meals taste good.
+R117,billing_clarity,negative,I could not tell why this week's total was higher.
+R117,support,negative,Support took days to answer a simple question.
+R118,pause_control,negative,I need to skip a week without cancelling everything.
+R118,food_quality,positive,The meals taste good.
+R119,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R120,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R120,food_quality,negative,The last meals tasted bland.
+R121,delivery_reliability,negative,My box was late twice this month.
+R122,affordability,negative,My food budget is smaller now and this no longer fits.
+R122,food_quality,positive,The meals taste good.
+R123,delivery_reliability,negative,My box was late twice this month.
+R123,portion_size,negative,There is not enough food in each tray.
+R124,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R124,food_quality,positive,The meals taste good.
+R125,delivery_flexibility,negative,A Thursday option would work better than Tuesday.
+R126,portion_size,negative,The portions leave me hungry.
+R127,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R128,affordability,negative,"I like it, but I cannot afford this every week."
+R129,pause_control,negative,I could not stop next week's box in time.
+R131,affordability,negative,A lower weekly price would help me stay.
+R132,portion_size,negative,There is not enough food in each tray.
+R132,packaging,negative,Less wrapping would make this easier to use.
+R133,delivery_reliability,negative,My box was late twice this month.
+R133,packaging,negative,I wish the trays could be returned and reused.
+R134,affordability,negative,"I need to spend less on food, even if the service stays the same."
+R134,food_quality,negative,The rice was dry and the sauce was watery.
+R135,value,negative,It is not about having the money. I am not getting enough out of it.
+R135,food_quality,positive,The meals taste good.
+R136,pause_control,negative,I need to skip a week without cancelling everything.
+R137,portion_size,negative,There is not enough food in each tray.
+R137,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R137,food_quality,positive,The meals taste good.
+R138,pause_control,negative,Let me stop and restart without starting a new subscription.
+R138,food_quality,positive,The meals taste good.
+R139,packaging,negative,The container arrived cracked.
+R141,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R141,delivery_reliability,negative,A reliable arrival time would make planning dinner easier.
+R141,food_quality,positive,The meals taste good.
+R142,affordability,negative,A lower weekly price would help me stay.
+R143,support,negative,I could not find anyone to help with my order.
+R144,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R145,delivery_reliability,negative,A reliable arrival time would make planning dinner easier.
+R145,portion_size,negative,There is not enough food in each tray.
+R146,pause_control,negative,I only want meals in the weeks I am home.
+R147,pause_control,negative,Make it easier to pause when I am away.
+R148,affordability,negative,A lower weekly price would help me stay.
+R149,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R150,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R150,pause_control,negative,Let me stop and restart without starting a new subscription.
+R151,delivery_reliability,negative,My box was late twice this month.
+R152,value,negative,It is not about having the money. I am not getting enough out of it.
+R153,value,negative,Paying for food I do not end up eating feels like a waste.
+R153,food_quality,positive,The meals taste good.
+R154,affordability,negative,"I like it, but I cannot afford this every week."
+R154,food_quality,negative,The rice was dry and the sauce was watery.
+R155,delivery_reliability,negative,A reliable arrival time would make planning dinner easier.
+R156,portion_size,negative,The amount of food is less than I expected.
+R157,food_quality,negative,The last meals tasted bland.
+R158,affordability,negative,"I like it, but I cannot afford this every week."
+R158,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R160,portion_size,negative,The portions leave me hungry.
+R160,support,negative,I could not find anyone to help with my order.
+R161,affordability,negative,I cannot fit the weekly price into my budget.
+R161,pause_control,negative,Make it easier to pause when I am away.
+R162,delivery_reliability,negative,Some weeks it comes on time and some weeks it does not.
+R163,delivery_reliability,negative,The delivery did not arrive when you said it would.
+R163,food_quality,positive,The meals taste good.
+R164,billing_clarity,negative,The amount taken from my account was a surprise.
+R165,value,negative,I expected this to save more effort than it does.
+R165,food_quality,positive,The meals taste good.
+R166,affordability,negative,My food budget is smaller now and this no longer fits.
+R166,pause_control,negative,I could not stop next week's box in time.
+R166,food_quality,positive,The meals taste good.
+R167,portion_size,negative,There is not enough food in each tray.
+R168,value,negative,It costs more than the benefit I get from it.
+R170,value,negative,It costs more than the benefit I get from it.
+R171,affordability,negative,I cannot fit the weekly price into my budget.
+R171,packaging,negative,The container arrived cracked.
+R172,delivery_flexibility,negative,I cannot change the day once my rota comes out.
+R172,delivery_reliability,negative,My box was late twice this month.
+R172,food_quality,positive,The meals taste good.
+R174,pause_control,negative,I could not stop next week's box in time.
+R174,delivery_reliability,negative,A reliable arrival time would make planning dinner easier.
+R175,packaging,negative,The lid leaked inside the bag.
+R176,affordability,negative,My food budget is smaller now and this no longer fits.
+R176,food_quality,positive,The meals taste good.
+R177,packaging,negative,There is too much plastic around each meal.
+R179,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R179,pause_control,negative,I need to skip a week without cancelling everything.
+R180,value,negative,It costs more than the benefit I get from it.
+R181,delivery_reliability,negative,My box was late twice this month.
+R183,affordability,negative,A lower weekly price would help me stay.
+R184,portion_size,negative,I end up cooking something extra because the meals are small.
+R185,food_quality,negative,The vegetables arrived soggy.
+R185,value,negative,"For what arrives, I do not see the value."
+R186,value,negative,"For what arrives, I do not see the value."
+R187,pause_control,negative,I could not stop next week's box in time.
+R188,pause_control,negative,I only want meals in the weeks I am home.
+R189,affordability,negative,"I like it, but I cannot afford this every week."
+R190,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R191,portion_size,negative,The amount of food is less than I expected.
+R192,value,negative,I can afford it; I just do not think it is worth the price.
+R193,food_quality,negative,The rice was dry and the sauce was watery.
+R194,value,negative,I expected this to save more effort than it does.
+R194,food_quality,positive,The meals taste good.
+R196,delivery_reliability,negative,I waited at home and the order never came.
+R196,food_quality,negative,The last meals tasted bland.
+R197,affordability,negative,"I like it, but I cannot afford this every week."
+R198,support,negative,I had to explain the same problem to three people.
+R199,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R199,portion_size,negative,Two small portions do not cover dinner for us.
+R200,billing_clarity,negative,The amount taken from my account was a surprise.
+R201,billing_clarity,negative,The amount taken from my account was a surprise.
+R201,food_quality,positive,The meals taste good.
+R203,value,negative,Paying for food I do not end up eating feels like a waste.
+R203,delivery_reliability,negative,Some weeks it comes on time and some weeks it does not.
+R204,food_quality,negative,The rice was dry and the sauce was watery.
+R204,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R205,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R205,value,negative,"For what arrives, I do not see the value."
+R205,food_quality,positive,The meals taste good.
+R206,affordability,negative,A lower weekly price would help me stay.
+R206,delivery_reliability,negative,The delivery did not arrive when you said it would.
+R206,food_quality,positive,The meals taste good.
+R207,pause_control,negative,The skip option is buried and I missed it again.
+R207,affordability,negative,"I like it, but I cannot afford this every week."
+R208,billing_clarity,negative,I could not tell why this week's total was higher.
+R208,food_quality,positive,The meals taste good.
+R209,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R209,food_quality,positive,The meals taste good.
+R210,value,negative,It is not about having the money. I am not getting enough out of it.
+R210,food_quality,positive,The meals taste good.
+R211,food_quality,negative,The last meals tasted bland.
+R212,affordability,negative,"I like it, but I cannot afford this every week."
+R213,pause_control,negative,I need to skip a week without cancelling everything.
+R213,portion_size,negative,The portions leave me hungry.
+R214,delivery_flexibility,negative,I cannot change the day once my rota comes out.
+R214,affordability,negative,I cannot fit the weekly price into my budget.
+R215,packaging,negative,The container arrived cracked.
+R215,billing_clarity,negative,The amount taken from my account was a surprise.
+R216,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R217,portion_size,negative,There is not enough food in each tray.
+R219,affordability,negative,"I like it, but I cannot afford this every week."
+R220,portion_size,negative,A bigger serving would make a difference.
+R221,food_quality,negative,The food was not fresh by the time I opened it.
+R222,billing_clarity,negative,I want to know the full cost before I commit.
+R223,pause_control,negative,Make it easier to pause when I am away.
+R223,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R224,pause_control,negative,I need to skip a week without cancelling everything.
+R225,delivery_flexibility,negative,A Thursday option would work better than Tuesday.
+R225,food_quality,positive,The meals taste good.
+R226,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R226,portion_size,negative,The portions leave me hungry.
+R226,food_quality,positive,The meals taste good.
+R227,affordability,negative,"I like it, but I cannot afford this every week."
+R228,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R228,food_quality,positive,The meals taste good.
+R229,affordability,negative,"I need to spend less on food, even if the service stays the same."
+R229,packaging,negative,I wish the trays could be returned and reused.
+R229,food_quality,positive,The meals taste good.
+R230,food_quality,negative,The rice was dry and the sauce was watery.
+R231,affordability,negative,A lower weekly price would help me stay.
+R232,pause_control,negative,The skip option is buried and I missed it again.
+R233,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R233,pause_control,negative,I could not stop next week's box in time.
+R234,delivery_flexibility,negative,The fixed delivery slot clashes with work.
+R235,food_quality,negative,The quality changes too much between orders.
+R236,value,negative,It is not about having the money. I am not getting enough out of it.
+R237,delivery_reliability,negative,My box was late twice this month.
+R239,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R239,food_quality,negative,The last meals tasted bland.
+R240,value,negative,Paying for food I do not end up eating feels like a waste.
+R241,affordability,negative,"I like it, but I cannot afford this every week."
+R241,food_quality,positive,The meals taste good.
+R242,food_quality,negative,The food was not fresh by the time I opened it.
+R242,value,negative,I can afford it; I just do not think it is worth the price.
+R243,affordability,negative,A lower weekly price would help me stay.
+R244,billing_clarity,negative,I could not tell why this week's total was higher.
+R245,pause_control,negative,I need to skip a week without cancelling everything.
+R246,delivery_reliability,negative,The delivery did not arrive when you said it would.
+R246,food_quality,positive,The meals taste good.
+R247,billing_clarity,negative,I want to know the full cost before I commit.
+R248,value,negative,It is not about having the money. I am not getting enough out of it.
+R248,portion_size,negative,The amount of food is less than I expected.
+R249,billing_clarity,negative,The extra charge appeared only at checkout.
+R249,value,negative,It is not about having the money. I am not getting enough out of it.
+R250,value,negative,It costs more than the benefit I get from it.
+R250,food_quality,negative,I want the meals to taste as good as they look.
+R252,pause_control,negative,The skip option is buried and I missed it again.
+R253,value,negative,I can afford it; I just do not think it is worth the price.
+R254,delivery_reliability,negative,A reliable arrival time would make planning dinner easier.
+R254,food_quality,positive,The meals taste good.
+R255,value,negative,It is not about having the money. I am not getting enough out of it.
+R256,value,negative,I expected this to save more effort than it does.
+R256,food_quality,positive,The meals taste good.
+R257,affordability,negative,"I like it, but I cannot afford this every week."
+R257,food_quality,positive,The meals taste good.
+R258,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R258,food_quality,positive,The meals taste good.
+R259,delivery_flexibility,negative,Let me switch the delivery day when my shifts change.
+R259,food_quality,positive,The meals taste good.
+R260,billing_clarity,negative,Please show the delivery fee before I choose the meals.
+R261,delivery_reliability,negative,The delivery did not arrive when you said it would.
+R261,food_quality,positive,The meals taste good.
+R262,portion_size,negative,Two small portions do not cover dinner for us.
+R263,packaging,negative,I wish the trays could be returned and reused.
+R264,delivery_flexibility,negative,A Thursday option would work better than Tuesday.
+R264,packaging,negative,I wish the trays could be returned and reused.
+R265,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R265,food_quality,negative,I want the meals to taste as good as they look.
+R266,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R267,support,negative,I had to explain the same problem to three people.
+R267,delivery_reliability,negative,A reliable arrival time would make planning dinner easier.
+R268,value,negative,It costs more than the benefit I get from it.
+R269,delivery_reliability,negative,I waited at home and the order never came.
+R269,food_quality,positive,The meals taste good.
+R271,support,negative,I had to explain the same problem to three people.
+R271,affordability,negative,A lower weekly price would help me stay.
+R272,value,negative,I expected this to save more effort than it does.
+R273,affordability,negative,"After rent, there is not enough left to keep paying for meals."
+R273,value,negative,"For what arrives, I do not see the value."
+R274,packaging,negative,The packaging is difficult to recycle.
+R275,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R275,portion_size,negative,The amount of food is less than I expected.
+R275,food_quality,positive,The meals taste good.
+R276,food_quality,negative,The last meals tasted bland.
+R277,value,negative,It costs more than the benefit I get from it.
+R278,value,negative,"For what arrives, I do not see the value."
+R279,value,negative,"For what arrives, I do not see the value."
+R279,support,negative,I could not find anyone to help with my order.
+R280,value,negative,It costs more than the benefit I get from it.
+R281,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R282,affordability,negative,"I need to spend less on food, even if the service stays the same."
+R283,pause_control,negative,I could not stop next week's box in time.
+R283,packaging,negative,The packaging is difficult to recycle.
+R284,affordability,negative,I cannot fit the weekly price into my budget.
+R284,food_quality,negative,I want the meals to taste as good as they look.
+R285,pause_control,negative,I could not stop next week's box in time.
+R287,delivery_reliability,negative,I waited at home and the order never came.
+R288,delivery_flexibility,negative,"My week changes, but the delivery schedule does not."
+R289,pause_control,negative,Let me stop and restart without starting a new subscription.
+R289,food_quality,positive,The meals taste good.
+R290,portion_size,negative,I end up cooking something extra because the meals are small.
+R291,affordability,negative,I cannot fit the weekly price into my budget.
+R291,food_quality,positive,The meals taste good.
+R292,affordability,negative,A lower weekly price would help me stay.
+R293,delivery_reliability,negative,The driver keeps arriving after the promised window.
+R294,food_quality,negative,The vegetables arrived soggy.
+R295,portion_size,negative,The amount of food is less than I expected.
+R295,support,negative,The reply did not solve what I asked about.
+R296,food_quality,negative,The rice was dry and the sauce was watery.
+R296,value,negative,It costs more than the benefit I get from it.
+R297,delivery_flexibility,negative,I need to choose an evening drop-off instead.
+R297,pause_control,negative,Let me stop and restart without starting a new subscription.
+R297,food_quality,positive,The meals taste good.
+R298,portion_size,negative,I end up cooking something extra because the meals are small.
+R298,food_quality,positive,The meals taste good.
+R299,packaging,negative,I wish the trays could be returned and reused.
+R300,support,negative,The reply did not solve what I asked about.
+R301,delivery_reliability,negative,My box was late twice this month.
+R302,affordability,negative,I cannot fit the weekly price into my budget.
+R303,portion_size,negative,I end up cooking something extra because the meals are small.

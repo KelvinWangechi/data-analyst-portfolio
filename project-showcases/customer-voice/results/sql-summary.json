@@ -1,0 +1,22 @@
+{
+  "customers": 1200,
+  "invitations": 500,
+  "responses": 303,
+  "with_text": 280,
+  "price_with_text": 152,
+  "price_affordability": 49,
+  "price_schedule": 36,
+  "price_issue_counts": {
+    "affordability": 49,
+    "billing_clarity": 16,
+    "delivery_flexibility": 18,
+    "delivery_reliability": 4,
+    "food_quality": 4,
+    "packaging": 7,
+    "pause_control": 18,
+    "portion_size": 26,
+    "support": 5,
+    "value": 44
+  },
+  "seed": 4817
+}

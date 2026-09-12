@@ -1,0 +1,304 @@
+response_id,customer_id,reason,satisfaction,text,question_version
+R001,C0631,Does not fit my week,4,The meals taste good. I need to skip a week without cancelling everything.,open-first-1
+R002,C0867,Too expensive,2,"For what arrives, I do not see the value.",open-first-1
+R003,C1150,Too expensive,3,"I need to spend less on food, even if the service stays the same.",open-first-1
+R004,C1135,Other,3,I can afford it; I just do not think it is worth the price.,open-first-1
+R005,C0324,Too expensive,3,"For what arrives, I do not see the value. I could not stop next week's box in time.",open-first-1
+R006,C0148,Service issue,4,The last meals tasted bland.,open-first-1
+R007,C0971,Other,4,It is not about having the money. I am not getting enough out of it.,open-first-1
+R008,C0725,Does not fit my week,2,The meals taste good. I need to choose an evening drop-off instead. The extra charge appeared only at checkout.,open-first-1
+R009,C0107,Other,2,My food budget is smaller now and this no longer fits.,open-first-1
+R010,C0216,Too expensive,3,The meals taste good. There is not enough food in each tray.,open-first-1
+R011,C1139,Too expensive,2,The meals taste good. Two small portions do not cover dinner for us. Paying for food I do not end up eating feels like a waste.,open-first-1
+R012,C1062,Too expensive,2,The meals taste good. There is not enough food in each tray. The amount taken from my account was a surprise.,open-first-1
+R013,C0569,Too expensive,4,,open-first-1
+R014,C0706,Too expensive,2,The fixed delivery slot clashes with work.,open-first-1
+R015,C0126,Too expensive,2,The meals taste good. I end up cooking something extra because the meals are small. The extra charge appeared only at checkout.,open-first-1
+R016,C0382,Service issue,3,"The quality changes too much between orders. I need to spend less on food, even if the service stays the same.",open-first-1
+R017,C0835,Too expensive,4,I need to choose an evening drop-off instead.,open-first-1
+R018,C0954,Too expensive,4,"The meals taste good. For what arrives, I do not see the value. The lid leaked inside the bag.",open-first-1
+R019,C0434,Too expensive,2,I can afford it; I just do not think it is worth the price. The amount taken from my account was a surprise.,open-first-1
+R020,C1046,Other,2,"For what arrives, I do not see the value. I could not tell why this week's total was higher.",open-first-1
+R021,C0926,Does not fit my week,3,The meals taste good. The fixed delivery slot clashes with work.,open-first-1
+R022,C1199,Too expensive,3,Paying for food I do not end up eating feels like a waste.,open-first-1
+R023,C1194,Service issue,2,The food was not fresh by the time I opened it.,open-first-1
+R024,C0834,Too expensive,2,I cannot fit the weekly price into my budget.,open-first-1
+R025,C0433,Too expensive,2,The meals taste good. A lower weekly price would help me stay.,open-first-1
+R026,C0182,Too expensive,3,The portions leave me hungry.,open-first-1
+R027,C0788,Service issue,3,The quality changes too much between orders.,open-first-1
+R028,C1097,Other,3,I cannot fit the weekly price into my budget.,open-first-1
+R029,C0014,Other,2,I expected this to save more effort than it does.,open-first-1
+R030,C0089,Service issue,3,I had to explain the same problem to three people.,open-first-1
+R031,C0305,Service issue,4,The vegetables arrived soggy.,open-first-1
+R032,C0787,Too expensive,3,The portions leave me hungry.,open-first-1
+R033,C0059,Service issue,4,The meals taste good. Less wrapping would make this easier to use.,open-first-1
+R034,C0223,Does not fit my week,2,,open-first-1
+R035,C0864,Does not fit my week,3,A Thursday option would work better than Tuesday.,open-first-1
+R036,C1063,Service issue,4,The meals taste good. The delivery did not arrive when you said it would.,open-first-1
+R037,C1155,Too expensive,2,"I like it, but I cannot afford this every week.",open-first-1
+R038,C0279,Does not fit my week,3,Make it easier to pause when I am away.,open-first-1
+R039,C0860,Too expensive,2,The meals taste good. I could not stop next week's box in time.,open-first-1
+R040,C0854,Too expensive,3,"After rent, there is not enough left to keep paying for meals. The packaging is difficult to recycle.",open-first-1
+R041,C1039,Too expensive,2,"The meals taste good. I cannot fit the weekly price into my budget. My week changes, but the delivery schedule does not.",open-first-1
+R042,C1115,Too expensive,2,The meals taste good. It costs more than the benefit I get from it.,open-first-1
+R043,C0204,Other,2,The meals taste good. It costs more than the benefit I get from it. The fixed delivery slot clashes with work.,open-first-1
+R044,C0054,Does not fit my week,2,I need to choose an evening drop-off instead.,open-first-1
+R045,C0562,Does not fit my week,4,The meals taste good. I need to skip a week without cancelling everything. The portions leave me hungry.,open-first-1
+R046,C0896,Other,2,The meals taste good. My food budget is smaller now and this no longer fits.,open-first-1
+R047,C0255,Does not fit my week,2,Let me switch the delivery day when my shifts change.,open-first-1
+R048,C1036,Too expensive,2,I expected this to save more effort than it does.,open-first-1
+R049,C0250,Does not fit my week,4,Let me switch the delivery day when my shifts change. Nobody replied when I asked for help.,open-first-1
+R050,C0431,Service issue,3,I waited at home and the order never came. I had to explain the same problem to three people.,open-first-1
+R051,C0203,Too expensive,2,,open-first-1
+R052,C0454,Too expensive,3,,open-first-1
+R053,C0469,Too expensive,3,The portions leave me hungry.,open-first-1
+R054,C0905,Service issue,4,The vegetables arrived soggy.,open-first-1
+R055,C0393,Does not fit my week,4,I could not stop next week's box in time.,open-first-1
+R056,C0320,Other,3,,open-first-1
+R057,C0202,Too expensive,4,Please show the delivery fee before I choose the meals.,open-first-1
+R058,C0100,Too expensive,3,My food budget is smaller now and this no longer fits.,open-first-1
+R059,C0383,Other,2,The meals taste good. It is not about having the money. I am not getting enough out of it. Support took days to answer a simple question.,open-first-1
+R060,C0047,Too expensive,2,,open-first-1
+R061,C0345,Service issue,3,Nobody replied when I asked for help. The driver keeps arriving after the promised window.,open-first-1
+R062,C1090,Too expensive,2,A lower weekly price would help me stay.,open-first-1
+R063,C0150,Too expensive,4,A lower weekly price would help me stay.,open-first-1
+R064,C1031,Service issue,3,I waited at home and the order never came.,open-first-1
+R065,C0710,Too expensive,4,The meals taste good. I could not stop next week's box in time.,open-first-1
+R066,C0879,Too expensive,3,It costs more than the benefit I get from it.,open-first-1
+R067,C0220,Too expensive,3,The meals taste good. I need to skip a week without cancelling everything.,open-first-1
+R068,C0468,Too expensive,2,I cannot fit the weekly price into my budget.,open-first-1
+R069,C0011,Other,2,I cannot fit the weekly price into my budget.,open-first-1
+R070,C0258,Too expensive,2,Make it easier to pause when I am away. There is not enough food in each tray.,open-first-1
+R071,C1035,Too expensive,2,It is not about having the money. I am not getting enough out of it.,open-first-1
+R072,C0813,Too expensive,2,"For what arrives, I do not see the value.",open-first-1
+R073,C0938,Other,2,The meals taste good. Paying for food I do not end up eating feels like a waste.,open-first-1
+R074,C1068,Too expensive,3,Two small portions do not cover dinner for us.,open-first-1
+R075,C1160,Too expensive,2,The meals taste good. I cannot fit the weekly price into my budget.,open-first-1
+R076,C0041,Other,2,I cannot fit the weekly price into my budget.,open-first-1
+R077,C0363,Too expensive,3,The meals taste good. Paying for food I do not end up eating feels like a waste.,open-first-1
+R078,C0651,Too expensive,3,I can afford it; I just do not think it is worth the price.,open-first-1
+R079,C0421,Too expensive,3,I expected this to save more effort than it does. The last meals tasted bland.,open-first-1
+R080,C0802,Too expensive,2,The meals taste good. The amount taken from my account was a surprise.,open-first-1
+R081,C1096,Does not fit my week,2,The meals taste good. I cannot change the day once my rota comes out. Some weeks it comes on time and some weeks it does not.,open-first-1
+R082,C1161,Too expensive,2,"My week changes, but the delivery schedule does not.",open-first-1
+R083,C0152,Service issue,3,My box was late twice this month.,open-first-1
+R084,C0714,Does not fit my week,3,The meals taste good. Let me stop and restart without starting a new subscription. It costs more than the benefit I get from it.,open-first-1
+R085,C0297,Too expensive,3,The meals taste good. The extra charge appeared only at checkout. My box was late twice this month.,open-first-1
+R086,C0603,Other,4,,open-first-1
+R087,C0931,Too expensive,3,My food budget is smaller now and this no longer fits.,open-first-1
+R088,C0543,Too expensive,3,My food budget is smaller now and this no longer fits.,open-first-1
+R089,C1198,Too expensive,2,The meals taste good. Let me switch the delivery day when my shifts change. I could not find anyone to help with my order.,open-first-1
+R090,C0605,Too expensive,3,The meals taste good. A lower weekly price would help me stay.,open-first-1
+R091,C0909,Too expensive,2,The meals taste good. Let me switch the delivery day when my shifts change.,open-first-1
+R092,C1002,Does not fit my week,4,,open-first-1
+R093,C0002,Other,3,There is not enough food in each tray.,open-first-1
+R094,C1114,Too expensive,3,A bigger serving would make a difference. It costs more than the benefit I get from it.,open-first-1
+R095,C0406,Too expensive,4,I cannot fit the weekly price into my budget.,open-first-1
+R096,C0712,Other,3,"I like it, but I cannot afford this every week.",open-first-1
+R097,C0497,Too expensive,2,The fixed delivery slot clashes with work.,open-first-1
+R098,C0734,Too expensive,2,,open-first-1
+R099,C0718,Too expensive,2,I want to know the full cost before I commit.,open-first-1
+R100,C0226,Does not fit my week,2,Let me stop and restart without starting a new subscription. My box was late twice this month.,open-first-1
+R101,C0998,Too expensive,3,"It costs more than the benefit I get from it. After rent, there is not enough left to keep paying for meals.",open-first-1
+R102,C0283,Other,2,There is not enough food in each tray.,open-first-1
+R103,C0238,Other,3,"I like it, but I cannot afford this every week.",open-first-1
+R104,C1184,Too expensive,3,"The meals taste good. For what arrives, I do not see the value.",open-first-1
+R105,C0551,Does not fit my week,2,The skip option is buried and I missed it again. A Thursday option would work better than Tuesday.,open-first-1
+R106,C0837,Service issue,3,The delivery did not arrive when you said it would.,open-first-1
+R107,C0692,Too expensive,2,The meals taste good. The portions leave me hungry. Getting a useful answer from support takes too long.,open-first-1
+R108,C0850,Other,3,It costs more than the benefit I get from it.,open-first-1
+R109,C0501,Too expensive,3,"For what arrives, I do not see the value. Less wrapping would make this easier to use.",open-first-1
+R110,C0381,Does not fit my week,3,The meals taste good. I need to skip a week without cancelling everything.,open-first-1
+R111,C0511,Other,3,It is not about having the money. I am not getting enough out of it.,open-first-1
+R112,C0723,Too expensive,2,A Thursday option would work better than Tuesday.,open-first-1
+R113,C0918,Service issue,2,Getting a useful answer from support takes too long. The amount taken from my account was a surprise.,open-first-1
+R114,C0081,Too expensive,3,"I like it, but I cannot afford this every week.",open-first-1
+R115,C0492,Too expensive,2,The meals taste good. Paying for food I do not end up eating feels like a waste.,open-first-1
+R116,C0234,Too expensive,3,The meals taste good. I expected this to save more effort than it does.,open-first-1
+R117,C1157,Too expensive,2,I could not tell why this week's total was higher. Support took days to answer a simple question.,open-first-1
+R118,C0395,Too expensive,2,The meals taste good. I need to skip a week without cancelling everything.,open-first-1
+R119,C1191,Too expensive,2,Let me switch the delivery day when my shifts change.,open-first-1
+R120,C0820,Service issue,4,The driver keeps arriving after the promised window. The last meals tasted bland.,open-first-1
+R121,C0845,Service issue,3,My box was late twice this month.,open-first-1
+R122,C0007,Too expensive,2,The meals taste good. My food budget is smaller now and this no longer fits.,open-first-1
+R123,C0104,Service issue,2,My box was late twice this month. There is not enough food in each tray.,open-first-1
+R124,C0378,Too expensive,2,"The meals taste good. After rent, there is not enough left to keep paying for meals.",open-first-1
+R125,C0634,Does not fit my week,2,A Thursday option would work better than Tuesday.,open-first-1
+R126,C1195,Too expensive,3,The portions leave me hungry.,open-first-1
+R127,C0916,Too expensive,2,"After rent, there is not enough left to keep paying for meals.",open-first-1
+R128,C0697,Too expensive,3,"I like it, but I cannot afford this every week.",open-first-1
+R129,C0877,Does not fit my week,3,I could not stop next week's box in time.,open-first-1
+R130,C0639,Other,2,,open-first-1
+R131,C0780,Too expensive,3,A lower weekly price would help me stay.,open-first-1
+R132,C0307,Too expensive,3,There is not enough food in each tray. Less wrapping would make this easier to use.,open-first-1
+R133,C1113,Service issue,2,My box was late twice this month. I wish the trays could be returned and reused.,open-first-1
+R134,C0832,Other,4,"I need to spend less on food, even if the service stays the same. The rice was dry and the sauce was watery.",open-first-1
+R135,C0893,Too expensive,2,The meals taste good. It is not about having the money. I am not getting enough out of it.,open-first-1
+R136,C0530,Too expensive,2,I need to skip a week without cancelling everything.,open-first-1
+R137,C0314,Too expensive,3,The meals taste good. There is not enough food in each tray. I need to choose an evening drop-off instead.,open-first-1
+R138,C0244,Too expensive,3,The meals taste good. Let me stop and restart without starting a new subscription.,open-first-1
+R139,C0118,Service issue,3,The container arrived cracked.,open-first-1
+R140,C0626,Too expensive,3,,open-first-1
+R141,C0560,Too expensive,4,The meals taste good. I need to choose an evening drop-off instead. A reliable arrival time would make planning dinner easier.,open-first-1
+R142,C0527,Too expensive,2,A lower weekly price would help me stay.,open-first-1
+R143,C0067,Service issue,3,I could not find anyone to help with my order.,open-first-1
+R144,C0249,Too expensive,2,"After rent, there is not enough left to keep paying for meals.",open-first-1
+R145,C0800,Service issue,2,A reliable arrival time would make planning dinner easier. There is not enough food in each tray.,open-first-1
+R146,C0838,Too expensive,2,I only want meals in the weeks I am home.,open-first-1
+R147,C0536,Too expensive,2,Make it easier to pause when I am away.,open-first-1
+R148,C1058,Too expensive,3,A lower weekly price would help me stay.,open-first-1
+R149,C0892,Service issue,2,The driver keeps arriving after the promised window.,open-first-1
+R150,C1080,Does not fit my week,4,The fixed delivery slot clashes with work. Let me stop and restart without starting a new subscription.,open-first-1
+R151,C0036,Service issue,2,My box was late twice this month.,open-first-1
+R152,C0471,Too expensive,2,It is not about having the money. I am not getting enough out of it.,open-first-1
+R153,C0759,Too expensive,2,The meals taste good. Paying for food I do not end up eating feels like a waste.,open-first-1
+R154,C0693,Too expensive,2,"I like it, but I cannot afford this every week. The rice was dry and the sauce was watery.",open-first-1
+R155,C0361,Service issue,3,A reliable arrival time would make planning dinner easier.,open-first-1
+R156,C0206,Too expensive,2,The amount of food is less than I expected.,open-first-1
+R157,C0337,Service issue,3,The last meals tasted bland.,open-first-1
+R158,C0229,Too expensive,3,"I like it, but I cannot afford this every week. My week changes, but the delivery schedule does not.",open-first-1
+R159,C1183,Service issue,3,,open-first-1
+R160,C0008,Other,4,The portions leave me hungry. I could not find anyone to help with my order.,open-first-1
+R161,C0495,Other,4,I cannot fit the weekly price into my budget. Make it easier to pause when I am away.,open-first-1
+R162,C0567,Service issue,4,Some weeks it comes on time and some weeks it does not.,open-first-1
+R163,C0282,Service issue,3,The meals taste good. The delivery did not arrive when you said it would.,open-first-1
+R164,C0885,Too expensive,4,The amount taken from my account was a surprise.,open-first-1
+R165,C0035,Too expensive,4,The meals taste good. I expected this to save more effort than it does.,open-first-1
+R166,C0871,Too expensive,2,The meals taste good. My food budget is smaller now and this no longer fits. I could not stop next week's box in time.,open-first-1
+R167,C1093,Too expensive,4,There is not enough food in each tray.,open-first-1
+R168,C0977,Too expensive,4,It costs more than the benefit I get from it.,open-first-1
+R169,C0607,Does not fit my week,2,,open-first-1
+R170,C0496,Other,4,It costs more than the benefit I get from it.,open-first-1
+R171,C0162,Too expensive,2,I cannot fit the weekly price into my budget. The container arrived cracked.,open-first-1
+R172,C0149,Does not fit my week,4,The meals taste good. I cannot change the day once my rota comes out. My box was late twice this month.,open-first-1
+R173,C1179,Service issue,3,,open-first-1
+R174,C1130,Does not fit my week,2,I could not stop next week's box in time. A reliable arrival time would make planning dinner easier.,open-first-1
+R175,C0545,Service issue,2,The lid leaked inside the bag.,open-first-1
+R176,C0872,Too expensive,2,The meals taste good. My food budget is smaller now and this no longer fits.,open-first-1
+R177,C0486,Service issue,4,There is too much plastic around each meal.,open-first-1
+R178,C0322,Other,4,,open-first-1
+R179,C0199,Does not fit my week,2,The fixed delivery slot clashes with work. I need to skip a week without cancelling everything.,open-first-1
+R180,C0990,Too expensive,3,It costs more than the benefit I get from it.,open-first-1
+R181,C0438,Service issue,2,My box was late twice this month.,open-first-1
+R182,C0262,Service issue,3,,open-first-1
+R183,C0161,Too expensive,2,A lower weekly price would help me stay.,open-first-1
+R184,C0196,Too expensive,3,I end up cooking something extra because the meals are small.,open-first-1
+R185,C0392,Service issue,2,"The vegetables arrived soggy. For what arrives, I do not see the value.",open-first-1
+R186,C0371,Too expensive,4,"For what arrives, I do not see the value.",open-first-1
+R187,C0582,Does not fit my week,2,I could not stop next week's box in time.,open-first-1
+R188,C0260,Too expensive,2,I only want meals in the weeks I am home.,open-first-1
+R189,C0245,Other,4,"I like it, but I cannot afford this every week.",open-first-1
+R190,C0355,Too expensive,4,I need to choose an evening drop-off instead.,open-first-1
+R191,C1094,Other,2,The amount of food is less than I expected.,open-first-1
+R192,C0485,Too expensive,4,I can afford it; I just do not think it is worth the price.,open-first-1
+R193,C0476,Service issue,3,The rice was dry and the sauce was watery.,open-first-1
+R194,C0737,Too expensive,4,The meals taste good. I expected this to save more effort than it does.,open-first-1
+R195,C0239,Does not fit my week,4,,open-first-1
+R196,C0449,Service issue,2,I waited at home and the order never came. The last meals tasted bland.,open-first-1
+R197,C0687,Other,2,"I like it, but I cannot afford this every week.",open-first-1
+R198,C0766,Service issue,3,I had to explain the same problem to three people.,open-first-1
+R199,C0658,Does not fit my week,2,"My week changes, but the delivery schedule does not. Two small portions do not cover dinner for us.",open-first-1
+R200,C0484,Other,3,The amount taken from my account was a surprise.,open-first-1
+R201,C0027,Too expensive,2,The meals taste good. The amount taken from my account was a surprise.,open-first-1
+R202,C0397,Too expensive,2,,open-first-1
+R203,C0326,Too expensive,3,Paying for food I do not end up eating feels like a waste. Some weeks it comes on time and some weeks it does not.,open-first-1
+R204,C0049,Service issue,2,The rice was dry and the sauce was watery. The driver keeps arriving after the promised window.,open-first-1
+R205,C0923,Too expensive,2,"The meals taste good. I need to choose an evening drop-off instead. For what arrives, I do not see the value.",open-first-1
+R206,C0755,Too expensive,4,The meals taste good. A lower weekly price would help me stay. The delivery did not arrive when you said it would.,open-first-1
+R207,C0604,Too expensive,3,"The skip option is buried and I missed it again. I like it, but I cannot afford this every week.",open-first-1
+R208,C0846,Too expensive,4,The meals taste good. I could not tell why this week's total was higher.,open-first-1
+R209,C0280,Too expensive,3,The meals taste good. The fixed delivery slot clashes with work.,open-first-1
+R210,C0312,Other,2,The meals taste good. It is not about having the money. I am not getting enough out of it.,open-first-1
+R211,C0534,Service issue,3,The last meals tasted bland.,open-first-1
+R212,C1148,Too expensive,2,"I like it, but I cannot afford this every week.",open-first-1
+R213,C0553,Does not fit my week,2,I need to skip a week without cancelling everything. The portions leave me hungry.,open-first-1
+R214,C0058,Does not fit my week,3,I cannot change the day once my rota comes out. I cannot fit the weekly price into my budget.,open-first-1
+R215,C1028,Service issue,3,The container arrived cracked. The amount taken from my account was a surprise.,open-first-1
+R216,C0740,Does not fit my week,2,"My week changes, but the delivery schedule does not.",open-first-1
+R217,C0085,Too expensive,3,There is not enough food in each tray.,open-first-1
+R218,C0628,Too expensive,2,,open-first-1
+R219,C0564,Too expensive,3,"I like it, but I cannot afford this every week.",open-first-1
+R220,C0929,Too expensive,2,A bigger serving would make a difference.,open-first-1
+R221,C0030,Service issue,4,The food was not fresh by the time I opened it.,open-first-1
+R222,C0842,Too expensive,2,I want to know the full cost before I commit.,open-first-1
+R223,C1118,Too expensive,2,"Make it easier to pause when I am away. After rent, there is not enough left to keep paying for meals.",open-first-1
+R224,C1038,Too expensive,2,I need to skip a week without cancelling everything.,open-first-1
+R225,C0446,Too expensive,3,The meals taste good. A Thursday option would work better than Tuesday.,open-first-1
+R226,C0776,Too expensive,4,"The meals taste good. After rent, there is not enough left to keep paying for meals. The portions leave me hungry.",open-first-1
+R227,C0587,Too expensive,2,"I like it, but I cannot afford this every week.",open-first-1
+R228,C0743,Too expensive,4,"The meals taste good. After rent, there is not enough left to keep paying for meals.",open-first-1
+R229,C0356,Too expensive,3,"The meals taste good. I need to spend less on food, even if the service stays the same. I wish the trays could be returned and reused.",open-first-1
+R230,C0061,Service issue,2,The rice was dry and the sauce was watery.,open-first-1
+R231,C0969,Too expensive,2,A lower weekly price would help me stay.,open-first-1
+R232,C0701,Does not fit my week,3,The skip option is buried and I missed it again.,open-first-1
+R233,C0873,Service issue,2,The driver keeps arriving after the promised window. I could not stop next week's box in time.,open-first-1
+R234,C0427,Too expensive,2,The fixed delivery slot clashes with work.,open-first-1
+R235,C0552,Service issue,2,The quality changes too much between orders.,open-first-1
+R236,C0806,Too expensive,4,It is not about having the money. I am not getting enough out of it.,open-first-1
+R237,C1186,Service issue,4,My box was late twice this month.,open-first-1
+R238,C0705,Too expensive,3,,open-first-1
+R239,C0878,Service issue,3,The driver keeps arriving after the promised window. The last meals tasted bland.,open-first-1
+R240,C0139,Other,3,Paying for food I do not end up eating feels like a waste.,open-first-1
+R241,C0914,Too expensive,3,"The meals taste good. I like it, but I cannot afford this every week.",open-first-1
+R242,C0142,Service issue,3,The food was not fresh by the time I opened it. I can afford it; I just do not think it is worth the price.,open-first-1
+R243,C0595,Too expensive,3,A lower weekly price would help me stay.,open-first-1
+R244,C0051,Too expensive,3,I could not tell why this week's total was higher.,open-first-1
+R245,C0774,Does not fit my week,3,I need to skip a week without cancelling everything.,open-first-1
+R246,C0071,Service issue,2,The meals taste good. The delivery did not arrive when you said it would.,open-first-1
+R247,C0510,Too expensive,2,I want to know the full cost before I commit.,open-first-1
+R248,C0861,Too expensive,3,It is not about having the money. I am not getting enough out of it. The amount of food is less than I expected.,open-first-1
+R249,C0465,Too expensive,4,The extra charge appeared only at checkout. It is not about having the money. I am not getting enough out of it.,open-first-1
+R250,C0936,Too expensive,3,It costs more than the benefit I get from it. I want the meals to taste as good as they look.,open-first-1
+R251,C1083,Does not fit my week,2,,open-first-1
+R252,C0310,Too expensive,3,The skip option is buried and I missed it again.,open-first-1
+R253,C0770,Too expensive,2,I can afford it; I just do not think it is worth the price.,open-first-1
+R254,C0703,Service issue,3,The meals taste good. A reliable arrival time would make planning dinner easier.,open-first-1
+R255,C0335,Too expensive,3,It is not about having the money. I am not getting enough out of it.,open-first-1
+R256,C0789,Too expensive,3,The meals taste good. I expected this to save more effort than it does.,open-first-1
+R257,C1015,Other,3,"The meals taste good. I like it, but I cannot afford this every week.",open-first-1
+R258,C0667,Does not fit my week,3,The meals taste good. Let me switch the delivery day when my shifts change.,open-first-1
+R259,C0853,Does not fit my week,3,The meals taste good. Let me switch the delivery day when my shifts change.,open-first-1
+R260,C0004,Too expensive,2,Please show the delivery fee before I choose the meals.,open-first-1
+R261,C0166,Service issue,3,The meals taste good. The delivery did not arrive when you said it would.,open-first-1
+R262,C0053,Too expensive,3,Two small portions do not cover dinner for us.,open-first-1
+R263,C1142,Service issue,2,I wish the trays could be returned and reused.,open-first-1
+R264,C0609,Too expensive,3,A Thursday option would work better than Tuesday. I wish the trays could be returned and reused.,open-first-1
+R265,C1081,Does not fit my week,2,I need to choose an evening drop-off instead. I want the meals to taste as good as they look.,open-first-1
+R266,C1193,Too expensive,2,"After rent, there is not enough left to keep paying for meals.",open-first-1
+R267,C0728,Service issue,3,I had to explain the same problem to three people. A reliable arrival time would make planning dinner easier.,open-first-1
+R268,C1146,Too expensive,3,It costs more than the benefit I get from it.,open-first-1
+R269,C0389,Service issue,2,The meals taste good. I waited at home and the order never came.,open-first-1
+R270,C0138,Too expensive,3,,open-first-1
+R271,C0602,Service issue,3,I had to explain the same problem to three people. A lower weekly price would help me stay.,open-first-1
+R272,C0978,Too expensive,2,I expected this to save more effort than it does.,open-first-1
+R273,C0466,Too expensive,4,"After rent, there is not enough left to keep paying for meals. For what arrives, I do not see the value.",open-first-1
+R274,C0042,Service issue,2,The packaging is difficult to recycle.,open-first-1
+R275,C0736,Does not fit my week,2,The meals taste good. I need to choose an evening drop-off instead. The amount of food is less than I expected.,open-first-1
+R276,C0612,Service issue,2,The last meals tasted bland.,open-first-1
+R277,C0373,Too expensive,2,It costs more than the benefit I get from it.,open-first-1
+R278,C0473,Too expensive,3,"For what arrives, I do not see the value.",open-first-1
+R279,C0271,Too expensive,3,"For what arrives, I do not see the value. I could not find anyone to help with my order.",open-first-1
+R280,C0458,Other,3,It costs more than the benefit I get from it.,open-first-1
+R281,C0614,Does not fit my week,4,"My week changes, but the delivery schedule does not.",open-first-1
+R282,C0375,Too expensive,4,"I need to spend less on food, even if the service stays the same.",open-first-1
+R283,C1105,Does not fit my week,3,I could not stop next week's box in time. The packaging is difficult to recycle.,open-first-1
+R284,C0925,Too expensive,3,I cannot fit the weekly price into my budget. I want the meals to taste as good as they look.,open-first-1
+R285,C0690,Too expensive,3,I could not stop next week's box in time.,open-first-1
+R286,C0248,Does not fit my week,2,,open-first-1
+R287,C0870,Service issue,3,I waited at home and the order never came.,open-first-1
+R288,C0668,Does not fit my week,3,"My week changes, but the delivery schedule does not.",open-first-1
+R289,C0184,Too expensive,3,The meals taste good. Let me stop and restart without starting a new subscription.,open-first-1
+R290,C0579,Too expensive,3,I end up cooking something extra because the meals are small.,open-first-1
+R291,C0817,Too expensive,3,The meals taste good. I cannot fit the weekly price into my budget.,open-first-1
+R292,C0591,Too expensive,3,A lower weekly price would help me stay.,open-first-1
+R293,C0859,Service issue,3,The driver keeps arriving after the promised window.,open-first-1
+R294,C0209,Service issue,3,The vegetables arrived soggy.,open-first-1
+R295,C0796,Too expensive,3,The amount of food is less than I expected. The reply did not solve what I asked about.,open-first-1
+R296,C0792,Service issue,4,The rice was dry and the sauce was watery. It costs more than the benefit I get from it.,open-first-1
+R297,C0730,Does not fit my week,2,The meals taste good. I need to choose an evening drop-off instead. Let me stop and restart without starting a new subscription.,open-first-1
+R298,C0063,Too expensive,2,The meals taste good. I end up cooking something extra because the meals are small.,open-first-1
+R299,C1192,Service issue,3,I wish the trays could be returned and reused.,open-first-1
+R300,C0570,Service issue,3,The reply did not solve what I asked about.,open-first-1
+R301,C0894,Service issue,3,My box was late twice this month.,open-first-1
+R302,C0116,Other,2,I cannot fit the weekly price into my budget.,open-first-1
+R303,C0192,Too expensive,4,I end up cooking something extra because the meals are small.,open-first-1

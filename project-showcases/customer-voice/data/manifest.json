@@ -1,0 +1,12 @@
+{
+  "seed": 4817,
+  "generator": "generate_data.py",
+  "question_version": "open-first-1",
+  "hashes": {
+    "assignments.csv": "b86cdfbbc4b1c100329bc887324fadb8cf9d3e08b469c45ac5f624371c5e2647",
+    "customers.csv": "ad9103409a0f90819fd5ff6ad8608000f6201dfe6a91ec97ac24464056b6a868",
+    "invitations.csv": "f77add99a61c2adb5c3a06cd5510ed745e6da03e9efeb19f0644098791d4131e",
+    "orders.csv": "2784b4fc78570dbe0166a3116cd4dec4aadbefc083caa02156926020fd04d6bd",
+    "responses.csv": "0c3b46aedb4d93ccd7a5b4862c08ea189f3f4a4b470371a1b3fe9f2dbe3bdfde"
+  }
+}

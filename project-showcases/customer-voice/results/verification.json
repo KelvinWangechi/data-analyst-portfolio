@@ -1,0 +1,19 @@
+{
+  "r_sql_reconciled": true,
+  "headline_metrics": {
+    "responses": 303,
+    "with_text": 280,
+    "price_with_text": 152,
+    "price_affordability": 49,
+    "price_schedule": 36
+  },
+  "validated_response_count": 303,
+  "source_hashes": {
+    "assignments.csv": "b86cdfbbc4b1c100329bc887324fadb8cf9d3e08b469c45ac5f624371c5e2647",
+    "customers.csv": "ad9103409a0f90819fd5ff6ad8608000f6201dfe6a91ec97ac24464056b6a868",
+    "invitations.csv": "f77add99a61c2adb5c3a06cd5510ed745e6da03e9efeb19f0644098791d4131e",
+    "orders.csv": "2784b4fc78570dbe0166a3116cd4dec4aadbefc083caa02156926020fd04d6bd",
+    "responses.csv": "0c3b46aedb4d93ccd7a5b4862c08ea189f3f4a4b470371a1b3fe9f2dbe3bdfde"
+  },
+  "page_sha256": "e97035f10d429026583896efde5fd4056b638898141b13fa82762755b4e8f090"
+}

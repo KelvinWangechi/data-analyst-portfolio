@@ -1,0 +1,7 @@
+{
+  "name": "customer-voice-analysis",
+  "private": true,
+  "type": "module",
+  "scripts": {"analysis:r": "node --import ./register-paths.mjs run-r.mjs"},
+  "devDependencies": {"webr": "0.6.0"}
+}
