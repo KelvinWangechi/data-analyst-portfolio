@@ -1,0 +1,9 @@
+process,before_days,after_days,before_mean_hours,after_mean_hours,difference_hours,relative_decrease_pct,before_mean_error_rate,after_mean_error_rate,before_mean_manual_steps,after_mean_manual_steps
+Customer Onboarding,92,182,8.9374,3.1902,5.7472,64.31,0.127833,0.00952,11.2283,2.9451
+Performance Reviews,92,182,6.6335,2.3876,4.2458,64.01,0.12373,0.009464,11.0543,2.9945
+Report Generation,92,182,4.4933,1.5868,2.9064,64.68,0.12011,0.010426,11.0109,3.033
+Data Quality Checks,92,182,3.4612,1.2044,2.2568,65.2,0.124875,0.009675,10.7826,3.0055
+Lead Qualification,92,182,3.0411,0.9962,2.0449,67.24,0.12877,0.010674,11.0652,2.9725
+Dashboard Updates,92,182,2.2935,0.7947,1.4988,65.35,0.118162,0.009621,10.9348,3.0
+Invoice Processing,92,182,1.7329,0.5988,1.1341,65.44,0.124259,0.010041,11.0435,3.0275
+Client Communications,92,182,1.1263,0.3992,0.7271,64.56,0.12051,0.010163,10.6848,2.8681

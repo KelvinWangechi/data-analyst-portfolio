@@ -1,18 +1,16 @@
-# Revenue analytics: check the metric before moving the budget
+# Would you cut the channel costing 70 per lead?
 
-**Marketing and sales analysis for better budget decisions.** [Data and methodology](data/README.md).
+LinkedIn Ads costs **70.00 per recorded lead**. Email costs **2.14**. Put those two numbers in front of a marketing team and the budget conversation almost writes itself.
 
-## The decision
+I wanted to know whether that first impression would survive a closer look. The useful answer came from checking what each number actually measures.
 
-Which channel deserves further investigation before a marketing team reallocates spend?
+![Recorded spend per lead by channel, January 2023 to June 2024. LinkedIn Ads 70.00; Google Ads 61.81; TikTok Ads 46.29; Facebook Ads 35.77; Email Marketing 2.14; Organic Search 0.00.](channel_cost_per_lead.png)
 
-I started by checking the denominators and the relationship between the two supplied files. The result is a bounded cost-per-lead comparison and a reconciliation issue to resolve before connecting marketing to sales outcomes.
+## First, make the average answer the right question
 
-![Recorded spend per lead by channel. LinkedIn Ads 70.00, Google Ads 61.81, TikTok Ads 46.29, Facebook Ads 35.77, Email Marketing 2.14, Organic Search 0.00. Currency unspecified; zero recorded spend excludes unrecorded costs.](channel_cost_per_lead.png)
+The marketing file contains 108 channel-month rows. Together they record **435,579.51 in spend** and **14,607 leads**. Divide total spend by total leads and the result is **29.82 per lead**.
 
-## What the sample supports
-
-Across 108 channel-month rows, recorded spend totals **435,579.51** and recorded leads total **14,607**. Dividing the totals gives **29.82 currency units per lead**. Averaging each row's spend-per-lead ratio equally gives **36.57**, because a small row receives the same weight as a large one.
+Average the 108 row-level ratios instead and the answer is **36.57**. Neither operation is mysterious: they answer different questions. The second gives a small channel-month the same influence as a large one. For the cost of a recorded lead across the whole dataset, I use the ratio of totals.
 
 | Channel | Recorded spend | Recorded leads | Spend per lead |
 |---|---:|---:|---:|
@@ -23,48 +21,34 @@ Across 108 channel-month rows, recorded spend totals **435,579.51** and recorded
 | Email Marketing | 8,579.17 | 4,006 | 2.14 |
 | Organic Search | 0.00 | 2,114 | 0.00 |
 
-Currency is not explicitly documented in the CSV. The ratio uses the supplied `Ad_Spend` and `Leads_Generated` fields without assuming a currency or that lead counts represent deduplicated people.
+Currency is unspecified, so these are currency units, not dollars. Organic search has no recorded ad spend; content and labour costs are outside this comparison.
 
-This is a lead-cost comparison. Email and organic leads may represent different audiences, intent and costs. Zero recorded organic ad spend does not mean content, labour or acquisition are free. Customer outcomes and attribution are needed before recommending a budget change.
+## Then ask what happened to those leads
 
-## Three checks that change the interpretation
+An expensive lead could still be valuable if it becomes a customer. That makes the sales file the obvious next place to look. It also reveals the main obstacle.
 
-1. **Name the denominator.** The marketing file includes `Cost_Per_Acquisition`, but no acquired-customer count or definition of acquisition. I recomputed recorded spend per lead instead of presenting that field as customer acquisition cost. In 71 of 108 rows, the supplied value differs from recomputed spend per lead by more than 0.01. The generation method is undocumented, so I retain the source field and report the discrepancy.
-2. **Reconcile totals before joining.** Marketing has one row per month and channel. Sales has one row per day, with no channel key. Aggregating both to month shows different lead totals in all 18 months. January 2023 contains 632 marketing leads and 5,457 sales leads. Different definitions or sample generation might explain this; the files do not. A raw month join would also repeat monthly spend for every matching day.
-3. **Separate phase labels from evidence of impact.** The files have `Before` and `After` labels. Those labels alone cannot establish that a platform caused higher revenue, saved reporting hours or generated an ROI. Daily revenue also does not establish monthly recurring revenue without subscription and recognition definitions.
+Marketing is recorded by month and channel. Sales is recorded by day, with no channel or customer key connecting the files. Even after aggregating both to month, their lead totals differ in **all 18 months**. January 2023 has **632 marketing leads** and **5,457 sales leads**.
 
-## Data and method
+Joining on month would make a table, but it would not establish attribution. Joining daily sales directly to monthly marketing would also repeat spend across days. I keep the reconciliation visible before attempting a conversion or revenue-per-channel calculation.
 
-| File | Grain and coverage | Key limitations |
-|---|---|---|
-| [Marketing CSV](data/revenue_analytics_marketing_data.csv) | 108 rows, six channels across 18 months, January 2023 to June 2024 | No customer IDs, acquisition counts, attribution rules or documented currency |
-| [Sales CSV](data/revenue_analytics_sales_data.csv) | 547 daily rows, January 1, 2023 to June 30, 2024 | No channel, lead/customer join key or documented conversion denominator |
+There is a second naming problem: the source's `Cost_Per_Acquisition` field has no acquired-customer count behind it. In **71 of 108 rows**, it differs from recomputed spend per lead by more than 0.01. I preserve the source field, but report the calculation I can define: recorded spend divided by recorded leads.
 
-The analysis uses Python's standard library and SQLite. Checks cover unique source grains, nonempty fields, nonnegative marketing spend and counts, rate ranges, daily date coverage, six channel rows per month, and agreement between channel aggregates and source totals. Structural checks pass; the semantic gaps above remain open.
+## The budget decision I would make next
 
-For a real CRM integration, I would establish the lead/customer identity, source rule, reporting timezone, stage definition and acquisition event with the business owner. I would then deduplicate and reconcile source counts before calculating attribution or conversion. That integration is a proposed next step, not an implemented component of this demonstration.
+Use this comparison to prioritise investigation. Before moving spend, agree the lead and customer definitions, deduplicate identities, reconcile source counts, and connect channel exposure to a documented customer outcome. Then compare conversion and customer value over a consistent period.
 
-## Reproduce or inspect
+Email's low lead cost is a reason to investigate its audience and downstream performance. It is not yet evidence that shifting paid acquisition spend into email will create more customers.
 
-From this directory, with Python 3:
+## Inspect the work
+
+The analysis covers January 2023–June 2024: 108 marketing rows and 547 daily sales rows. Python and SQLite check source grains, date coverage, rate ranges and aggregate totals. The `Before` and `After` phase labels are descriptive; they do not establish a revenue lift or platform ROI.
 
 ```sh
 python run_analysis.py
 ```
 
-No third-party packages are needed for the analysis. To regenerate the optional chart, install matplotlib and run `python run_analysis.py --chart`.
+Python 3 standard library only. Optional chart regeneration: `python run_analysis.py --chart` with matplotlib installed.
 
-- [Runnable analysis and checks](run_analysis.py)
-- [Channel aggregation SQL](channel_metrics.sql)
-- [Calculated channel table](channel_metrics.csv)
-- [Monthly lead reconciliation](monthly_reconciliation.csv)
-- [Results, limitations and source file hashes](summary.json)
-- [Browser-readable chart](channel_cost_per_lead.png)
+[Data and methodology](data/README.md) · [Python analysis](run_analysis.py) · [SQL](channel_metrics.sql) · [Channel results](channel_metrics.csv) · [Monthly reconciliation](monthly_reconciliation.csv) · [Checks and hashes](summary.json)
 
-## Scope
-
-This example covers CSV analysis, SQL aggregation and reporting checks. It runs locally without live CRM connections. The [Power BI visualizations](visualizations/) explore the same reporting scenario; their ROI and business-impact figures are illustrative assumptions, not measured client outcomes.
-
-## Discuss a reporting question
-
-I work on marketing and CRM analytics, reporting and data quality. If your team needs to reconcile campaign and CRM numbers, [message me on LinkedIn](https://www.linkedin.com/in/kelvinwangechi/) with the decision you need the analysis to support.
+If campaign and CRM reports disagree in your business, [let's discuss the decision they need to support](https://www.linkedin.com/in/kelvinwangechi/).

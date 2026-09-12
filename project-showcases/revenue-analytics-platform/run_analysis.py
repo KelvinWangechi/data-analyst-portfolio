@@ -85,7 +85,7 @@ if '--chart' in sys.argv:
     ax.tick_params(axis='both',labelsize=11,length=0,pad=10)
     for spine in ax.spines.values(): spine.set_visible(False)
     ax.xaxis.grid(True,color='#d8dde0',linewidth=.7); ax.set_axisbelow(True)
-    fig.text(.07,.94,'What does each lead cost in this sample?',fontsize=22,weight='bold',color='#203747')
+    fig.text(.07,.94,'What does each recorded lead cost?',fontsize=22,weight='bold',color='#203747')
     fig.text(.07,.885,'Jan 2023 to Jun 2024 | 108 channel-month rows',fontsize=11,color='#48545b')
     fig.text(.07,.08,'Sum spend, then divide by sum leads. Customer acquisition cost needs acquired-customer counts.',fontsize=10,color='#48545b')
     fig.text(.07,.045,'Zero organic ad spend excludes unrecorded labour and content costs. This is not a budget-allocation ranking.',fontsize=10,color='#48545b')

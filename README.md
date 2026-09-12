@@ -1,66 +1,34 @@
-# Kelvin Wangechi – Data Analyst Portfolio
+# Kelvin Wangechi | Marketing and CRM Data Analyst
 
-## 🔹 About Me  
-Data Analyst based in Nairobi, Kenya, with a focus on business intelligence for small businesses. I turn messy data into insights that drive growth and operational efficiency.
+I help teams understand where growth comes from, where reporting breaks down, and what to investigate next. My work combines SQL, Python, R and business intelligence with experience across product analytics, reporting and customer experience.
 
-## 🎯 Value Proposition  
-Transform raw data into revenue-driving insights through advanced analytics, automation, and visualization. Proven track record of reducing manual effort by 30%+, improving data reliability to 97%+, and driving measurable business outcomes across product, sales, and operations.
+## Selected work
 
-## 📊 Impact Metrics  
-- **30%+** manual effort reduction  
-- **97%+** data reliability  
-- **34%** increase in lead conversion  
-- **10.6%** operational efficiency gain  
+| Business question | What you can inspect |
+|---|---|
+| [Would you cut the channel costing 70 per lead?](project-showcases/revenue-analytics-platform/) | SQL aggregation, channel economics, monthly reconciliation and a reproducible analysis |
+| [Which process deserves attention first?](project-showcases/operational-efficiency-optimization/) | Process comparisons, workload questions, a chart and an employee-record quality check |
 
-## 🛠️ Technical Arsenal  
-**Visualization:** Power BI, Tableau, Metabase  
-**Programming & Analysis:** Python (Pandas, NumPy), SQL, R  
-**BI & Tools:** Google Analytics, Mixpanel, Salesforce, Zapier, Airtable, APIs
+Each case connects a business decision to the calculations behind it. Start with the story, then follow the chart to the source and code.
 
-## 🚀 Professional Experience  
+## Experience
 
-**Lead Data Analyst** — *Allan Grey (Remote)*  
-*3 years, 6 months*  
-- Automated workflows using Python + Zapier, saving 15+ hours/week  
-- Built 20+ Metabase dashboards for real-time KPI tracking  
-- Integrated Salesforce, GA4, TikTok, Meta data into unified BI hub  
-- Delivered statistical insights for strategy  
-- Established 97%+ reliable data governance framework  
+| Organisation | Role | Dates |
+|---|---|---|
+| CCI Kenya | Customer Experience Analyst (T-Mobile Prepaid) | May 2025–February 2026 |
+| Allen Grey | Lead Data Analyst | September 2021–February 2025 |
+| Zutari | Product Data Analyst | March 2020–August 2021 |
 
-**Product Data Analyst** — *Zutari (Remote)*  
-*1 year, 5 months*  
-- Created Power BI & Mixpanel dashboards to track feature adoption  
-- Enabled 34% conversion increase with sales performance dashboards  
-- Implemented QA processes for analytics accuracy  
-- Translated complex analysis into actionable decisions  
+BSc Computer Science, JKUAT, 2012–2016.
 
-## ⚡ Signature Methodologies  
-- **Data-Driven Decision Architecture** – End-to-end analytics pipeline framework  
-- **Cross-Platform Analytics Integration** – Unified CRM, marketing, and product data  
-- **Automated Workflow Optimization** – Python-based systems to reduce manual effort  
+## Tools and approach
 
-## 🏗️ Featured Projects  
-- **Revenue Intelligence Hub** – Unified Salesforce, product, and marketing data  
-- **Automated Reporting Engine** – Python-driven system, saved 15+ hours/week  
-- **Product Performance Analytics** – Guided roadmap with adoption insights  
+- **Analysis:** SQL, PostgreSQL, Python and R; metric definitions, aggregation and validation.
+- **Reporting:** Power BI, Tableau and Metabase; charts that answer a specific business question.
+- **Customer and CRM analytics:** Salesforce, Mixpanel and Google Analytics; connecting business questions to usable reporting.
 
-## 🎓 Education  
-**BSc. Computer Science** – JKUAT (2012–2016)  
+## Contact
 
-**Certifications & Training:**  
-- Salesforce Administrator  
-- Advanced Statistical Analysis & Data Mining  
-- BI & Data Warehousing  
-- Python for Data Science  
-- Enterprise Data Visualization  
+Based in Kenya, working in UTC+3. Open to remote data analyst and Salesforce administrator roles, and analytics consulting.
 
-## 🔹 What Sets Me Apart  
-**Business Acumen:** Strategic thinking, ROI-driven analytics  
-**Technical Excellence:** Automation, statistical modeling, QA  
-**Communication:** Storytelling, executive reporting, documentation
-
-## 📬 Contact  
-📧 kingoriwa@gmail.com  
-💼 [LinkedIn Profile](https://www.linkedin.com/in/kingoriwangechi/)
-
-> *"Data without insights is just noise—let's make yours sing."*
+[Portfolio website](https://kelvinwangechi.github.io/data-analyst-portfolio/) · [LinkedIn](https://www.linkedin.com/in/kelvinwangechi/) · [Email](mailto:kingoriwa@gmail.com)

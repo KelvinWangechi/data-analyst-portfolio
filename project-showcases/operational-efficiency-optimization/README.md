@@ -1,193 +1,54 @@
-# Operational Efficiency Optimization: From Chaos to Clockwork
+# Faster onboarding is a clue. How much capacity does it create?
 
-### 🔥 **The Bottleneck Nightmare** (Challenge)
+Customer onboarding averages **8.94 recorded hours** in the first phase and **3.19** in the second. That is the largest time gap among the eight processes in this dataset. It makes onboarding a sensible place to investigate first.
 
-GrowthCorp, a 65-person consulting firm, was suffocating under the weight of manual processes. What should have been a well-oiled machine was instead a collection of bottlenecks, each department fighting fires daily instead of focusing on growth.
+The tempting next step is to multiply the difference by a labour rate and call it savings. I stopped one step earlier: the file does not say how many cases those hours represent.
 
-**The daily reality:**
-- **Customer onboarding** took 8+ hours across multiple people
-- **Invoice processing** involved 12 manual steps and frequent errors  
-- **Report generation** consumed entire afternoons with copy-paste work
-- **Quality checks** were inconsistent, leading to client complaints
-- **Team communications** happened through endless email chains
+![Before and after mean recorded processing hours for eight processes. Customer onboarding has the largest absolute difference.](process_time_comparison.png)
 
-**The breaking point came** when a major client nearly left due to a billing error caused by manual data entry mistakes. The CEO realized they were one mistake away from losing their reputation.
+## Compare like with like before ranking the opportunity
 
-**Hidden costs of chaos:**
-- **15% error rate** across all processes
-- **$13,000/month** in overtime costs
-- **20% employee turnover** due to frustration
-- **Client complaints** increasing 40% year-over-year
-- **Growth stagnation** because teams couldn't scale operations
+The process file has one row per process per day. Its first phase spans **92 days**, June–August 2023; the second spans **182 days**, September 2023–February 2024. A comparison of total hours would mix process performance with the length of the observation period.
 
----
+I compared means within each process instead. The result puts onboarding first by absolute difference, followed by performance reviews and report generation.
 
-### ⚡ **The Systematic Transformation** (Solution)
+| Process | Before mean hours | After mean hours | Difference in hours |
+|---|---:|---:|---:|
+| Customer Onboarding | 8.94 | 3.19 | 5.75 |
+| Performance Reviews | 6.63 | 2.39 | 4.25 |
+| Report Generation | 4.49 | 1.59 | 2.91 |
+| Data Quality Checks | 3.46 | 1.20 | 2.26 |
+| Lead Qualification | 3.04 | 1.00 | 2.04 |
+| Dashboard Updates | 2.29 | 0.79 | 1.50 |
+| Invoice Processing | 1.73 | 0.60 | 1.13 |
+| Client Communications | 1.13 | 0.40 | 0.73 |
 
-I led a comprehensive operational redesign using data-driven process analysis and strategic automation implementation.
+These are means of the source's recorded process-day values. They are not validated hours per customer or hours saved per employee. Case volume, case complexity and the meaning of Processing_Time_Hours need to be established before making either claim.
 
-#### **Phase 1: Process Archaeology (Weeks 1-2)**
-- **Statistical Process Analysis:** Mapped all 47 business processes using time-motion studies
-- **Pain Point Identification:** Used Pareto analysis to identify the 20% of processes causing 80% of problems
-- **Baseline Measurement:** Established metrics for processing time, error rates, and employee satisfaction
-- **Root Cause Analysis:** Discovered that 73% of errors stemmed from manual handoffs
+## The people data asks a different question
 
-#### **Phase 2: Intelligent Redesign (Weeks 3-4)**
-- **Process Reengineering:** Eliminated unnecessary steps and consolidated workflows
-- **Automation Strategy:** Implemented Python-based workflows integrated with existing systems
-- **Quality Gates:** Built automated validation checkpoints to catch errors before they propagate
-- **Workflow Optimization:** Reduced average process steps from 12 to 4
+The second file looks like an employee productivity panel. It has **599 rows**, but only **404 distinct employee-month keys**. There are **158 keys with multiple records**, leaving **195 rows beyond one record per key**.
 
-#### **Phase 3: Technology Integration (Weeks 5-6)**
-- **API Connections:** Integrated CRM, accounting, and project management systems  
-- **Automated Workflows:** Built triggers and notifications using Zapier and custom Python scripts
-- **Dashboard Creation:** Real-time operational visibility for managers
-- **Employee Training:** Hands-on workshops to ensure adoption
+Those extra records might have a legitimate explanation, such as separate assignments. The file does not document one. Dropping them arbitrarily could remove real work; treating every row as a distinct employee could inflate headcount. I therefore report the issue and leave retention, individual productivity changes and overtime savings unestimated.
 
-#### **Phase 4: Continuous Improvement (Weeks 7-8)**
-- **Performance Monitoring:** Implemented automated tracking of all key metrics
-- **Feedback Loops:** Created systems for continuous process refinement
-- **Documentation:** Comprehensive process documentation for scalability
-- **Change Management:** Ensured sustainable adoption across all departments
+## Where I would start an operational review
 
----
+Follow one onboarding case from request to completion. Agree whether the recorded time is hands-on work, elapsed time or a daily total, then collect completed-case counts and complexity alongside it. Check whether a faster process moves work to another team or increases rework.
 
-### 🚀 **The Results That Transform Business** (Impact)
+With that denominator in place, compare time per completed case and quality over matched periods. A small pilot with a comparable team or queue would provide a stronger basis for deciding whether to expand the change.
 
-**Within 6 months of implementation:**
+The chart gives the review a starting point. The missing workload definition tells us what must be measured before promising capacity or cost savings.
 
-#### Operational Excellence: 60% Time Reduction
-- **Lead Qualification:** 2.5 hours → 1.0 hour (60% faster)
-- **Customer Onboarding:** 8.0 hours → 3.2 hours (60% faster)  
-- **Invoice Processing:** 1.5 hours → 0.6 hours (60% faster)
-- **Report Generation:** 4.0 hours → 1.6 hours (60% faster)
+## Inspect the work
 
-#### Quality Revolution: 95% Error Elimination
-- **Overall error rate:** 15% → 0.8% (95% improvement)
-- **Customer complaints:** Reduced by 87%
-- **Rework time:** Eliminated 90% of correction cycles
-- **Client satisfaction scores:** Increased from 6.2/10 to 9.1/10
-
-#### Human Impact: Transformed Workplace
-- **Employee satisfaction:** Increased from 5.8/10 to 8.4/10
-- **Overtime hours:** Reduced by 75% (saved $9,750/month)
-- **Stress levels:** Decreased 40% across all departments
-- **Employee retention:** Improved from 80% to 94%
-- **Tasks completed per person:** Increased 60% without additional workload
-
-#### Financial Transformation
-- **Annual savings:** $156,000 in operational costs
-- **Revenue capacity:** Increased 35% with same headcount
-- **Client acquisition:** Improved by 28% due to better service delivery
-- **Profit margins:** Improved by 12 percentage points
-
----
-
-### 🛠 **Methodology & Technical Excellence**
-
-#### **Statistical Process Control**
-```
-Baseline Measurement → Gap Analysis → Process Mapping → 
-Bottleneck Identification → Solution Design → Implementation → Monitoring
+```sh
+python run_analysis.py
 ```
 
-#### **Automation Architecture**
-- **Trigger Systems:** Event-driven workflow initiation
-- **Data Validation:** Multi-layer quality checks
-- **Exception Handling:** Automated error detection and routing
-- **Reporting Engine:** Real-time performance dashboards
+Python 3 standard library only. Optional chart regeneration: `python run_analysis.py --chart` with matplotlib installed.
 
-#### **Key Technologies Deployed:**
-- **Process Mining:** Python-based analysis of workflow patterns
-- **Workflow Automation:** Zapier + custom Python scripts
-- **Data Integration:** API connections across 6 systems
-- **Business Intelligence:** Real-time operational dashboards
-- **Quality Management:** Automated compliance checking
+The run checks 2,192 process-day records for unique keys, complete daily coverage, eight processes per day and numeric bounds. Phase differences are descriptive, without a control group. Error-rate averages in the output are unweighted because task volumes are absent. No ROI is calculated.
 
-#### **Change Management Framework:**
-1. **Stakeholder Alignment:** Executive buy-in and champion identification
-2. **Phased Rollout:** Department-by-department implementation
-3. **Training Program:** Hands-on workshops and documentation
-4. **Success Metrics:** Clear KPIs and progress tracking
-5. **Feedback Integration:** Continuous improvement based on user input
+[Data and methodology](data/README.md) · [Analysis](run_analysis.py) · [Process results](process_metrics.csv) · [Checks and hashes](summary.json)
 
----
-
-### 📊 **Process Transformation Visualization**
-
-#### **Before: Manual Chaos**
-```
-Request → Email → Review → Spreadsheet → Calculate → Email → File → Follow-up
-(8-15 steps, 2-8 hours, 5-20% errors)
-```
-
-#### **After: Automated Excellence**
-```
-Trigger → Validate → Calculate → Update → Alert
-(2-5 steps, 0.8-3 hours, 0-2% errors)
-```
-
-**Visual Impact:**
-- **Manual touchpoints:** Reduced from 47 to 12
-- **System integrations:** Increased from 0 to 15
-- **Automated validations:** Implemented 23 quality checkpoints
-- **Real-time visibility:** 100% of processes now tracked
-
----
-
-### 💰 **Return on Investment Analysis**
-
-#### **Investment Breakdown:**
-- **Process analysis and design:** 80 hours @ $85/hour = $6,800
-- **Technology implementation:** 120 hours @ $85/hour = $10,200
-- **Training and change management:** 40 hours @ $85/hour = $3,400
-- **Total investment:** $20,400
-
-#### **Monthly Benefits:**
-- **Reduced overtime costs:** $9,750/month
-- **Error elimination savings:** $3,200/month
-- **Productivity gains:** $7,800/month
-- **Improved client retention:** $2,250/month
-- **Total monthly benefit:** $23,000
-
-#### **ROI Metrics:**
-- **Payback period:** 0.9 months
-- **First-year savings:** $276,000
-- **ROI percentage:** 1,353%
-- **Break-even timeline:** 27 days
-
----
-
-### 🎯 **Is Your Business Stuck in Manual Mode?**
-
-**Warning signs you need operational optimization:**
-- Teams working overtime regularly just to keep up with basic tasks
-- The same errors happening repeatedly across different processes  
-- Customer complaints about slow response times or mistakes
-- Employees saying "that's just how we've always done it"
-- Growth plans on hold because operations can't scale
-- Management spending time on operational firefighting instead of strategy
-
-**The cost of doing nothing:**
-- Every month of delay costs $23,000 in operational inefficiency
-- Employee frustration leads to higher turnover and training costs
-- Customer dissatisfaction compounds, affecting long-term revenue
-- Competitive disadvantage grows as efficient competitors outperform you
-
----
-
-### 🔄 **Scalable Process Framework**
-
-This wasn't just a one-time fix – it's a **systematic approach** that works for any SMB:
-
-1. **Process Discovery:** Statistical analysis of current workflows
-2. **Bottleneck Identification:** Data-driven prioritization of improvements  
-3. **Intelligent Automation:** Strategic technology implementation
-4. **Quality Systems:** Built-in error prevention and detection
-5. **Continuous Improvement:** Ongoing optimization and scaling
-
-**The beauty?** This framework adapts to your industry, size, and specific challenges while delivering measurable results within 90 days.
-
----
-
-*Ready to eliminate operational chaos and unlock growth? Let's start your transformation.*
+[Discuss an operational reporting problem](https://www.linkedin.com/in/kelvinwangechi/) · [More projects](../README.md)

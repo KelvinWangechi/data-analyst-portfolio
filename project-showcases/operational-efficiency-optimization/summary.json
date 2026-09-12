@@ -1,0 +1,29 @@
+{
+  "data_origin": "See data/README.md for provenance and metric definitions.",
+  "process_rows": 2192,
+  "processes": 8,
+  "period": [
+    "2023-06-01",
+    "2024-02-29"
+  ],
+  "phase_days": {
+    "Before_Optimization": 92,
+    "After_Optimization": 182
+  },
+  "productivity_rows": 599,
+  "unique_employee_month_keys": 404,
+  "repeated_employee_month_keys": 158,
+  "excess_rows_over_unique_employee_month_keys": 195,
+  "structural_checks": "Passed: complete dates, eight processes daily, unique date/process, numeric bounds, phase coverage.",
+  "files_sha256": {
+    "operational_efficiency_process_data.csv": "f39cefa0a72b2a7f7e9755cac368a3d2f3bc48a27520cd4b76bd357315fb5f4b",
+    "operational_efficiency_productivity_data.csv": "67e64c9f69dfd3a6b31340d0e8340faefa29795b0b19c697b5c647be541444d1"
+  },
+  "interpretation": [
+    "Phase comparisons are descriptive, without a control group or causal attribution.",
+    "Processing_Time_Hours has no documented workload denominator; mean recorded hours is not a validated per-case time.",
+    "Means of recorded error rates are unweighted; task volumes are absent, so no pooled error rate is estimated.",
+    "Employee-month keys repeat; no deduplication rule, retention rate or employee-level change is inferred.",
+    "Labour rates, costs, case volumes and implementation costs are absent; no realised savings or ROI is calculated."
+  ]
+}
