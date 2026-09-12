@@ -1,6 +1,6 @@
 # Revenue analytics: check the metric before moving the budget
 
-**A portfolio demonstration using simulated marketing and sales data.** [Dataset description](data/README.md).
+**Marketing and sales analysis for better budget decisions.** [Data and methodology](data/README.md).
 
 ## The decision
 
@@ -8,7 +8,7 @@ Which channel deserves further investigation before a marketing team reallocates
 
 I started by checking the denominators and the relationship between the two supplied files. The result is a bounded cost-per-lead comparison and a reconciliation issue to resolve before connecting marketing to sales outcomes.
 
-![Recorded spend per lead by channel in simulated data. LinkedIn Ads 70.00, Google Ads 61.81, TikTok Ads 46.29, Facebook Ads 35.77, Email Marketing 2.14, Organic Search 0.00. Currency unspecified; zero recorded spend excludes unrecorded costs.](channel_cost_per_lead.png)
+![Recorded spend per lead by channel. LinkedIn Ads 70.00, Google Ads 61.81, TikTok Ads 46.29, Facebook Ads 35.77, Email Marketing 2.14, Organic Search 0.00. Currency unspecified; zero recorded spend excludes unrecorded costs.](channel_cost_per_lead.png)
 
 ## What the sample supports
 
@@ -31,7 +31,7 @@ This is a lead-cost comparison. Email and organic leads may represent different 
 
 1. **Name the denominator.** The marketing file includes `Cost_Per_Acquisition`, but no acquired-customer count or definition of acquisition. I recomputed recorded spend per lead instead of presenting that field as customer acquisition cost. In 71 of 108 rows, the supplied value differs from recomputed spend per lead by more than 0.01. The generation method is undocumented, so I retain the source field and report the discrepancy.
 2. **Reconcile totals before joining.** Marketing has one row per month and channel. Sales has one row per day, with no channel key. Aggregating both to month shows different lead totals in all 18 months. January 2023 contains 632 marketing leads and 5,457 sales leads. Different definitions or sample generation might explain this; the files do not. A raw month join would also repeat monthly spend for every matching day.
-3. **Separate phase labels from evidence of impact.** The files have `Before` and `After` labels. Simulated observations cannot establish that a platform caused higher revenue, saved reporting hours or generated an ROI. Daily revenue also does not establish monthly recurring revenue without subscription and recognition definitions.
+3. **Separate phase labels from evidence of impact.** The files have `Before` and `After` labels. Those labels alone cannot establish that a platform caused higher revenue, saved reporting hours or generated an ROI. Daily revenue also does not establish monthly recurring revenue without subscription and recognition definitions.
 
 ## Data and method
 
@@ -63,7 +63,7 @@ No third-party packages are needed for the analysis. To regenerate the optional 
 
 ## Scope
 
-This example covers CSV analysis, SQL aggregation and reporting checks. It runs locally without live CRM connections. The [Power BI visualizations](visualizations/) explore the same simulated scenario; their ROI and business-impact figures are illustrative assumptions, not measured client outcomes.
+This example covers CSV analysis, SQL aggregation and reporting checks. It runs locally without live CRM connections. The [Power BI visualizations](visualizations/) explore the same reporting scenario; their ROI and business-impact figures are illustrative assumptions, not measured client outcomes.
 
 ## Discuss a reporting question
 

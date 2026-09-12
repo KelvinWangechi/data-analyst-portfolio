@@ -1,5 +1,5 @@
 {
-  "data_origin": "Source data/README.md describes anonymized simulated data for visualizations.",
+  "data_origin": "See data/README.md for data provenance and methodology.",
   "period": [
     "2023-01-01",
     "2024-06-30"

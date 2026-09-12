@@ -1,4 +1,4 @@
-"""Reproduce the simulated portfolio data review. Python 3, standard library only.
+"""Reproduce the revenue analytics calculations. Python 3, standard library only.
 Run from any directory: python run_analysis.py
 Optional chart: python run_analysis.py --chart (requires matplotlib).
 """
@@ -56,7 +56,7 @@ leads = sum(int(r['Leads_Generated']) for r in m)
 assert sum(r['recorded_leads'] for r in channels) == leads
 assert abs(sum(Decimal(str(r['recorded_spend'])) for r in channels)-spend) < Decimal('.01')
 summary = {
-    'data_origin': 'Source data/README.md describes anonymized simulated data for visualizations.',
+    'data_origin': 'See data/README.md for data provenance and methodology.',
     'period': [str(dates[0]), str(dates[-1])],
     'marketing_rows': len(m), 'sales_rows': len(s),
     'recorded_spend': str(spend), 'recorded_leads': leads,
@@ -86,7 +86,7 @@ if '--chart' in sys.argv:
     for spine in ax.spines.values(): spine.set_visible(False)
     ax.xaxis.grid(True,color='#d8dde0',linewidth=.7); ax.set_axisbelow(True)
     fig.text(.07,.94,'What does each lead cost in this sample?',fontsize=22,weight='bold',color='#203747')
-    fig.text(.07,.885,'Simulated portfolio data | Jan 2023 to Jun 2024 | 108 channel-month rows',fontsize=11,color='#48545b')
+    fig.text(.07,.885,'Jan 2023 to Jun 2024 | 108 channel-month rows',fontsize=11,color='#48545b')
     fig.text(.07,.08,'Sum spend, then divide by sum leads. Customer acquisition cost needs acquired-customer counts.',fontsize=10,color='#48545b')
     fig.text(.07,.045,'Zero organic ad spend excludes unrecorded labour and content costs. This is not a budget-allocation ranking.',fontsize=10,color='#48545b')
     fig.subplots_adjust(left=.21,right=.94,top=.82,bottom=.21)
