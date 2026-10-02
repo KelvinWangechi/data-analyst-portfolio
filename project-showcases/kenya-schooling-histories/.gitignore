@@ -1,0 +1,12 @@
+raw/*
+!raw/README.md
+derived/*
+!derived/README.md
+outputs/private*/
+logs/private*/
+validation.json
+__pycache__/
+*.dta
+*.sav
+*.parquet
+.venv/

@@ -14,4 +14,10 @@ Onboarding has the largest difference in recorded processing hours between two p
 
 [Read the operations case](operational-efficiency-optimization/) · [Inspect the analysis](operational-efficiency-optimization/run_analysis.py)
 
+## Refugee and host community schooling
+
+A research protocol for distinguishing non-entry from interrupted schooling among children aged 6–17 in Kenya’s surveyed refugee-hosting communities. **Data access pending; no new empirical findings yet.**
+
+[Read the research project](kenya-schooling-histories/) · [Inspect the analysis code](kenya-schooling-histories/scripts/analyze.py)
+
 [About Kelvin and contact](../README.md)
