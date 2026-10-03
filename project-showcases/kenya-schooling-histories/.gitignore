@@ -10,3 +10,4 @@ __pycache__/
 *.sav
 *.parquet
 .venv/
+.venv312/

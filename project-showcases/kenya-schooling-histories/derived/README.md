@@ -1,3 +1,3 @@
-# Rebuildable private data
+# Local derived data
 
-Do not commit member-level records or extracts. The initial pipeline does not export a member-level derived file.
+Record-level transformations, if saved during reproduction, belong here and remain excluded from Git. The analysis scripts calculate directly from the roster and write aggregate audit outputs to `outputs/private_run01`. Public outputs are documented in [outputs](../outputs/README.md).

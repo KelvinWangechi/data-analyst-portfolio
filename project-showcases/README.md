@@ -16,8 +16,8 @@ Onboarding has the largest difference in recorded processing hours between two p
 
 ## Refugee and host community schooling
 
-A research protocol for distinguishing non-entry from interrupted schooling among children aged 6–17 in Kenya’s surveyed refugee-hosting communities. **Data access pending; no new empirical findings yet.**
+An analysis of 16,472 children shows different schooling-exclusion patterns across Kenya’s surveyed refugee-hosting communities: never-attendance dominates in Dadaab, nearby hosts face higher exclusion in Turkana, and previous attendance matters more among Nairobi refugee teenagers. Includes weighted estimates, three figures and sensitivity checks.
 
-[Read the research project](kenya-schooling-histories/) · [Inspect the analysis code](kenya-schooling-histories/scripts/analyze.py)
+[Read the findings](kenya-schooling-histories/) · [Inspect the analysis code](kenya-schooling-histories/scripts/analyze.py)
 
 [About Kelvin and contact](../README.md)

@@ -1,0 +1,21 @@
+{
+  "source_sha256": "2eebc5afa065aebb0a04c9947b2b553cf1b83c76aae71b7da5eacd0665366e1e",
+  "source_file": "hhm.dta",
+  "release": "KEN_2022_K-LSRH_v01_M",
+  "script_version": "1.0.0",
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "download_date": "2026-10-04",
+  "source_url": "https://microdata.worldbank.org/catalog/6409",
+  "disclosure_rule": "Components with fewer than 5 observations withheld together; all age detail withheld for affected location/sample families.",
+  "public_files_sha256": {
+    "outputs/schooling_estimates.csv": "1d16d6c385d3a9e553eba2cf81a6050b0b07e1f9dab35b308261b8bf4319603b",
+    "outputs/location_gaps.csv": "e4d47a855defaa30b5f99ea08e9c614ef3af1d0582dde84818c4a5a54b3b68e8",
+    "outputs/sensitivity.csv": "cf0a5569fa3730651c89d2408c9f3c3db8f30739a3c4859bff28f50ca6346309",
+    "figures/refugee_host_gaps.png": "06f482e9c867c778a09f4f310703402c17ecc09df5506f1ad2191bcfa55c9aba",
+    "figures/schooling_by_age.png": "1229d5dfeea8e8b9dc84fa0ca126d300f0acc5be4792af9b9158adb4e4b4370a",
+    "figures/schooling_composition.png": "039cc1297af8899d86df18f16ef329f016098d898204d6df2b5890515d093a05"
+  }
+}

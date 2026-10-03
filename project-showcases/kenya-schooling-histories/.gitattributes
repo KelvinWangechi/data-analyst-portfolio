@@ -1,0 +1,2 @@
+outputs/*.csv text eol=lf
+outputs/*.json text eol=lf

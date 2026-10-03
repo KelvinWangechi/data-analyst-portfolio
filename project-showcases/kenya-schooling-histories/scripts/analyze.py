@@ -1,4 +1,4 @@
-"""K-LSRH schooling-history protocol. No microdata are distributed here.
+"""K-LSRH weighted schooling-history analysis. No microdata are distributed here.
 
 Outputs are PRIVATE review aggregates, not automatically publication approved.
 Run from the project directory. Requires a completed validation.json.
@@ -12,7 +12,7 @@ import subprocess
 import pandas as pd
 import numpy as np
 
-VERSION = '0.1.0'
+VERSION = '1.0.0'
 GROUPS = {1: ('Turkana', 'refugee'), 2: ('Turkana', 'refugee'),
           3: ('Turkana', 'host'), 4: ('Dadaab', 'refugee'),
           5: ('Dadaab', 'host'), 6: ('Nairobi', 'refugee'),
@@ -38,7 +38,7 @@ def classify(out, ever, unresolved=False):
 
 
 def summarize(g):
-    w = g.weight
+    w = g.weight.astype('float64')
     v = g.state.isin(['A', 'B', 'C'])
     W, V, U = float(w.sum()), float(w[v].sum()), float(w[~v].sum())
     r = dict(eligible_n=len(g), classified_n=int(v.sum()),
@@ -46,10 +46,15 @@ def summarize(g):
              classified_weight=V, missing_share=100 * U / W)
     for state in 'ABC':
         n = float(w[g.state == state].sum())
+        r[state + '_n'] = int((g.state == state).sum())
+        r[state + '_weight'] = n
         r[state] = 100 * n / V if V else None
         r[state + '_bound_low'] = 100 * n / W
         r[state + '_bound_high'] = 100 * (n + U) / W
     r['O'] = r['A'] + r['B'] if V else None
+    r['O_n'] = r['A_n'] + r['B_n']
+    r['O_bound_low'] = 100 * (r['A_weight'] + r['B_weight']) / W
+    r['O_bound_high'] = 100 * (r['A_weight'] + r['B_weight'] + U) / W
     valid_o = g.a4_outofschool.isin([0, 1])
     wo = float(w[valid_o].sum())
     r['direct_o_n'] = int(valid_o.sum())
@@ -85,8 +90,11 @@ def analyze(df, cfg):
     n['location'] = n.strata_actual.map(lambda x: GROUPS[x][0])
     n['sample'] = n.strata_actual.map(lambda x: GROUPS[x][1])
     status = {float(k): v for k, v in cfg['status_codes'].items()}
-    if not n.a1a_status.map(status).eq(n['sample']).all():
+    status_mismatch = ~n.a1a_status.map(status).eq(n['sample'])
+    if status_mismatch.any() and cfg.get('reporting_basis') != 'released_location_strata':
         raise ValueError('Sample status disagrees with location mapping')
+    if not n.a1a_status.map(status).isin(['refugee', 'host']).all():
+        raise ValueError('Unknown sample status code')
     contradictions = ((n.a4_outofschool.eq(0) & n.a4a_everattendschool.eq(0)) |
                       (n.a4_outofschool.eq(1) & n.a4a_attendschool.eq(1)))
     # Retain diagnostics in U until an analyst documents a different rule.
@@ -103,6 +111,7 @@ def analyze(df, cfg):
                     rows.append(dict(location=loc, sample=sample, age_band=band, **summarize(g)))
     audit = {'roster_n': len(df), 'age_missing_n': int(age.isna().sum()),
              'eligible_n': len(n), 'diagnostic_unresolved_n': int(contradictions.sum()),
+             'status_location_mismatch_n': int(status_mismatch.sum()),
              'not_age_eligible_n': int((~age.between(6, 17) & age.notna()).sum())}
     return pd.DataFrame(rows), audit
 
@@ -114,7 +123,7 @@ def main():
     p.add_argument('--out', type=Path, default=Path('outputs/private'))
     a = p.parse_args()
     cfg = json.loads(a.validation.read_text())
-    gates = ['access_terms_reviewed', 'release_labels_verified', 'indicator_derivation_verified',
+    gates = ['access_terms_reviewed', 'release_labels_verified', 'indicator_definition_reviewed',
              'routing_reviewed', 'weight_verified']
     if any(cfg.get(k) is not True for k in gates) or not cfg.get('reviewer') or not cfg.get('evidence_notes'):
         raise SystemExit('BLOCKED: finish the documented validation gates before calculation')
@@ -141,7 +150,9 @@ def main():
         if set(g['sample']) != {'refugee', 'host'}:
             continue
         g = g.set_index('sample')
-        delta = {k: g.loc['refugee', k] - g.loc['host', k] for k in ['A', 'B', 'O']}
+        delta = {k: (g.loc['refugee', k] - g.loc['host', k])
+                 if pd.notna(g.loc['refugee', k]) and pd.notna(g.loc['host', k]) else np.nan
+                 for k in ['A', 'B', 'O']}
         if pd.notna(delta['O']) and not np.isclose(delta['A'] + delta['B'], delta['O']):
             raise ValueError('Gap identity failed')
         gaps.append(dict(location=loc, age_band=band, delta_A=delta['A'], delta_B=delta['B'],

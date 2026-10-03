@@ -5,6 +5,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import pandas as pd
 from analyze import classify, summarize, analyze, CORE
+from build_release import disclosure_tables
+import numpy as np
 
 class ProtocolTests(unittest.TestCase):
     def test_classification(self):
@@ -49,6 +51,56 @@ class ProtocolTests(unittest.TestCase):
     def test_status_mismatch_stops(self):
         with self.assertRaisesRegex(ValueError, 'status'):
             analyze(self.fixture(), {'status_codes': {'1':'host'}})
+
+    def test_reviewed_stratum_basis_records_disagreement(self):
+        stats, audit = analyze(self.fixture(), {'status_codes': {'1':'host'},
+            'reporting_basis':'released_location_strata'})
+        self.assertEqual(audit['status_location_mismatch_n'], 2)
+        self.assertEqual(set(stats['sample']), {'refugee'})
+
+    def test_unknown_status_not_allowed_under_stratum_basis(self):
+        with self.assertRaisesRegex(ValueError, 'Unknown'):
+            analyze(self.fixture(), {'status_codes': {'2':'host'},
+                'reporting_basis':'released_location_strata'})
+
+    def test_planned_enrolment_is_not_daily_attendance(self):
+        d=self.fixture()
+        d['a4_outofschool']=0
+        d['a4a_schoolenrolment']=2
+        d['a4a_attendschool']=0
+        stats,_=analyze(d,{'status_codes':{'1':'refugee'}})
+        self.assertTrue((stats.C==100).all())
+
+    def test_contradiction_stays_unclassified(self):
+        d=self.fixture()
+        d.loc[0,'a4_outofschool']=0
+        d.loc[0,'a4a_everattendschool']=0
+        stats,audit=analyze(d,{'status_codes':{'1':'refugee'}})
+        r=stats[stats.age_band=='6–17'].iloc[0]
+        self.assertEqual((audit['diagnostic_unresolved_n'],r.unclassified_n),(1,1))
+        self.assertAlmostEqual(r.O_bound_low,200/3)
+        self.assertEqual(r.O_bound_high,100)
+
+    def test_float32_weights_accumulate_in_float64(self):
+        d=pd.DataFrame({'weight':np.array([100000000,1,1],dtype=np.float32),
+                        'state':list('ABC'),'a4_outofschool':[1,1,0]})
+        self.assertEqual(summarize(d)['eligible_weight'],100000002)
+
+    def test_age_suppression_prevents_subtraction(self):
+        rows=[]
+        for band,n in [('6–17',9),('6–11',2),('12–14',3),('15–17',4)]:
+            rows.append(dict(location='X',sample='refugee',age_band=band,A_n=n,B_n=30,C_n=40,
+                eligible_n=100,classified_n=100,A=9.,B=30.,C=61.,O=39.,missing_share=0.))
+        result=disclosure_tables(pd.DataFrame(rows))
+        self.assertEqual(result.age_band.tolist(),['6–17'])
+        self.assertEqual(result.iloc[0].A,9.)
+
+    def test_small_component_withholds_both_components(self):
+        d=pd.DataFrame([dict(location='X',sample='host',age_band='6–17',A_n=2,B_n=30,C_n=68,
+            eligible_n=100,classified_n=100,A=2.,B=30.,C=68.,O=32.,missing_share=0.)])
+        r=disclosure_tables(d).iloc[0]
+        self.assertTrue(pd.isna(r.A) and pd.isna(r.B))
+        self.assertEqual(r.O,32.)
 
 if __name__ == '__main__':
     unittest.main()

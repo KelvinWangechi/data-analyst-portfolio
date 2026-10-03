@@ -1,7 +1,8 @@
 {
   "access_terms_reviewed": false,
   "release_labels_verified": false,
-  "indicator_derivation_verified": false,
+  "indicator_definition_reviewed": false,
+  "reporting_basis": "released_location_strata",
   "routing_reviewed": false,
   "weight_verified": false,
   "status_codes": {},

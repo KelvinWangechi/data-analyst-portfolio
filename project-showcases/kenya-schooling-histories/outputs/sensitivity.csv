@@ -1,0 +1,25 @@
+scenario,location,sample,O
+released_indicator,Turkana,refugee,3.939667
+released_indicator,Turkana,host,40.376652
+released_indicator,Dadaab,refugee,59.877376
+released_indicator,Dadaab,host,57.458703
+released_indicator,Nairobi,refugee,16.012914
+released_indicator,Nairobi,host,4.367122
+released_indicator,Other Urban,refugee,9.587687
+released_indicator,Other Urban,host,3.154545
+exclude_status_disagreements,Turkana,refugee,3.941849
+exclude_status_disagreements,Turkana,host,40.376652
+exclude_status_disagreements,Dadaab,refugee,59.877376
+exclude_status_disagreements,Dadaab,host,57.458703
+exclude_status_disagreements,Nairobi,refugee,16.025736
+exclude_status_disagreements,Nairobi,host,4.367122
+exclude_status_disagreements,Other Urban,refugee,9.587687
+exclude_status_disagreements,Other Urban,host,3.154545
+include_reported_exit_or_no_return_plan,Turkana,refugee,4.047645
+include_reported_exit_or_no_return_plan,Turkana,host,40.459097
+include_reported_exit_or_no_return_plan,Dadaab,refugee,61.075841
+include_reported_exit_or_no_return_plan,Dadaab,host,58.013363
+include_reported_exit_or_no_return_plan,Nairobi,refugee,16.146874
+include_reported_exit_or_no_return_plan,Nairobi,host,4.367122
+include_reported_exit_or_no_return_plan,Other Urban,refugee,9.587687
+include_reported_exit_or_no_return_plan,Other Urban,host,3.154545
