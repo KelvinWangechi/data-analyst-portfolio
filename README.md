@@ -17,10 +17,10 @@ Each case connects a business decision to the calculations behind it. Start with
 | Organisation | Role | Dates |
 |---|---|---|
 | CCI Kenya | Customer Experience Analyst (T-Mobile Prepaid) | May 2025–February 2026 |
-| Allen Grey | Lead Data Analyst | September 2021–February 2025 |
+| Allen Gray | Lead Data Analyst | September 2021–February 2025 |
 | Zutari | Product Data Analyst | March 2020–August 2021 |
 
-BSc Computer Science, JKUAT, 2012–2016.
+BSc Computer Science, Multimedia University of Kenya, awarded 2017.
 
 ## Tools and approach
 
