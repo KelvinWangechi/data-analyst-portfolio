@@ -1,0 +1,11 @@
+model,channel,conversion_credit,credit,difference
+First touch,Facebook,5177.0,5177.0,0.0
+First touch,Instagram,2329.0,2329.0,0.0
+First touch,Online Display,2160.0,2160.0,0.0
+First touch,Online Video,3216.0,3216.0,0.0
+First touch,Paid Search,4757.0,4757.0,0.0
+Last touch,Facebook,5301.0,5301.0,0.0
+Last touch,Instagram,2244.0,2244.0,0.0
+Last touch,Online Display,2139.0,2139.0,0.0
+Last touch,Online Video,3408.0,3408.0,0.0
+Last touch,Paid Search,4547.0,4547.0,0.0

@@ -2,6 +2,12 @@
 
 Good analysis should make the next decision clearer. These cases show the business question, the evidence that changes its interpretation, and the next step the evidence supports.
 
+## Marketing attribution
+
+Instagram receives 12.7% of last-touch conversion credit and 17.1% under Markov. Shorten the lookback and its ranking against Online Video changes again. Trace an observed path, compare six models and inspect what the evidence supports before changing spend.
+
+[Read the interactive case](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/marketing-attribution/) · [Inspect the analysis](marketing-attribution/scripts/analyze.py) · [Business case and plan](marketing-attribution/PLAN.md)
+
 ## Revenue analytics
 
 LinkedIn Ads costs 70 per recorded lead; email costs 2.14. Before reallocating the budget, check whether the comparison measures the outcome you actually want.

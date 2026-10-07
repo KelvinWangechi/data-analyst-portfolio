@@ -1,0 +1,35 @@
+{
+  "sha256": "b17dde7505e6fb41b9fd21bdbb587adc425e53f8d9e1df0a6ccea78092df5ee4",
+  "raw_rows": 586737,
+  "clean_rows": 582592,
+  "exact_duplicates": 4145,
+  "cookies": 240108,
+  "conversions": 17639,
+  "conversion_value": 110231.0,
+  "start": "2018-07-01T13:13:16+00:00",
+  "end": "2018-07-31T23:59:30+00:00",
+  "channels": [
+    "Facebook",
+    "Instagram",
+    "Online Display",
+    "Online Video",
+    "Paid Search"
+  ],
+  "missing_fields": 0,
+  "ambiguous_cookies": 557,
+  "ambiguous_time_groups": 609,
+  "ambiguous_converting_cookies": 120,
+  "conversion_duplicates": 0,
+  "conversions_per_cookie_max": 1,
+  "interaction_counts": {
+    "impression": 564953,
+    "conversion": 17639
+  },
+  "converted_single_event": 7417,
+  "converted_multi_event": 10222,
+  "converted_multi_channel": 5641,
+  "nonconverting_paths": 222469,
+  "single_event_paths": 123819,
+  "bootstrap_repetitions": 300,
+  "bootstrap_seed": 20261007
+}

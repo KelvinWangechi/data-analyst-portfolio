@@ -1,0 +1,201 @@
+scenario,model,channel,value_credit,share
+Full path,First touch,Facebook,32283.0,0.2928667979062151
+Full path,First touch,Instagram,14579.5,0.1322631564623382
+Full path,First touch,Online Display,13419.0,0.12173526503433699
+Full path,First touch,Online Video,20225.5,0.1834828677958106
+Full path,First touch,Paid Search,29724.0,0.2696519128012991
+Full path,Last touch,Facebook,33143.5,0.3006731318776025
+Full path,Last touch,Instagram,14039.5,0.12736435304043328
+Full path,Last touch,Online Display,13298.5,0.1206421061225971
+Full path,Last touch,Online Video,21418.0,0.19430105868585063
+Full path,Last touch,Paid Search,28331.5,0.2570193502735165
+Full path,Linear,Facebook,32607.4168199286,0.2958098612906406
+Full path,Linear,Instagram,14189.700575682267,0.1287269513628858
+Full path,Linear,Online Display,13213.961870593675,0.11987518820108387
+Full path,Linear,Online Video,21032.319791203543,0.19080222252545603
+Full path,Linear,Paid Search,29187.600942592522,0.26478577661993924
+Full path,Position based,Facebook,32649.908470644063,0.29619533952013555
+Full path,Position based,Instagram,14281.698516789766,0.1295615436382666
+Full path,Position based,Online Display,13314.195271138176,0.12078449139659603
+Full path,Position based,Online Video,20890.051550247445,0.18951158521874467
+Full path,Position based,Paid Search,29095.146191180494,0.26394704022625665
+Full path,Time decay,Facebook,32799.27150240613,0.2975503397629173
+Full path,Time decay,Instagram,14154.716557289077,0.12840958130915148
+Full path,Time decay,Online Display,13257.165363681437,0.12026712416363307
+Full path,Time decay,Online Video,21236.195284725956,0.1926517520908452
+Full path,Time decay,Paid Search,28783.651291897473,0.2611212026734537
+7-day lookback,First touch,Facebook,32715.0,0.29678584064373903
+7-day lookback,First touch,Instagram,14365.0,0.13031724288085927
+7-day lookback,First touch,Online Display,13586.5,0.12325480128094637
+7-day lookback,First touch,Online Video,21084.0,0.19127105805082054
+7-day lookback,First touch,Paid Search,28480.5,0.25837105714363473
+7-day lookback,Last touch,Facebook,33143.5,0.3006731318776025
+7-day lookback,Last touch,Instagram,14039.5,0.12736435304043328
+7-day lookback,Last touch,Online Display,13298.5,0.1206421061225971
+7-day lookback,Last touch,Online Video,21418.0,0.19430105868585063
+7-day lookback,Last touch,Paid Search,28331.5,0.2570193502735165
+7-day lookback,Linear,Facebook,32927.89585645555,0.29871720166246835
+7-day lookback,Linear,Instagram,14179.042589669349,0.12863026362519933
+7-day lookback,Linear,Online Display,13391.609758523917,0.12148678464791135
+7-day lookback,Linear,Online Video,21285.868802087836,0.19310238319608672
+7-day lookback,Linear,Paid Search,28446.582993263553,0.2580633668683361
+7-day lookback,Position based,Facebook,32909.6587679905,0.2985517573821384
+7-day lookback,Position based,Instagram,14200.773249914819,0.12882740109329335
+7-day lookback,Position based,Online Display,13432.415485536369,0.12185696841665565
+7-day lookback,Position based,Online Video,21257.371062988663,0.19284385574828009
+7-day lookback,Position based,Paid Search,28430.781433569522,0.2579200173596313
+7-day lookback,Time decay,Facebook,32963.10831648977,0.29903664410637454
+7-day lookback,Time decay,Instagram,14170.156890715614,0.12854965382438346
+7-day lookback,Time decay,Online Display,13361.77697778755,0.12121614589169606
+7-day lookback,Time decay,Online Video,21320.803396015086,0.19341930487807502
+7-day lookback,Time decay,Paid Search,28415.154418991864,0.25777825129946985
+14-day lookback,First touch,Facebook,32557.5,0.2953570229790168
+14-day lookback,First touch,Instagram,14391.5,0.13055764712286017
+14-day lookback,First touch,Online Display,13381.5,0.12139507035226026
+14-day lookback,First touch,Online Video,20683.0,0.18763324291714673
+14-day lookback,First touch,Paid Search,29217.5,0.26505701662871606
+14-day lookback,Last touch,Facebook,33143.5,0.3006731318776025
+14-day lookback,Last touch,Instagram,14039.5,0.12736435304043328
+14-day lookback,Last touch,Online Display,13298.5,0.1206421061225971
+14-day lookback,Last touch,Online Video,21418.0,0.19430105868585063
+14-day lookback,Last touch,Paid Search,28331.5,0.2570193502735165
+14-day lookback,Linear,Facebook,32805.322236891996,0.29760523116811055
+14-day lookback,Linear,Instagram,14129.435951849064,0.12818023924167488
+14-day lookback,Linear,Online Display,13279.861487009503,0.12047302017589882
+14-day lookback,Linear,Online Video,21180.82791735961,0.19214946718581533
+14-day lookback,Linear,Paid Search,28835.552406889856,0.26159204222850063
+14-day lookback,Position based,Facebook,32822.73302387604,0.2977631793585837
+14-day lookback,Position based,Instagram,14184.30906444726,0.128678040337539
+14-day lookback,Position based,Online Display,13321.660408599064,0.12085221406500045
+14-day lookback,Position based,Online Video,21094.177097996577,0.19136338324061813
+14-day lookback,Position based,Paid Search,28808.120405080925,0.26134318299825754
+14-day lookback,Time decay,Facebook,32878.332786672254,0.29826757252199704
+14-day lookback,Time decay,Instagram,14135.484887871768,0.12823511433146545
+14-day lookback,Time decay,Online Display,13291.577596719617,0.12057930706171238
+14-day lookback,Time decay,Online Video,21279.62992733377,0.19304578500906072
+14-day lookback,Time decay,Paid Search,28645.97480140261,0.25987222107576463
+30-day lookback,First touch,Facebook,32283.0,0.2928667979062151
+30-day lookback,First touch,Instagram,14579.5,0.1322631564623382
+30-day lookback,First touch,Online Display,13419.0,0.12173526503433699
+30-day lookback,First touch,Online Video,20225.5,0.1834828677958106
+30-day lookback,First touch,Paid Search,29724.0,0.2696519128012991
+30-day lookback,Last touch,Facebook,33143.5,0.3006731318776025
+30-day lookback,Last touch,Instagram,14039.5,0.12736435304043328
+30-day lookback,Last touch,Online Display,13298.5,0.1206421061225971
+30-day lookback,Last touch,Online Video,21418.0,0.19430105868585063
+30-day lookback,Last touch,Paid Search,28331.5,0.2570193502735165
+30-day lookback,Linear,Facebook,32607.4168199286,0.2958098612906406
+30-day lookback,Linear,Instagram,14189.700575682267,0.1287269513628858
+30-day lookback,Linear,Online Display,13213.961870593675,0.11987518820108387
+30-day lookback,Linear,Online Video,21032.319791203543,0.19080222252545603
+30-day lookback,Linear,Paid Search,29187.600942592522,0.26478577661993924
+30-day lookback,Position based,Facebook,32649.908470644063,0.29619533952013555
+30-day lookback,Position based,Instagram,14281.698516789766,0.1295615436382666
+30-day lookback,Position based,Online Display,13314.195271138176,0.12078449139659603
+30-day lookback,Position based,Online Video,20890.051550247445,0.18951158521874467
+30-day lookback,Position based,Paid Search,29095.146191180494,0.26394704022625665
+30-day lookback,Time decay,Facebook,32799.27150240613,0.2975503397629173
+30-day lookback,Time decay,Instagram,14154.716557289077,0.12840958130915148
+30-day lookback,Time decay,Online Display,13257.165363681437,0.12026712416363307
+30-day lookback,Time decay,Online Video,21236.195284725956,0.1926517520908452
+30-day lookback,Time decay,Paid Search,28783.651291897473,0.2611212026734537
+Duplicates retained,First touch,Facebook,32283.0,0.2928667979062151
+Duplicates retained,First touch,Instagram,14579.5,0.1322631564623382
+Duplicates retained,First touch,Online Display,13419.0,0.12173526503433699
+Duplicates retained,First touch,Online Video,20225.5,0.1834828677958106
+Duplicates retained,First touch,Paid Search,29724.0,0.2696519128012991
+Duplicates retained,Last touch,Facebook,33143.5,0.3006731318776025
+Duplicates retained,Last touch,Instagram,14039.5,0.12736435304043328
+Duplicates retained,Last touch,Online Display,13298.5,0.1206421061225971
+Duplicates retained,Last touch,Online Video,21418.0,0.19430105868585063
+Duplicates retained,Last touch,Paid Search,28331.5,0.2570193502735165
+Duplicates retained,Linear,Facebook,32614.300093978763,0.2958723053766977
+Duplicates retained,Linear,Instagram,14171.723841719579,0.1285638689816801
+Duplicates retained,Linear,Online Display,13205.18706803167,0.1197955844366074
+Duplicates retained,Linear,Online Video,21045.330408330075,0.19092025299897555
+Duplicates retained,Linear,Paid Search,29194.458587940426,0.2648479882060439
+Duplicates retained,Position based,Facebook,32653.236670603004,0.2962255324781868
+Duplicates retained,Position based,Instagram,14276.236591927194,0.12951199383047596
+Duplicates retained,Position based,Online Display,13310.975536116332,0.12075528241707262
+Duplicates retained,Position based,Online Video,20892.841525629738,0.18953689547976285
+Duplicates retained,Position based,Paid Search,29097.709675723487,0.2639702957944996
+Duplicates retained,Time decay,Facebook,32804.485255467785,0.29759763819132357
+Duplicates retained,Time decay,Instagram,14138.372316649635,0.12826130867586827
+Duplicates retained,Time decay,Online Display,13249.391971153122,0.12019660504897099
+Duplicates retained,Time decay,Online Video,21248.132722261136,0.19276004683130096
+Duplicates retained,Time decay,Paid Search,28790.617734468276,0.26118440125253584
+Ambiguous timestamps excluded,First touch,Facebook,31807.5,0.29052720995232095
+Ambiguous timestamps excluded,First touch,Instagram,14377.0,0.13131839023766465
+Ambiguous timestamps excluded,First touch,Online Display,13410.5,0.12249045505197201
+Ambiguous timestamps excluded,First touch,Online Video,20187.5,0.18439104144973603
+Ambiguous timestamps excluded,First touch,Paid Search,29699.5,0.2712729033083064
+Ambiguous timestamps excluded,Last touch,Facebook,32690.5,0.29859246268793044
+Ambiguous timestamps excluded,Last touch,Instagram,13814.0,0.12617599240057725
+Ambiguous timestamps excluded,Last touch,Online Display,13285.5,0.1213487148572368
+Ambiguous timestamps excluded,Last touch,Online Video,21402.5,0.19548875614256225
+Ambiguous timestamps excluded,Last touch,Paid Search,28289.5,0.2583940739116932
+Ambiguous timestamps excluded,Linear,Facebook,32168.343543475698,0.293823126573096
+Ambiguous timestamps excluded,Linear,Instagram,13935.078957295802,0.12728191809882722
+Ambiguous timestamps excluded,Linear,Online Display,13205.60992650261,0.12061900519265824
+Ambiguous timestamps excluded,Linear,Online Video,21011.946922129224,0.19192147496510134
+Ambiguous timestamps excluded,Linear,Paid Search,29161.020650597446,0.2663544751703243
+Ambiguous timestamps excluded,Position based,Facebook,32194.111804854798,0.2940584918512157
+Ambiguous timestamps excluded,Position based,Instagram,14055.837664200231,0.1283849186551235
+Ambiguous timestamps excluded,Position based,Online Display,13303.95588566254,0.12151728946915968
+Ambiguous timestamps excluded,Position based,Online Video,20864.67353873175,0.19057629143358495
+Ambiguous timestamps excluded,Position based,Paid Search,29063.421106550686,0.2654630085909162
+Ambiguous timestamps excluded,Time decay,Facebook,32359.881266245957,0.29557261710825483
+Ambiguous timestamps excluded,Time decay,Instagram,13898.227213016144,0.1269453171573057
+Ambiguous timestamps excluded,Time decay,Online Display,13248.951279382569,0.12101488171007625
+Ambiguous timestamps excluded,Time decay,Online Video,21216.20451360458,0.19378714778323908
+Ambiguous timestamps excluded,Time decay,Paid Search,28758.735727750784,0.2626800362411244
+Impressions only,First touch,Facebook,19426.0,0.3041300059492125
+Impressions only,First touch,Instagram,8922.0,0.13968124745592886
+Impressions only,First touch,Online Display,6879.5,0.10770423020321257
+Impressions only,First touch,Online Video,13756.5,0.21536932085042426
+Impressions only,First touch,Paid Search,14890.0,0.2331151955412218
+Impressions only,Last touch,Facebook,19653.0,0.3076838776340921
+Impressions only,Last touch,Instagram,8683.0,0.13593950590224504
+Impressions only,Last touch,Online Display,6600.0,0.10332842784231455
+Impressions only,Last touch,Online Video,14669.0,0.22965525879074428
+Impressions only,Last touch,Paid Search,14269.0,0.223392929830604
+Impressions only,Linear,Facebook,19519.601894963438,0.30559542059309636
+Impressions only,Linear,Instagram,8672.251451536955,0.13577122853644605
+Impressions only,Linear,Online Display,6638.295682945483,0.10392797825320918
+Impressions only,Linear,Online Video,14376.043856966657,0.22506878944432251
+Impressions only,Linear,Paid Search,14667.807113587516,0.22963658317292665
+Impressions only,Position based,Facebook,19543.907566292604,0.3059759458667471
+Impressions only,Position based,Instagram,8754.691236419576,0.13706189116729148
+Impressions only,Position based,Online Display,6715.942777772654,0.10514360737972656
+Impressions only,Position based,Online Video,14255.139730461111,0.22317593591228216
+Impressions only,Position based,Paid Search,14604.318689053622,0.22864261967394592
+Impressions only,Time decay,Facebook,19588.53903766551,0.3066746882560276
+Impressions only,Time decay,Instagram,8639.052323462181,0.1352514688834609
+Impressions only,Time decay,Online Display,6603.785049472232,0.10338768590462835
+Impressions only,Time decay,Online Video,14543.820396701512,0.2276954691533568
+Impressions only,Time decay,Paid Search,14498.803192698551,0.2269906878025261
+First seen July 8 onward,First touch,Facebook,16869.0,0.2781804239740767
+First seen July 8 onward,First touch,Instagram,7397.0,0.12198118419208284
+First seen July 8 onward,First touch,Online Display,7801.5,0.12865164370346552
+First seen July 8 onward,First touch,Online Video,11401.0,0.18800966350871118
+First seen July 8 onward,First touch,Paid Search,17172.0,0.28317708462166374
+First seen July 8 onward,Last touch,Facebook,17356.5,0.2862196057090558
+First seen July 8 onward,Last touch,Instagram,7300.0,0.12038159315968701
+First seen July 8 onward,Last touch,Online Display,7951.0,0.1311169927688591
+First seen July 8 onward,Last touch,Online Video,11694.0,0.19284141786429862
+First seen July 8 onward,Last touch,Paid Search,16339.0,0.2694403904980995
+First seen July 8 onward,Linear,Facebook,17074.28637392545,0.28156572544628505
+First seen July 8 onward,Linear,Instagram,7296.898169869049,0.12033044202915623
+First seen July 8 onward,Linear,Online Display,7875.748454405068,0.1298760474337294
+First seen July 8 onward,Linear,Online Video,11631.42733747607,0.19180955528856244
+First seen July 8 onward,Linear,Paid Search,16762.139664324368,0.27641822980226693
+First seen July 8 onward,Position based,Facebook,17090.27183049355,0.28182933568314167
+First seen July 8 onward,Position based,Instagram,7326.458729464619,0.12081791425639002
+First seen July 8 onward,Position based,Online Display,7885.502193362195,0.13003689272618457
+First seen July 8 onward,Position based,Online Video,11576.025678893162,0.19089594707980906
+First seen July 8 onward,Position based,Paid Search,16762.241567786506,0.27641991025447527
+First seen July 8 onward,Time decay,Facebook,17152.78053227972,0.2828601435060681
+First seen July 8 onward,Time decay,Instagram,7326.702739065774,0.12082193812824389
+First seen July 8 onward,Time decay,Online Display,7900.873449551954,0.13029037441234742
+First seen July 8 onward,Time decay,Online Video,11668.401814621384,0.1924192876810281
+First seen July 8 onward,Time decay,Paid Search,16591.741464481143,0.2736082562723121
