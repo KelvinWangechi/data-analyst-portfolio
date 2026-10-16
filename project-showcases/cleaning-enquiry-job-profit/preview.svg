@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+<title id="title">From enquiry to verified job profit</title><desc id="desc">A fictional cleaning company completed twelve jobs. Ten have verified costs and two need follow-up. Verified direct margin is forty percent.</desc>
+<rect width="960" height="600" fill="#f6f5ed"/>
+<rect x="28" y="28" width="904" height="544" fill="none" stroke="#cdd7ca"/>
+<g font-family="Georgia,serif" fill="#183c36"><text x="65" y="160" font-size="47">We finished the jobs.</text><text x="65" y="219" font-size="47" font-style="italic">Did we make money?</text></g>
+<g font-family="Verdana,sans-serif"><text x="65" y="83" font-size="12" letter-spacing="3" fill="#1b5b49">POWER WASHING INC / SYNTHETIC CASE</text>
+<path d="M65 264H895" stroke="#cdd7ca"/>
+<text x="65" y="310" font-size="12" letter-spacing="2" fill="#64716b">COMPLETED REVENUE</text><text x="65" y="374" font-size="52" fill="#183c36">$9,500</text>
+<text x="415" y="310" font-size="12" letter-spacing="2" fill="#64716b">VERIFIED DIRECT MARGIN</text><text x="415" y="374" font-size="52" fill="#183c36">40%</text>
+<text x="65" y="414" font-size="15" fill="#64716b">12 completed jobs · 10 with verified costs</text>
+<rect x="65" y="459" width="830" height="64" fill="#183c36"/><circle cx="95" cy="491" r="5" fill="#dcef9d"/>
+<text x="115" y="497" font-size="16" fill="#f6f5ed">2 missing costs. A clear next action for the owner.</text></g></svg>

@@ -6,6 +6,7 @@ I help teams understand where growth comes from, where reporting breaks down, an
 
 | Business question | What you can inspect |
 |---|---|
+| [We finished the jobs. Did we make money?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/cleaning-enquiry-job-profit/) | Enquiry-to-job workflow, human quote approval, missing-cost exceptions, verified profitability and Salesforce-to-SQL reconciliation |
 | [Who deserves the conversion?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/marketing-attribution/) | Six attribution models, observed path exploration, lookback sensitivity, Markov uncertainty and SQL reconciliation |
 | [What did “too expensive” actually mean?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/) | Open feedback, evidence-linked themes, R analysis, SQL reconciliation and an interactive coding explorer |
 | [Would you cut the channel costing 70 per lead?](project-showcases/revenue-analytics-platform/) | SQL aggregation, channel economics, monthly reconciliation and a reproducible analysis |
