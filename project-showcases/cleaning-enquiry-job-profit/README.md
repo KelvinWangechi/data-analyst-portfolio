@@ -60,7 +60,7 @@ Quote approval is performed inside Salesforce.
 and its automated checks. Credentials are held only in a private VPS file and
 are never included in GitHub Pages or the receipt. Input fields are allowlisted;
 submission limits and a honeypot reduce casual abuse. This public demo is limited
-to five new enquiries per IP per hour and fifty per day across all viewers.
+to fifty new enquiries per IP per hour and fifty per day across all viewers.
 
 The server stores keyed hashes for receipt possession, payload replay checks and
 IP limits, plus source references and timestamps. Customer details live in
@@ -68,7 +68,7 @@ Salesforce. Keep the private receipt key in the original browser; it cannot be
 recovered from the public reference alone.
 
 Two real HTTPS submissions with the same UUID were read back successfully on
-19 October 2026: one enquiry, one estimator task, quote Pending, no job. Thirteen
+19 October 2026: one enquiry, one estimator task, quote Pending, no job. Fourteen
 automated adapter tests cover concurrent replay, lost responses, invalid input,
 private receipts, task relationship checks and submission limits.
 

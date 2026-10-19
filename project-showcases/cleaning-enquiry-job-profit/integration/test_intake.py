@@ -4,6 +4,7 @@ import tempfile
 import unittest
 import uuid
 import datetime as dt
+import time
 from unittest.mock import patch
 from app import Intake, Problem, Salesforce, canonical, BUSINESS_TIMEZONE
 
@@ -130,6 +131,22 @@ class IntakeTests(unittest.TestCase):
         with self.assertRaises(Problem) as error:
             self.api.submit(dict(self.body, submission_id=str(uuid.uuid4())), '192.0.2.1')
         self.assertEqual(error.exception.status, 429)
+
+    def test_hourly_reset_preserves_receipts_and_daily_sequence(self):
+        first = self.api.submit(self.body, '192.0.2.1')
+        self.api.submit(dict(self.body, submission_id=str(uuid.uuid4())), '192.0.2.1')
+        with self.api.db() as db:
+            db.execute("INSERT INTO quota_resets VALUES ('hourly', ?)", (time.time(),))
+        third = self.api.submit(dict(self.body, submission_id=str(uuid.uuid4())), '192.0.2.1')
+        self.assertTrue(third['reference'].endswith('-003'))
+        replay = self.api.submit(self.body, '192.0.2.1')
+        self.assertEqual(replay['reference'], first['reference'])
+        self.assertTrue(replay['replayed'])
+        with self.api.db() as db:
+            self.assertEqual(db.execute('SELECT count(*) FROM receipts').fetchone()[0], 3)
+        with self.assertRaises(Problem) as error:
+            self.api.submit(dict(self.body, submission_id=str(uuid.uuid4())), '192.0.2.1')
+        self.assertEqual(error.exception.status, 429)  # Daily protection still applies.
 
     def test_database_keeps_hashes_not_customer_details_or_receipt_key(self):
         self.api.submit(self.body, '192.0.2.1')

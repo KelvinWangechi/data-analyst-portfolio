@@ -160,7 +160,7 @@ class Salesforce:
 
 
 class Intake:
-    def __init__(self, folder, salesforce, hourly=5, daily=50):
+    def __init__(self, folder, salesforce, hourly=50, daily=50):
         self.folder = Path(folder)
         self.folder.mkdir(parents=True, exist_ok=True)
         self.path = self.folder / 'receipts.sqlite'
@@ -178,6 +178,7 @@ class Intake:
             if 'enquiry_name' not in {row['name'] for row in db.execute('PRAGMA table_info(receipts)')}:
                 db.execute('ALTER TABLE receipts ADD COLUMN enquiry_name TEXT')
             db.execute('CREATE TABLE IF NOT EXISTS daily_sequence (day TEXT PRIMARY KEY, value INTEGER NOT NULL)')
+            db.execute('CREATE TABLE IF NOT EXISTS quota_resets (bucket TEXT PRIMARY KEY, reset_at REAL NOT NULL)')
         os.chmod(self.path, 0o600)
 
     @contextmanager
@@ -236,7 +237,9 @@ class Intake:
                         raise Problem(409, 'This reference belongs to different details. Start a new demo enquiry to change them.')
                 else:
                     now, ip_hash = time.time(), self.digest('ip:' + ip)
-                    hour_count = db.execute('SELECT count(*) FROM receipts WHERE ip_hash=? AND created>?', (ip_hash, now - 3600)).fetchone()[0]
+                    reset = db.execute("SELECT reset_at FROM quota_resets WHERE bucket='hourly'").fetchone()
+                    hour_start = max(now - 3600, reset['reset_at'] if reset else 0)
+                    hour_count = db.execute('SELECT count(*) FROM receipts WHERE ip_hash=? AND created>?', (ip_hash, hour_start)).fetchone()[0]
                     day_count = db.execute('SELECT count(*) FROM receipts WHERE created>?', (now - 86400,)).fetchone()[0]
                     if hour_count >= self.hourly or day_count >= self.daily:
                         raise Problem(429, 'The demo intake limit has been reached. Please try again later.')
