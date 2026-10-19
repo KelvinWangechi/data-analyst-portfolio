@@ -20,6 +20,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
+from zoneinfo import ZoneInfo
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ORG = '00DQy0000106bxF'
@@ -28,6 +29,7 @@ ORIGIN = 'https://kelvinwangechi.github.io'
 VERSION = 'v67.0'
 SERVICES = {'House wash', 'Driveway cleaning', 'Gutter cleaning', 'Roof cleaning', 'Commercial wash'}
 DATA = Path(os.environ.get('DATA_DIR', '/data'))
+BUSINESS_TIMEZONE = ZoneInfo('America/Los_Angeles')
 
 
 class Problem(Exception):
@@ -38,8 +40,9 @@ class Problem(Exception):
 def canonical(body):
     if not isinstance(body, dict) or set(body) - {'submission_id', 'receipt_token', 'customer', 'email', 'address', 'service', 'demo_consent', 'website'}:
         raise Problem(422, 'Unexpected enquiry fields.')
-    if body.get('demo_consent') is not True or body.get('website', '') != '':
-        raise Problem(422, 'Confirm this is a demo submission and leave the optional website field blank.')
+    # Accept the retired checkbox field from cached clients without requiring it.
+    if body.get('website', '') != '':
+        raise Problem(422, 'Leave the optional website field blank.')
     try:
         submission_id = str(uuid.UUID(body.get('submission_id', '')))
     except (ValueError, TypeError, AttributeError):
@@ -124,13 +127,13 @@ class Salesforce:
     def lookup(self, reference):
         if not re.fullmatch(r'WEB-[a-f0-9]{32}', reference):
             raise ValueError('Unexpected source reference')
-        rows = self.query("SELECT Id,Contact__c,Estimator_Task_ID__c,Quote_Status__c,Customer_Accepted__c,Outcome__c FROM Enquiry__c WHERE Source_Enquiry_ID__c = '" + reference + "' LIMIT 1")
+        rows = self.query("SELECT Id,Name,Contact__c,Estimator_Task_ID__c,Quote_Status__c,Customer_Accepted__c,Outcome__c FROM Enquiry__c WHERE Source_Enquiry_ID__c = '" + reference + "' LIMIT 1")
         return rows[0] if rows else None
 
-    def create(self, reference, values):
-        today = dt.datetime.now(dt.timezone(dt.timedelta(hours=3))).date().isoformat()
+    def create(self, reference, values, name=None):
+        today = name[4:14] if name else dt.datetime.now(BUSINESS_TIMEZONE).date().isoformat()
         return self.request('POST', '/services/data/' + VERSION + '/sobjects/Enquiry__c', {
-            'Name': reference, 'Source_Enquiry_ID__c': reference,
+            'Name': name or reference, 'Source_Enquiry_ID__c': reference,
             'Customer_Name__c': values['customer'], 'Email__c': values['email'],
             'Property_Address__c': values['address'], 'Service__c': values['service'],
             'Received_Date__c': today, 'Quote_Status__c': 'Pending', 'Outcome__c': 'Open'})
@@ -172,6 +175,9 @@ class Intake:
         with self.db() as db:
             db.execute('CREATE TABLE IF NOT EXISTS receipts (submission_id TEXT PRIMARY KEY, reference TEXT UNIQUE NOT NULL, token_hash TEXT NOT NULL, payload_hash TEXT NOT NULL, ip_hash TEXT NOT NULL, created REAL NOT NULL, confirmed INTEGER NOT NULL DEFAULT 0)')
             db.execute('CREATE TABLE IF NOT EXISTS attempts (ip_hash TEXT NOT NULL, created REAL NOT NULL)')
+            if 'enquiry_name' not in {row['name'] for row in db.execute('PRAGMA table_info(receipts)')}:
+                db.execute('ALTER TABLE receipts ADD COLUMN enquiry_name TEXT')
+            db.execute('CREATE TABLE IF NOT EXISTS daily_sequence (day TEXT PRIMARY KEY, value INTEGER NOT NULL)')
         os.chmod(self.path, 0o600)
 
     @contextmanager
@@ -207,11 +213,11 @@ class Intake:
             raise Problem(404, 'Receipt not found.')
         enquiry = self.sf.lookup(row['reference'])
         if not enquiry:
-            return {'reference': row['reference'], 'status': 'awaiting_salesforce_confirmation', 'enquiry_confirmed': False}
+            return {'reference': row['enquiry_name'] or row['reference'], 'status': 'awaiting_salesforce_confirmation', 'enquiry_confirmed': False}
         verified = self.sf.verify(enquiry)
         with self.db() as db:
             db.execute('UPDATE receipts SET confirmed=1 WHERE submission_id=?', (submission_id,))
-        return dict(verified, reference=row['reference'], status='handoff_confirmed' if verified['contact_confirmed'] and verified['estimator_task_confirmed'] else 'handoff_pending',
+        return dict(verified, reference=enquiry.get('Name') or row['enquiry_name'] or row['reference'], status='handoff_confirmed' if verified['contact_confirmed'] and verified['estimator_task_confirmed'] else 'handoff_pending',
             checked_at=dt.datetime.now(dt.timezone.utc).isoformat(), verification_source='Salesforce REST read-back',
             flow='Cleaning_Enquiry_Handoff', approval_location='Salesforce')
 
@@ -235,12 +241,16 @@ class Intake:
                     if hour_count >= self.hourly or day_count >= self.daily:
                         raise Problem(429, 'The demo intake limit has been reached. Please try again later.')
                     reference = 'WEB-' + uuid.UUID(submission_id).hex
-                    db.execute('INSERT INTO receipts VALUES (?,?,?,?,?,?,0)', (submission_id, reference, self.digest('receipt:' + token), fingerprint, ip_hash, now))
-                    row = {'reference': reference}
+                    day = dt.datetime.now(BUSINESS_TIMEZONE).date().isoformat()
+                    db.execute('INSERT INTO daily_sequence VALUES (?,1) ON CONFLICT(day) DO UPDATE SET value=value+1', (day,))
+                    sequence = db.execute('SELECT value FROM daily_sequence WHERE day=?', (day,)).fetchone()[0]
+                    name = f'enq-{day}-{sequence:03d}'
+                    db.execute('INSERT INTO receipts (submission_id,reference,token_hash,payload_hash,ip_hash,created,confirmed,enquiry_name) VALUES (?,?,?,?,?,?,0,?)', (submission_id, reference, self.digest('receipt:' + token), fingerprint, ip_hash, now, name))
+                    row = {'reference': reference, 'enquiry_name': name}
             enquiry = self.sf.lookup(row['reference'])
             if not enquiry:
                 try:
-                    self.sf.create(row['reference'], values)
+                    self.sf.create(row['reference'], values, row['enquiry_name'])
                 except Problem:
                     # A lost response may hide a committed creation: read it back
                     # before reporting failure. The Salesforce external ID is unique.

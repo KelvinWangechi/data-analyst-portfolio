@@ -3,7 +3,9 @@ import copy
 import tempfile
 import unittest
 import uuid
-from app import Intake, Problem, Salesforce, canonical
+import datetime as dt
+from unittest.mock import patch
+from app import Intake, Problem, Salesforce, canonical, BUSINESS_TIMEZONE
 
 
 class FakeSalesforce:
@@ -19,9 +21,9 @@ class FakeSalesforce:
     def lookup(self, reference):
         return self.rows.get(reference)
 
-    def create(self, reference, values):
+    def create(self, reference, values, name=None):
         self.creates += 1
-        self.rows[reference] = {'Id': 'a00Qy0000000001AAA'}
+        self.rows[reference] = {'Id': 'a00Qy0000000001AAA', 'Name': name or reference}
         if self.interrupt_after_commit:
             raise Problem(503, 'Lost response')
 
@@ -36,7 +38,7 @@ class IntakeTests(unittest.TestCase):
         self.sf = FakeSalesforce()
         self.api = Intake(self.temp.name, self.sf, hourly=2, daily=3)
         self.body = {'submission_id': str(uuid.uuid4()), 'receipt_token': 'a' * 64, 'customer': 'Alex Demo',
-            'email': 'alex@example.test', 'address': '26 Example Lane', 'service': 'House wash', 'demo_consent': True, 'website': ''}
+            'email': 'alex@example.test', 'address': '26 Example Lane', 'service': 'House wash', 'website': ''}
 
     def tearDown(self):
         self.temp.cleanup()
@@ -56,6 +58,35 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(self.sf.creates, 1)
         self.assertEqual(len({r['reference'] for r in results}), 1)
         self.assertEqual(sum(r['replayed'] for r in results), 3)
+
+    def test_daily_names_increment_once_and_survive_restart(self):
+        first = self.api.submit(self.body, '192.0.2.1')
+        self.assertRegex(first['reference'], r'^enq-\d{4}-\d{2}-\d{2}-001$')
+        restarted = Intake(self.temp.name, self.sf, hourly=2, daily=3)
+        replay = restarted.submit(self.body, '192.0.2.1')
+        self.assertEqual(replay['reference'], first['reference'])
+        second = restarted.submit(dict(self.body, submission_id=str(uuid.uuid4())), '192.0.2.1')
+        self.assertEqual(second['reference'], first['reference'][:-3] + '002')
+
+    def test_business_timezone_observes_los_angeles_daylight_saving(self):
+        summer = dt.datetime(2026, 7, 1, tzinfo=dt.timezone.utc).astimezone(BUSINESS_TIMEZONE)
+        winter = dt.datetime(2026, 12, 1, tzinfo=dt.timezone.utc).astimezone(BUSINESS_TIMEZONE)
+        self.assertEqual(summer.utcoffset(), dt.timedelta(hours=-7))
+        self.assertEqual(winter.utcoffset(), dt.timedelta(hours=-8))
+
+    def test_daily_counter_resets_at_los_angeles_midnight(self):
+        real_datetime = dt.datetime
+        class Clock(real_datetime):
+            instant = real_datetime(2026, 10, 20, 6, 59, tzinfo=dt.timezone.utc)
+            @classmethod
+            def now(cls, tz=None):
+                return cls.instant.astimezone(tz)
+        with patch('app.dt.datetime', Clock):
+            first = self.api.submit(self.body, '192.0.2.1')
+            Clock.instant = real_datetime(2026, 10, 20, 7, 0, tzinfo=dt.timezone.utc)
+            second = self.api.submit(dict(self.body, submission_id=str(uuid.uuid4())), '192.0.2.1')
+        self.assertEqual(first['reference'], 'enq-2026-10-19-001')
+        self.assertEqual(second['reference'], 'enq-2026-10-20-001')
 
     def test_response_lost_after_commit_is_read_back_without_second_creation(self):
         self.sf.interrupt_after_commit = True
@@ -79,7 +110,7 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(self.sf.creates, 1)
 
     def test_privileged_or_invalid_fields_cannot_reach_salesforce(self):
-        for changes in [{'quote_status': 'Approved'}, {'demo_consent': False}, {'email': 'invalid'}, {'service': 'arbitrary'}, {'address': ''}, {'website': 'spam'}]:
+        for changes in [{'quote_status': 'Approved'}, {'email': 'invalid'}, {'service': 'arbitrary'}, {'address': ''}, {'website': 'spam'}]:
             with self.subTest(changes=changes), self.assertRaises(Problem):
                 self.api.submit(dict(self.body, **changes), '192.0.2.1')
         self.assertEqual(self.sf.creates, 0)
