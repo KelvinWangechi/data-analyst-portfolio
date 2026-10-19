@@ -10,10 +10,21 @@ The Salesforce core connects validated enquiries, customer contacts and estimato
 tasks to human quote approval, customer acceptance, jobs and verified owner reports.
 Unique enquiry and accepted-quote keys prevent duplicate handoffs and jobs.
 
-The public experience provides a separate browser simulation of the enquiry
-journey, job completion date filters, a missing-cost what-if exercise and an owner
-briefing generated from the same selected records. Browser actions do not write
-to Salesforce. The reporting baseline is a saved, reconciled snapshot.
+The public enquiry form writes to the real Salesforce playground through a
+restricted HTTPS service on the owner's VPS. The existing record-triggered
+`Cleaning_Enquiry_Handoff` Flow matches or creates a Contact and creates the
+estimator Task. The service reads those records back and checks the Task's
+enquiry and contact links before confirming the receipt. Approval and customer
+acceptance stay inside Salesforce; the public API exposes no job or approval writes.
+
+Your browser stores a private receipt key and submission UUID, not your form
+details. The receipt can be refreshed after an owner action in Salesforce.
+Replay submits the same source reference and reuses the enquiry and handoff.
+Use fictional details: these submissions are retained in the playground.
+
+The reporting section is a saved, reconciled historical snapshot. Date filters,
+missing-cost what-if exercises and owner briefings run locally. New live enquiries
+are outside its labelled historical cohort and do not alter those figures.
 
 ## Synthetic cohort
 
@@ -39,11 +50,31 @@ at 18:58:09 UTC. It contains no Salesforce record IDs or customer contacts.
 Job-level direct costs and loaded hourly rates were added from the same captured
 REST response to support the browser what-if calculation.
 
-This is a Salesforce integration example, not Workiz. Refresh was on demand;
-the page has no live Salesforce connection, scheduled sync or outbound Slack delivery.
+This is a Salesforce integration example, not Workiz. Reporting extraction was
+on demand; scheduled reporting sync and outbound Slack delivery are not configured.
 Historical approvals are synthetic fixture values, not evidence of a live review.
+
+## Live intake integration
+
+`integration/app.py` and `integration/test_intake.py` show the actual adapter
+and its automated checks. Credentials are held only in a private VPS file and
+are never included in GitHub Pages or the receipt. Input fields are allowlisted;
+submission limits and a honeypot reduce casual abuse. This public demo is limited
+to five new enquiries per IP per hour and fifty per day across all viewers.
+
+The server stores keyed hashes for receipt possession, payload replay checks and
+IP limits, plus source references and timestamps. Customer details live in
+Salesforce. Keep the private receipt key in the original browser; it cannot be
+recovered from the public reference alone.
+
+Two real HTTPS submissions with the same UUID were read back successfully on
+19 October 2026: one enquiry, one estimator task, quote Pending, no job. Ten
+automated adapter tests cover concurrent replay, lost responses, invalid input,
+private receipts, task relationship checks and submission limits.
 
 ## Run locally
 
 From this directory, run `python -m http.server 8000` and open
 `http://localhost:8000/`. Serve the directory over HTTP so the JSON fetch works.
+The production intake service allows the GitHub Pages origin; local previews
+can inspect reporting and layout but cannot submit to that service.

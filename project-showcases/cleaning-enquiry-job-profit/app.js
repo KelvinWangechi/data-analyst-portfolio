@@ -1,18 +1,70 @@
 'use strict';
 const $=id=>document.getElementById(id);const money=c=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(c/100);const pct=n=>(n*100).toFixed(1)+'%';const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let baseline,jobs,workflow=0,who='',replays=0,costChanged=false;
+let baseline,jobs,costChanged=false;
+const API='https://cleaning-intake-31-220-90-233.sslip.io';
+const RECEIPT_STORAGE='cleaning-live-receipt-v1';
+let receiptSession=null,submissionBody=null,busy=false;
 function record(label,text){const el=document.createElement('div');el.className='record';el.innerHTML='<span>'+safe(label)+'</span><strong>'+safe(text)+'</strong>';$('record-trail').append(el);}
-function buttons(items){$('action-buttons').replaceChildren();for(const [title,fn] of items){const b=document.createElement('button');b.className='primary';b.textContent=title;b.addEventListener('click',fn);$('action-buttons').append(b);}}
-function renderWorkflow(){document.querySelectorAll('.steps li').forEach((el,i)=>el.classList.toggle('active',i===Math.min(workflow,3)));if(!workflow)return;$('intake').hidden=true;$('actions').hidden=false;
-const titles=['','Quote awaiting review','Quote approved; awaiting customer','Job scheduled; capture actuals','Completed job verified'];$('action-title').textContent=titles[workflow];
-const text=['','Proposed quote: $600. Estimated direct cost: $330. A person must approve before acceptance can create a job.','Reviewer: Demo Estimator. Approved amount: $600. Customer acceptance is a separate business event.','Actual revenue: $600; 8 person-hours at $30 loaded hourly cost; $60 materials and $50 other direct cost.','Direct cost: $350. Direct profit: $250. Margin: 41.67%. Revenue per person-hour: $75. This sandbox job is separate from the historical cohort.'];$('action-text').textContent=text[workflow];
-const replay=['Replay intake event',()=>{replays++;$('workflow-status').textContent='Replay '+replays+' ignored: same source key. Still one enquiry, one contact and one estimator task'+(workflow>=3?', and one job.':'.');}];
-if(workflow===1)buttons([['Approve quote as Demo Estimator',()=>{record('HUMAN APPROVAL','$600 approved by Demo Estimator');workflow=2;renderWorkflow();}],['Try acceptance before approval',()=>{$('workflow-status').textContent='Blocked: quote approval is required before customer acceptance and job creation.';}],replay]);
-if(workflow===2)buttons([['Record customer acceptance',()=>{record('CUSTOMER ACCEPTANCE','Accepted quote DEMO-026; scheduled JOB-DEMO-026');workflow=3;renderWorkflow();}],['Change quote / require review',()=>{record('REAPPROVAL GATE','Approval cleared after a quote change; review required');workflow=1;renderWorkflow();}],replay]);
-if(workflow===3)buttons([['Confirm actuals & complete job',()=>{record('JOB COMPLETED','8 person-hours; $350 verified direct costs; $250 profit');workflow=4;renderWorkflow();}],replay]);
-if(workflow===4)buttons([replay]);}
-$('intake').addEventListener('submit',e=>{e.preventDefault();who=new FormData(e.currentTarget).get('customer').trim();if(!who||!new FormData(e.currentTarget).get('address').trim()){$('workflow-status').textContent='Customer name and property address cannot be blank.';return;}$('record-trail').replaceChildren();record('VALIDATED CRM ENQUIRY','DEMO-026 · '+who);record('CRM CONTACT','One contact matched or created from the email');record('ESTIMATOR TASK','Estimate '+new FormData(e.currentTarget).get('service'));workflow=1;renderWorkflow();$('workflow-status').textContent='Required fields and email validated. Handoff created once.';});
-$('reset-workflow').addEventListener('click',()=>{workflow=0;replays=0;$('intake').hidden=false;$('actions').hidden=true;$('workflow-status').textContent='Sandbox journey reset.';$('record-trail').innerHTML='<p class="empty">Start with the enquiry form. The contact, estimator task and job will appear here.</p>';renderWorkflow();});
+function message(text,error=false){$('workflow-status').textContent=text;$('workflow-status').classList.toggle('error',error);}
+function remember(){try{localStorage.setItem(RECEIPT_STORAGE,JSON.stringify(receiptSession));}catch{/* Receipt still works for this tab when storage is unavailable. */}}
+function newSession(){const bytes=crypto.getRandomValues(new Uint8Array(32));receiptSession={submission_id:crypto.randomUUID(),receipt_token:Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('')};remember();}
+function buttons(items){$('action-buttons').replaceChildren();for(const [title,fn] of items){const b=document.createElement('button');b.className='secondary';b.textContent=title;b.disabled=busy;b.addEventListener('click',fn);$('action-buttons').append(b);}}
+function refreshButtons(){buttons([['Refresh Salesforce receipt',checkReceipt],...(submissionBody?[['Replay same submission',()=>sendEnquiry(true)]]:[])]);}
+function renderReceipt(data){
+  $('intake').hidden=true;$('actions').hidden=false;$('record-trail').replaceChildren();
+  $('action-title').textContent=data.status==='handoff_confirmed'?'Salesforce handoff confirmed':'Waiting for Salesforce confirmation';
+  $('action-text').textContent='Reference: '+data.reference+'. Quote review and customer acceptance take place inside Salesforce. Refresh this receipt to check progress.';
+  record('ENQUIRY REFERENCE',data.reference);
+  record('SALESFORCE ENQUIRY',data.enquiry_confirmed?'Confirmed':'Awaiting confirmation');
+  record('CRM CONTACT',data.contact_confirmed?'Linked contact confirmed':'Awaiting confirmation');
+  record('ESTIMATOR TASK',data.estimator_task_confirmed?'Correct enquiry and contact links confirmed · '+data.task_status:'Awaiting confirmation');
+  record('QUOTE REVIEW',data.quote_status||'Awaiting confirmation');
+  record('CUSTOMER ACCEPTANCE',data.customer_accepted?'Recorded in Salesforce':'Not recorded');
+  record('JOB',data.job_created?'Created in Salesforce · '+data.job_status:'No job created');
+  if(data.checked_at)record('LAST VERIFIED',new Date(data.checked_at).toLocaleString()+' · Salesforce REST read-back');
+  const step=data.job_created?3:(data.contact_confirmed&&data.estimator_task_confirmed?2:1);
+  document.querySelectorAll('.steps li').forEach((el,i)=>el.classList.toggle('active',i===step));
+  refreshButtons();
+}
+async function request(path,options={}){
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),45000);
+  try{
+    const response=await fetch(API+path,{...options,signal:controller.signal,cache:'no-store'});
+    const data=await response.json();
+    if(!response.ok)throw Error(data.error||'Salesforce could not confirm the request.');
+    return data;
+  }catch(error){if(error.name==='AbortError')throw Error('Confirmation took too long. Keep this reference and retry the same submission.');throw error;}
+  finally{clearTimeout(timeout);}
+}
+async function sendEnquiry(replay=false){
+  if(busy||!submissionBody)return;busy=true;$('intake').querySelector('button').disabled=true;refreshButtons();
+  message(replay?'Replaying the same source reference in Salesforce…':'Sending your enquiry to Salesforce and checking the handoff…');
+  try{const data=await request('/v1/enquiries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(submissionBody)});renderReceipt(data);message(data.status==='handoff_confirmed'?(data.replayed?'Replay confirmed: the existing enquiry and handoff were reused.':'Salesforce confirmed the enquiry, linked contact and estimator task.'):'The enquiry is being checked. Refresh the receipt; no handoff success has been assumed.');}
+  catch(error){message(error.message||'Connection unavailable. Retry the same submission.',true);}
+  finally{busy=false;$('intake').querySelector('button').disabled=false;refreshButtons();}
+}
+async function checkReceipt(){
+  if(busy||!receiptSession)return;busy=true;refreshButtons();message('Reading the current records from Salesforce…');
+  try{const data=await request('/v1/receipts/'+receiptSession.submission_id,{headers:{Authorization:'Bearer '+receiptSession.receipt_token}});renderReceipt(data);message(data.status==='handoff_confirmed'?'Receipt refreshed from Salesforce.':'Salesforce confirmation is still pending.');}
+  catch(error){message(error.message||'Could not refresh the receipt. Please retry.',true);}
+  finally{busy=false;refreshButtons();}
+}
+$('intake').addEventListener('submit',e=>{
+  e.preventDefault();if(busy)return;
+  if(!submissionBody){const form=new FormData(e.currentTarget);if(!receiptSession)newSession();submissionBody={...receiptSession,customer:form.get('customer').trim(),email:form.get('email').trim(),address:form.get('address').trim(),service:form.get('service'),demo_consent:form.get('demo_consent')==='on',website:form.get('website')||''};for(const field of e.currentTarget.querySelectorAll('input,select'))field.disabled=true;e.currentTarget.querySelector('button').textContent='Retry same enquiry';}
+  sendEnquiry();
+});
+$('reset-workflow').addEventListener('click',()=>{
+  if(busy)return;receiptSession=null;submissionBody=null;try{localStorage.removeItem(RECEIPT_STORAGE);}catch{}
+  $('intake').hidden=false;$('actions').hidden=true;$('intake').reset();for(const field of $('intake').querySelectorAll('input,select'))field.disabled=false;$('intake').querySelector('button').textContent='Send to Salesforce';
+  $('intake').elements.email.value='alex.demo+'+crypto.randomUUID().slice(0,8)+'@example.test';
+  $('record-trail').innerHTML='<p class="empty">Submit fictional details to create an actual Salesforce enquiry and verify its contact and estimator task.</p>';
+  document.querySelectorAll('.steps li').forEach((el,i)=>el.classList.toggle('active',i===0));message('Ready for a new demo enquiry. Previous Salesforce records are kept.');
+});
+try{const saved=JSON.parse(localStorage.getItem(RECEIPT_STORAGE));if(saved&&/^[a-f0-9-]{36}$/.test(saved.submission_id)&&/^[a-f0-9]{64}$/.test(saved.receipt_token))receiptSession=saved;}catch{}
+if(receiptSession){$('intake').hidden=true;$('actions').hidden=false;$('action-title').textContent='Your saved enquiry receipt';$('action-text').textContent='Check your previous submission directly in Salesforce, or start a new demo enquiry. Your private receipt key stays in this browser.';refreshButtons();}
+else $('intake').elements.email.value='alex.demo+'+crypto.randomUUID().slice(0,8)+'@example.test';
+
 function selectedJobs(){return jobs.filter(j=>j.status==='Completed'&&($('period').value==='all'||j.completed_date===$('period').value));}
 function metrics(list){const verified=list.filter(j=>j.verified),revenue=list.reduce((a,j)=>a+j.revenue_cents,0),vr=verified.reduce((a,j)=>a+j.revenue_cents,0),hours=verified.reduce((a,j)=>a+j.person_hours,0),cost=verified.reduce((a,j)=>a+j.direct_cost_cents,0);return {revenue,vr,hours,cost,verified:verified.length,count:list.length,margin:vr?(vr-cost)/vr:null,rpph:hours?vr/100/hours:null};}
 function summaryText(){const m=metrics(selectedJobs()),period=$('period').value==='all'?'6–11 October 2026':$('period').selectedOptions[0].textContent;const ex=jobs.filter(j=>j.status==='Completed'&&!j.verified);return 'OWNER BRIEFING · '+period+'\nSynthetic USD records'+(costChanged?' · browser what-if':' · reconciled snapshot')+'\n\n'+m.count+' completed jobs · '+money(m.revenue)+' revenue\n'+m.verified+'/'+m.count+' have verified costs\nDirect margin: '+(m.margin===null?'unavailable':pct(m.margin))+'\nRevenue/person-hour: '+(m.rpph===null?'unavailable':'$'+m.rpph.toFixed(2))+'\n\nEnquiry cohort · 5–7 October 2026\n15 won / 21 decided · '+pct(baseline.cohort.close_rate)+' close rate\n\nCOHORT EXCEPTIONS\n'+(ex.length?ex.map(j=>j.job_id+': '+j.review_status).join('\n'):'All completed-job costs verified in this what-if view.');}
