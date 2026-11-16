@@ -1,6 +1,6 @@
 # Cleaning Enquiry to Job Profit
 
-A cleaning owner sees $9,500 in completed jobs. Two jobs still have
+The owner of Power Washing Inc, an exterior cleaning business, sees $9,500 in completed jobs. Two jobs still have
 missing costs. How much profit can the owner confidently report, and who needs
 to follow up?
 
@@ -50,15 +50,16 @@ at 18:58:09 UTC. It contains no Salesforce record IDs or customer contacts.
 Job-level direct costs and loaded hourly rates were added from the same captured
 REST response to support the browser what-if calculation.
 
-This is a Salesforce integration example, not Workiz. Reporting extraction was
-on demand; scheduled reporting sync and outbound Slack delivery are not configured.
+Reporting extraction was on demand; scheduled reporting sync and outbound Slack delivery are not configured.
 Quote approval is performed inside Salesforce.
 
 ## Live intake integration
 
 `integration/app.py` and `integration/test_intake.py` show the actual adapter
 and its automated checks. Credentials are held only in a private VPS file and
-are never included in GitHub Pages or the receipt. Input fields are allowlisted;
+are never included in GitHub Pages or the receipt. The Salesforce org ID and
+instance URL are read from `SF_ORG_ID` and `SF_INSTANCE_URL`; the adapter refuses
+to authenticate when either is unset or does not match the stored credentials. Input fields are allowlisted;
 submission limits and a honeypot reduce casual abuse. This public demo is limited
 to fifty new enquiries per IP per hour and fifty per day across all viewers.
 

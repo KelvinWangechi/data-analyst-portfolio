@@ -23,8 +23,9 @@ import uuid
 from zoneinfo import ZoneInfo
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-ORG = '00DQy0000106bxF'
-INSTANCE = 'https://empathetic-unicorn-skzy6q-dev-ed.trailblaze.my.salesforce.com'
+# Set both in the service environment. Empty values fail closed in refresh().
+ORG = os.environ.get('SF_ORG_ID', '')
+INSTANCE = os.environ.get('SF_INSTANCE_URL', '').rstrip('/')
 ORIGIN = 'https://kelvinwangechi.github.io'
 VERSION = 'v67.0'
 SERVICES = {'House wash', 'Driveway cleaning', 'Gutter cleaning', 'Roof cleaning', 'Commercial wash'}
@@ -75,7 +76,7 @@ class Salesforce:
         with self.lock:
             try:
                 auth = json.loads(self.auth_path.read_text())
-                if auth.get('org_id') != ORG or auth.get('instance_url') != INSTANCE:
+                if not ORG or not INSTANCE or auth.get('org_id') != ORG or auth.get('instance_url') != INSTANCE:
                     raise ValueError('Wrong org')
                 fields = {'grant_type': 'refresh_token', 'client_id': auth['client_id'], 'refresh_token': auth['refresh_token']}
                 if auth.get('client_secret'):
