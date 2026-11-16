@@ -81,8 +81,8 @@ for schedule in schedules:
         round(sum(o['status'] == 'late' for o in group) / len(group), 4))
 price_customers = {r['customer_id'] for r in price}
 group = [o for o in orders if o['customer_id'] in price_customers]
-add('Orders', 'Customer weeks', 'reason = Too expensive; text present', len(group))
-add('Orders', 'Late weeks', 'reason = Too expensive; text present', sum(o['status'] == 'late' for o in group))
+add('Orders', 'Responder customer weeks', 'reason = Too expensive', len(group))
+add('Orders', 'Responder late weeks', 'reason = Too expensive', sum(o['status'] == 'late' for o in group))
 
 with open(OUT / 'expected-values.csv', 'w', encoding='utf-8', newline='') as handle:
     writer = csv.writer(handle, lineterminator='\n')

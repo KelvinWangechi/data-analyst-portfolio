@@ -82,5 +82,5 @@ Orders,Late week rate,none,0.0714
 Orders,Customers with a late week,none,706
 Orders,Late week rate,schedule = Changing schedule,0.0709
 Orders,Late week rate,schedule = Regular schedule,0.0717
-Orders,Customer weeks,reason = Too expensive; text present,1824
-Orders,Late weeks,reason = Too expensive; text present,116
+Orders,Responder customer weeks,reason = Too expensive,1824
+Orders,Responder late weeks,reason = Too expensive,116
