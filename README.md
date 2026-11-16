@@ -8,11 +8,12 @@ I help teams understand where growth comes from, where reporting breaks down, an
 
 | Business question | What you can inspect |
 |---|---|
-| [We finished the jobs. Did we make money?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/cleaning-enquiry-job-profit/) | Enquiry-to-job workflow, human quote approval, missing-cost exceptions, verified profitability and Salesforce-to-SQL reconciliation |
 | [Who deserves the conversion?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/marketing-attribution/) | Six attribution models, observed path exploration, lookback sensitivity, Markov uncertainty and SQL reconciliation |
+| [Out of school: never enrolled, or left?](project-showcases/kenya-schooling-histories/) | World Bank survey of 16,472 children, weighted estimates, refugee and host comparisons by location, and sensitivity checks |
 | [What did “too expensive” actually mean?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/) | Open feedback, evidence-linked themes, R analysis, SQL reconciliation and an interactive coding explorer |
+| [We finished the jobs. Did we make money?](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/cleaning-enquiry-job-profit/) | Enquiry-to-job workflow, human quote approval, missing-cost exceptions, verified profitability and Salesforce-to-SQL reconciliation |
 | [Would you cut the channel costing 70 per lead?](project-showcases/revenue-analytics-platform/) | SQL aggregation, channel economics, monthly reconciliation and a reproducible analysis |
-| [Which process deserves attention first?](project-showcases/operational-efficiency-optimization/) | Process comparisons, workload questions, a chart and an employee-record quality check |
+| [Faster onboarding. How much capacity?](project-showcases/operational-efficiency-optimization/) | Process comparisons, workload questions, a chart and an employee-record quality check |
 
 Each case connects a business decision to the calculations behind it. Start with the story, then follow the chart to the source and code.
 
