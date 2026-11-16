@@ -1,4 +1,6 @@
-# Kelvin Wangechi | Marketing and CRM Data Analyst
+# Kelvin Wangechi | Marketing & CRM Data Analyst
+
+**SQL, Python, Power BI & Salesforce · Reporting, conversion and customer insights**
 
 I help teams understand where growth comes from, where reporting breaks down, and what to investigate next. My work combines SQL, Python, R and business intelligence with experience across product analytics, reporting and customer experience.
 
