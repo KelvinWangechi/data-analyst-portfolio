@@ -1,0 +1,60 @@
+table responses
+	lineageTag: add0f969-5379-499d-991e-c1c663508130
+
+	measure Responses = COUNTROWS ( responses )
+		formatString: #,0
+		lineageTag: bbe9a1e4-6be1-482c-a90d-d5d2480524a8
+
+	measure 'Responses with text' = COUNTROWS ( FILTER ( responses, LEN ( TRIM ( responses[text] ) ) > 0 ) )
+		formatString: #,0
+		lineageTag: 92c22712-b282-4265-aec6-58b5fe672211
+
+	column response_id
+		dataType: string
+		lineageTag: 2caf2d5b-91d9-464d-8d6a-57c360f4919f
+		summarizeBy: none
+		sourceColumn: response_id
+
+	column customer_id
+		dataType: string
+		lineageTag: a77d1ca6-1ece-4e43-b10e-527b6dc92927
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column reason
+		dataType: string
+		lineageTag: b378e56c-1fe9-4d4d-bd00-c4edbc1853c5
+		summarizeBy: none
+		sourceColumn: reason
+
+	column satisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: 587281ba-7db6-4bff-a440-5a986bdaccd2
+		summarizeBy: none
+		sourceColumn: satisfaction
+
+	column text
+		dataType: string
+		lineageTag: f16ea6e2-0874-4827-9d09-21c59e4d8d6a
+		summarizeBy: none
+		sourceColumn: text
+
+	column question_version
+		dataType: string
+		lineageTag: c6943391-7c40-4e12-9c3a-8f60096fb5d6
+		summarizeBy: none
+		sourceColumn: question_version
+
+	partition responses = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Data\customer-voice\responses.csv"), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"response_id", type text}, {"customer_id", type text}, {"reason", type text}, {"satisfaction", Int64.Type}, {"text", type text}, {"question_version", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

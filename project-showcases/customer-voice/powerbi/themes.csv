@@ -1,0 +1,11 @@
+theme_id,theme,definition,sort_order
+affordability,Affordability,Explicit difficulty paying; exclude poor value alone.,1
+value,Value for money,Whether the benefits justify the cost; not necessarily budget pressure.,2
+delivery_flexibility,Delivery flexibility,Ability to change delivery time or day.,3
+pause_control,Pause / skip control,"Ability to skip, pause or resume without cancelling.",4
+delivery_reliability,Delivery reliability,"Timeliness, consistency or missed arrivals.",5
+billing_clarity,Billing clarity,"Unexpected, unclear or incorrect charges.",6
+food_quality,Food quality,"Taste, freshness or condition of the meals.",7
+portion_size,Portion size,Quantity of food in each meal.,8
+support,Customer support,Access to help and resolution of a request.,9
+packaging,Packaging,"Leaks, excess material or packaging waste.",10

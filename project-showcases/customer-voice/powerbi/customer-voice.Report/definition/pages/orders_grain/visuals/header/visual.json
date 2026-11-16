@@ -1,0 +1,49 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "header",
+  "position": {
+    "x": 60,
+    "y": 30,
+    "z": 0,
+    "height": 120,
+    "width": 1800,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Orders, counted at the right grain",
+                    "textStyle": {
+                      "fontSize": "26pt",
+                      "color": "#1B1B1B",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Twelve weeks of orders per customer. Late weeks are counted from weekly rows, never from a join to survey responses.",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#5A5A5A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

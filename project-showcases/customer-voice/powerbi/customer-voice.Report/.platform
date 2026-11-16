@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "customer-voice"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a6299140-22cb-4464-8465-41ea8c723d5f"
+  }
+}

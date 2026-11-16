@@ -1,0 +1,86 @@
+page,measure,filters,expected
+Participation,Customers,none,1200
+Participation,Invited,none,500
+Participation,Responded customers,none,303
+Participation,Invited,schedule = Changing schedule,201
+Participation,Responded customers,schedule = Changing schedule,140
+Participation,Response rate,schedule = Changing schedule,0.6965
+Participation,Invited,schedule = Regular schedule,299
+Participation,Responded customers,schedule = Regular schedule,163
+Participation,Response rate,schedule = Regular schedule,0.5452
+Themes,Responses,none,303
+Themes,Responses with text,none,280
+Themes,Responses with text,reason = Too expensive,152
+Themes,Responses mentioning issue,reason = Too expensive; theme = Affordability,49
+Themes,Issue share,reason = Too expensive; theme = Affordability,0.3224
+Themes,Responses mentioning issue,reason = Too expensive; theme = Value for money,44
+Themes,Issue share,reason = Too expensive; theme = Value for money,0.2895
+Themes,Responses mentioning issue,reason = Too expensive; theme = Delivery flexibility,18
+Themes,Issue share,reason = Too expensive; theme = Delivery flexibility,0.1184
+Themes,Responses mentioning issue,reason = Too expensive; theme = Pause / skip control,18
+Themes,Issue share,reason = Too expensive; theme = Pause / skip control,0.1184
+Themes,Responses mentioning issue,reason = Too expensive; theme = Delivery reliability,4
+Themes,Issue share,reason = Too expensive; theme = Delivery reliability,0.0263
+Themes,Responses mentioning issue,reason = Too expensive; theme = Billing clarity,16
+Themes,Issue share,reason = Too expensive; theme = Billing clarity,0.1053
+Themes,Responses mentioning issue,reason = Too expensive; theme = Food quality,4
+Themes,Issue share,reason = Too expensive; theme = Food quality,0.0263
+Themes,Responses mentioning issue,reason = Too expensive; theme = Portion size,26
+Themes,Issue share,reason = Too expensive; theme = Portion size,0.1711
+Themes,Responses mentioning issue,reason = Too expensive; theme = Customer support,5
+Themes,Issue share,reason = Too expensive; theme = Customer support,0.0329
+Themes,Responses mentioning issue,reason = Too expensive; theme = Packaging,7
+Themes,Issue share,reason = Too expensive; theme = Packaging,0.0461
+Themes,Flexibility or pause responses,reason = Too expensive,36
+Themes,Responses with text,reason = Too expensive; schedule = Changing schedule,66
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Affordability,20
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Affordability,0.303
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Value for money,14
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Value for money,0.2121
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Delivery flexibility,16
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Delivery flexibility,0.2424
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Pause / skip control,13
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Pause / skip control,0.197
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Delivery reliability,4
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Delivery reliability,0.0606
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Billing clarity,7
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Billing clarity,0.1061
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Food quality,0
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Food quality,0.0
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Portion size,6
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Portion size,0.0909
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Customer support,4
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Customer support,0.0606
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Changing schedule; theme = Packaging,1
+Themes,Issue share,reason = Too expensive; schedule = Changing schedule; theme = Packaging,0.0152
+Themes,Flexibility or pause responses,reason = Too expensive; schedule = Changing schedule,29
+Themes,Responses with text,reason = Too expensive; schedule = Regular schedule,86
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Affordability,29
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Affordability,0.3372
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Value for money,30
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Value for money,0.3488
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Delivery flexibility,2
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Delivery flexibility,0.0233
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Pause / skip control,5
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Pause / skip control,0.0581
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Delivery reliability,0
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Delivery reliability,0.0
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Billing clarity,9
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Billing clarity,0.1047
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Food quality,4
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Food quality,0.0465
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Portion size,20
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Portion size,0.2326
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Customer support,1
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Customer support,0.0116
+Themes,Responses mentioning issue,reason = Too expensive; schedule = Regular schedule; theme = Packaging,6
+Themes,Issue share,reason = Too expensive; schedule = Regular schedule; theme = Packaging,0.0698
+Themes,Flexibility or pause responses,reason = Too expensive; schedule = Regular schedule,7
+Orders,Customer weeks,none,14400
+Orders,Late weeks,none,1028
+Orders,Late week rate,none,0.0714
+Orders,Customers with a late week,none,706
+Orders,Late week rate,schedule = Changing schedule,0.0709
+Orders,Late week rate,schedule = Regular schedule,0.0717
+Orders,Customer weeks,reason = Too expensive; text present,1824
+Orders,Late weeks,reason = Too expensive; text present,116

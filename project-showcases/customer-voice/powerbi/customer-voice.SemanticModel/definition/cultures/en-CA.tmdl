@@ -1,0 +1,200 @@
+cultureInfo en-CA
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "customers.schedule": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customers",
+			          "ConceptualProperty": "schedule"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Schedule": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "themes.theme": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "themes",
+			          "ConceptualProperty": "theme"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Theme": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "assignments.sentiment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "assignments",
+			          "ConceptualProperty": "sentiment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sentiment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "assignments.evidence_quote": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "assignments",
+			          "ConceptualProperty": "evidence_quote"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Exact words": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "invitations.responded_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "invitations",
+			          "ConceptualProperty": "Responded customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Responded": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "assignments.responses_mentioning_issue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "assignments",
+			          "ConceptualProperty": "Responses mentioning issue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Responses": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "assignments.issue_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "assignments",
+			          "ConceptualProperty": "Issue share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Share": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "assignments.issue_share_lower": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "assignments",
+			          "ConceptualProperty": "Issue share lower"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lower": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "assignments.issue_share_upper": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "assignments",
+			          "ConceptualProperty": "Issue share upper"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Upper": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

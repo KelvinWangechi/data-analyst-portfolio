@@ -1,0 +1,82 @@
+table assignments
+	lineageTag: 0aa4932b-1aea-42b7-b49f-802ec7e0c0ef
+
+	measure 'Responses mentioning issue' = CALCULATE ( DISTINCTCOUNT ( assignments[response_id] ), assignments[sentiment] = "negative" )
+		formatString: #,0
+		lineageTag: 08bf4c42-d395-4b48-bffa-91c63e753887
+
+	measure 'Issue share' = DIVIDE ( [Responses mentioning issue], [Responses with text] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 4df59a2c-ff40-4a3c-94dd-994e7403b482
+
+	measure 'Flexibility or pause responses' =
+			CALCULATE (
+			    [Responses mentioning issue],
+			    REMOVEFILTERS ( themes ),
+			    themes[theme_id] IN { "delivery_flexibility", "pause_control" }
+			)
+		formatString: #,0
+		lineageTag: dc28346e-a75b-425e-9c8a-2c5505492088
+
+	measure 'Flexibility or pause share' = DIVIDE ( [Flexibility or pause responses], [Responses with text] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 16d6f5ff-fb82-4742-91eb-410d5baf6755
+
+	measure 'Issue share lower' =
+			VAR n = [Responses with text]
+			VAR p = DIVIDE ( [Responses mentioning issue] + 0, n )
+			VAR z = 1.959963984540054
+			VAR den = 1 + DIVIDE ( z * z, n )
+			VAR centre = DIVIDE ( p + DIVIDE ( z * z, 2 * n ), den )
+			VAR half = DIVIDE ( z * SQRT ( DIVIDE ( p * ( 1 - p ), n ) + DIVIDE ( z * z, 4 * n * n ) ), den )
+			RETURN IF ( n > 0, MAX ( 0, centre - half ) )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 17d082b1-5bbc-4b69-ae58-52e75ce6bb10
+
+	measure 'Issue share upper' =
+			VAR n = [Responses with text]
+			VAR p = DIVIDE ( [Responses mentioning issue] + 0, n )
+			VAR z = 1.959963984540054
+			VAR den = 1 + DIVIDE ( z * z, n )
+			VAR centre = DIVIDE ( p + DIVIDE ( z * z, 2 * n ), den )
+			VAR half = DIVIDE ( z * SQRT ( DIVIDE ( p * ( 1 - p ), n ) + DIVIDE ( z * z, 4 * n * n ) ), den )
+			RETURN IF ( n > 0, MIN ( 1, centre + half ) )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 79b4635d-ed1c-4674-9f27-24272cba5a77
+
+	column response_id
+		dataType: string
+		lineageTag: eeab225f-6d8b-4c4a-81ec-56692853512f
+		summarizeBy: none
+		sourceColumn: response_id
+
+	column theme_id
+		dataType: string
+		lineageTag: 70e9a99d-7283-4426-a804-9191ea7d1173
+		summarizeBy: none
+		sourceColumn: theme_id
+
+	column sentiment
+		dataType: string
+		lineageTag: 532c7813-9ade-498f-85d4-3129423bc4c2
+		summarizeBy: none
+		sourceColumn: sentiment
+
+	column evidence_quote
+		dataType: string
+		lineageTag: b71d1d74-0210-4196-8533-3b7205f31343
+		summarizeBy: none
+		sourceColumn: evidence_quote
+
+	partition assignments = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Data\customer-voice\assignments.csv"), [Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"response_id", type text}, {"theme_id", type text}, {"sentiment", type text}, {"evidence_quote", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,20 @@
+relationship invitations_to_customers
+	fromColumn: invitations.customer_id
+	toColumn: customers.customer_id
+
+relationship responses_to_customers
+	fromColumn: responses.customer_id
+	toColumn: customers.customer_id
+
+relationship orders_to_customers
+	fromColumn: orders.customer_id
+	toColumn: customers.customer_id
+
+relationship assignments_to_responses
+	fromColumn: assignments.response_id
+	toColumn: responses.response_id
+
+relationship assignments_to_themes
+	fromColumn: assignments.theme_id
+	toColumn: themes.theme_id
+

@@ -1,6 +1,6 @@
 # What did “too expensive” actually mean?
 
-[Explore the interactive case](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/)
+[Explore the interactive case](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/) · [Power BI report](powerbi/)
 
 A meal subscription should make someone's week easier. A price complaint could mean budget pressure, poor value, small portions or a box they cannot pause. This case follows open feedback into evidence-linked coding, R analysis and a decision worth testing.
 
@@ -53,6 +53,7 @@ Serve this folder over HTTP to use browser module scripts, for example `python -
 | Exact quoted evidence | `data/assignments.csv` joined to `data/responses.csv` |
 | Browser mathematics and local exclusions | `test-browser-math.mjs` |
 | R/SQL agreement and invalid-output rejection | `test_analysis.py`, `results/verification.json` |
+| Power BI model, DAX measures and their independent checks | `powerbi/measures.dax`, `powerbi/expected-values.csv` |
 
 The CSVs and schema preserve customer, response and weekly-order grain. `queries.sql` shows how to avoid multiplying survey rows through an order join. The full-width figure is available as [SVG](results/theme-prevalence.svg).
 

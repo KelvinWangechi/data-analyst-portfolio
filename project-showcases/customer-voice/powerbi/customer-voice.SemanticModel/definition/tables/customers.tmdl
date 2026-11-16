@@ -1,0 +1,37 @@
+table customers
+	lineageTag: 273ea701-6417-419b-9602-e9b6ffcc9067
+
+	measure Customers = COUNTROWS ( customers )
+		formatString: #,0
+		lineageTag: a7fcf977-2dbe-4a0d-ab7b-b174b16767b6
+
+	column customer_id
+		dataType: string
+		lineageTag: 35ab4a43-bdd8-4c96-8080-9d5bb412bde1
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column schedule
+		dataType: string
+		lineageTag: bb88f0a4-1e4c-4961-aedf-cf2c7a34b5a7
+		summarizeBy: none
+		sourceColumn: schedule
+
+	column tenure
+		dataType: string
+		lineageTag: 48ef1a2d-62cb-405f-b2d2-7a0dbf0970d6
+		summarizeBy: none
+		sourceColumn: tenure
+
+	partition customers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Data\customer-voice\customers.csv"), [Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"customer_id", type text}, {"schedule", type text}, {"tenure", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

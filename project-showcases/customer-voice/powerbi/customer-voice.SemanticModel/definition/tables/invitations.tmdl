@@ -1,0 +1,46 @@
+table invitations
+	lineageTag: 52eea0b8-09ac-488e-adc7-bf4594817aa0
+
+	measure Invited = COUNTROWS ( invitations )
+		formatString: #,0
+		lineageTag: 7eda72e4-7e07-4e82-b8b4-f68f63404ad3
+
+	measure 'Responded customers' = CALCULATE ( COUNTROWS ( invitations ), invitations[responded] = 1 )
+		formatString: #,0
+		lineageTag: 73244b17-47d4-4105-8814-20f299e19f02
+
+	measure 'Response rate' = DIVIDE ( [Responded customers], [Invited] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7ee844b6-16be-47d0-8c7e-50229727907b
+
+	column invitation_id
+		dataType: string
+		lineageTag: 0bd17817-b659-4764-9a1b-c6e14d31f3b7
+		summarizeBy: none
+		sourceColumn: invitation_id
+
+	column customer_id
+		dataType: string
+		lineageTag: f687ef20-7558-49bc-ac92-aaf9868ad4e4
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column responded
+		dataType: int64
+		formatString: 0
+		lineageTag: 6bfbc6a7-08aa-4749-9461-692bf73f72e2
+		summarizeBy: none
+		sourceColumn: responded
+
+	partition invitations = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Data\customer-voice\invitations.csv"), [Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"invitation_id", type text}, {"customer_id", type text}, {"responded", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

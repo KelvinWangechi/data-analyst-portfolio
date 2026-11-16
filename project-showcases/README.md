@@ -18,7 +18,7 @@ An analysis of 16,472 children shows different schooling-exclusion patterns acro
 
 Among 152 written responses attached to “Too expensive,” 49 mention difficulty paying, 44 mention value for money and 36 mention delivery flexibility or pause control. Read the exact supporting words, change a coding decision and see what the evidence supports.
 
-[Read the interactive case](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/) · [Inspect the R analysis](customer-voice/analysis.R) · [Inspect the SQL](customer-voice/queries.sql)
+[Read the interactive case](https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/customer-voice/) · [Inspect the R analysis](customer-voice/analysis.R) · [Inspect the SQL](customer-voice/queries.sql) · [Power BI report](customer-voice/powerbi/)
 
 ## Cleaning enquiry to job profit
 

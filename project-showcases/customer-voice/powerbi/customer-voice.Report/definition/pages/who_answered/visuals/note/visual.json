@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "note",
+  "position": {
+    "x": 1190,
+    "y": 680,
+    "z": 7000,
+    "height": 230,
+    "width": 670,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Response rates differ by schedule: 69.7% against 54.5%. Read the theme shares on the next page as shares of people who answered, not of all customers.",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#5A5A5A"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

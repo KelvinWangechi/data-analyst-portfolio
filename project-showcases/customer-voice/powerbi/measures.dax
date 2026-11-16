@@ -1,0 +1,144 @@
+// Customer voice: Power BI measures and reconciliation queries.
+// Paste into DAX query view, run, then use "Update model with changes" to add the measures.
+// Expected results are in expected-values.csv, computed independently by build_checks.py.
+//
+// Relationships (all single direction, one-to-many from the first table):
+//   customers[customer_id] -> invitations[customer_id]
+//   customers[customer_id] -> responses[customer_id]
+//   customers[customer_id] -> orders[customer_id]
+//   responses[response_id] -> assignments[response_id]
+//   themes[theme_id]       -> assignments[theme_id]
+
+DEFINE
+    // Participation
+    MEASURE customers[Customers] = COUNTROWS ( customers )
+    MEASURE invitations[Invited] = COUNTROWS ( invitations )
+    MEASURE invitations[Responded customers] =
+        CALCULATE ( COUNTROWS ( invitations ), invitations[responded] = 1 )
+    MEASURE invitations[Response rate] = DIVIDE ( [Responded customers], [Invited] )
+
+    // Responses. Blank text is missing feedback, so it never enters a denominator.
+    MEASURE responses[Responses] = COUNTROWS ( responses )
+    MEASURE responses[Responses with text] =
+        COUNTROWS ( FILTER ( responses, LEN ( TRIM ( responses[text] ) ) > 0 ) )
+
+    // Themes. One response counts once per theme; only negative mentions are issues.
+    // The theme filter reaches assignments only, so the denominator ignores it by design.
+    MEASURE assignments[Responses mentioning issue] =
+        CALCULATE (
+            DISTINCTCOUNT ( assignments[response_id] ),
+            assignments[sentiment] = "negative"
+        )
+    MEASURE assignments[Issue share] =
+        DIVIDE ( [Responses mentioning issue], [Responses with text] )
+    MEASURE assignments[Flexibility or pause responses] =
+        CALCULATE (
+            [Responses mentioning issue],
+            REMOVEFILTERS ( themes ),
+            themes[theme_id] IN { "delivery_flexibility", "pause_control" }
+        )
+    MEASURE assignments[Flexibility or pause share] =
+        DIVIDE ( [Flexibility or pause responses], [Responses with text] )
+
+    // 95% Wilson interval, matching analysis.R.
+    MEASURE assignments[Issue share lower] =
+        VAR n = [Responses with text]
+        VAR p = DIVIDE ( [Responses mentioning issue] + 0, n )
+        VAR z = 1.959963984540054
+        VAR den = 1 + DIVIDE ( z * z, n )
+        VAR centre = DIVIDE ( p + DIVIDE ( z * z, 2 * n ), den )
+        VAR half = DIVIDE ( z * SQRT ( DIVIDE ( p * ( 1 - p ), n ) + DIVIDE ( z * z, 4 * n * n ) ), den )
+        RETURN IF ( n > 0, MAX ( 0, centre - half ) )
+    MEASURE assignments[Issue share upper] =
+        VAR n = [Responses with text]
+        VAR p = DIVIDE ( [Responses mentioning issue] + 0, n )
+        VAR z = 1.959963984540054
+        VAR den = 1 + DIVIDE ( z * z, n )
+        VAR centre = DIVIDE ( p + DIVIDE ( z * z, 2 * n ), den )
+        VAR half = DIVIDE ( z * SQRT ( DIVIDE ( p * ( 1 - p ), n ) + DIVIDE ( z * z, 4 * n * n ) ), den )
+        RETURN IF ( n > 0, MIN ( 1, centre + half ) )
+
+    // Orders, at customer-week grain.
+    MEASURE orders[Customer weeks] = COUNTROWS ( orders )
+    MEASURE orders[Late weeks] = CALCULATE ( COUNTROWS ( orders ), orders[status] = "late" )
+    MEASURE orders[Late week rate] = DIVIDE ( [Late weeks], [Customer weeks] )
+    MEASURE orders[Customers with a late week] =
+        CALCULATE ( DISTINCTCOUNT ( orders[customer_id] ), orders[status] = "late" )
+
+    // Orders for the customers behind the current response selection.
+    // A response filter does not reach orders through the model, so the customer
+    // list is passed explicitly. This avoids repeating a response across weekly rows.
+    MEASURE orders[Responder customer weeks] =
+        CALCULATE (
+            [Customer weeks],
+            TREATAS (
+                SELECTCOLUMNS (
+                    FILTER ( responses, LEN ( TRIM ( responses[text] ) ) > 0 ),
+                    "customer_id", responses[customer_id]
+                ),
+                customers[customer_id]
+            )
+        )
+    MEASURE orders[Responder late weeks] =
+        CALCULATE (
+            [Late weeks],
+            TREATAS (
+                SELECTCOLUMNS (
+                    FILTER ( responses, LEN ( TRIM ( responses[text] ) ) > 0 ),
+                    "customer_id", responses[customer_id]
+                ),
+                customers[customer_id]
+            )
+        )
+
+// Check 1. Expect 1200, 500, 303, 303, 280, 14400, 1028, 706.
+EVALUATE
+ROW (
+    "Customers", [Customers],
+    "Invited", [Invited],
+    "Responded customers", [Responded customers],
+    "Responses", [Responses],
+    "Responses with text", [Responses with text],
+    "Customer weeks", [Customer weeks],
+    "Late weeks", [Late weeks],
+    "Customers with a late week", [Customers with a late week]
+)
+
+// Check 2. Expect Changing 201 / 140 / 0.6965 and Regular 299 / 163 / 0.5452.
+EVALUATE
+SUMMARIZECOLUMNS (
+    customers[schedule],
+    "Invited", [Invited],
+    "Responded customers", [Responded customers],
+    "Response rate", [Response rate],
+    "Late week rate", [Late week rate]
+)
+
+// Check 3. Reason = Too expensive. Expect 152, 36, 1824, 116.
+EVALUATE
+CALCULATETABLE (
+    ROW (
+        "Responses with text", [Responses with text],
+        "Flexibility or pause responses", [Flexibility or pause responses],
+        "Responder customer weeks", [Responder customer weeks],
+        "Responder late weeks", [Responder late weeks]
+    ),
+    responses[reason] = "Too expensive"
+)
+
+// Check 4. Reason = Too expensive, by theme.
+// Expect Affordability 49, Value for money 44, Portion size 26,
+// Delivery flexibility 18, Pause / skip control 18, Billing clarity 16,
+// Packaging 7, Customer support 5, Delivery reliability 4, Food quality 4.
+EVALUATE
+CALCULATETABLE (
+    SUMMARIZECOLUMNS (
+        themes[theme],
+        "Responses mentioning issue", [Responses mentioning issue],
+        "Issue share", [Issue share],
+        "Lower", [Issue share lower],
+        "Upper", [Issue share upper]
+    ),
+    responses[reason] = "Too expensive"
+)
+ORDER BY [Responses mentioning issue] DESC

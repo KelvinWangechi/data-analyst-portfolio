@@ -1,0 +1,85 @@
+table orders
+	lineageTag: 2de19b60-3677-4cd4-bacb-723b324f964c
+
+	measure 'Customer weeks' = COUNTROWS ( orders )
+		formatString: #,0
+		lineageTag: 1dff4448-d889-4536-b9d3-58f73a5782f5
+
+	measure 'Late weeks' = CALCULATE ( COUNTROWS ( orders ), orders[status] = "late" )
+		formatString: #,0
+		lineageTag: 42510d22-f9b1-4b71-b199-7794f85f36cc
+
+	measure 'Late week rate' = DIVIDE ( [Late weeks], [Customer weeks] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: edb377bf-c22a-4a54-95b4-fbe9b71c0ef4
+
+	measure 'Customers with a late week' = CALCULATE ( DISTINCTCOUNT ( orders[customer_id] ), orders[status] = "late" )
+		formatString: #,0
+		lineageTag: d0db8a41-ee51-4eec-a388-c0a906848b57
+
+	measure 'Responder customer weeks' =
+			CALCULATE (
+			    [Customer weeks],
+			    TREATAS (
+			        SELECTCOLUMNS ( FILTER ( responses, LEN ( TRIM ( responses[text] ) ) > 0 ), "customer_id", responses[customer_id] ),
+			        customers[customer_id]
+			    )
+			)
+		formatString: #,0
+		lineageTag: 7d065268-64db-42d2-9d55-6f6fd24bcf32
+
+	measure 'Responder late weeks' =
+			CALCULATE (
+			    [Late weeks],
+			    TREATAS (
+			        SELECTCOLUMNS ( FILTER ( responses, LEN ( TRIM ( responses[text] ) ) > 0 ), "customer_id", responses[customer_id] ),
+			        customers[customer_id]
+			    )
+			)
+		formatString: #,0
+		lineageTag: e954a23c-2808-440c-840d-5bbd378abff8
+
+	column order_id
+		dataType: string
+		lineageTag: ba0ff07e-f974-47a0-b5ae-fbca1fce207d
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column customer_id
+		dataType: string
+		lineageTag: f4ac3e6c-e208-48a8-a43e-4beee94e4ad0
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column week
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c21f455-740d-404c-bfb6-75a721a041d3
+		summarizeBy: none
+		sourceColumn: week
+
+	column status
+		dataType: string
+		lineageTag: 579a74dd-0983-4a31-99d4-cb35954794d5
+		summarizeBy: none
+		sourceColumn: status
+
+	column meals
+		dataType: int64
+		formatString: 0
+		lineageTag: 8af3148b-8533-44e6-ba57-af6645fbee83
+		summarizeBy: none
+		sourceColumn: meals
+
+	partition orders = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Data\customer-voice\orders.csv"), [Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"order_id", type text}, {"customer_id", type text}, {"week", Int64.Type}, {"status", type text}, {"meals", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

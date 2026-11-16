@@ -1,0 +1,41 @@
+table themes
+	lineageTag: 16486a77-0b28-4186-becb-fe605e377a24
+
+	column theme_id
+		dataType: string
+		lineageTag: 442854dd-5a53-4bd4-80ab-eead41b4d08a
+		summarizeBy: none
+		sourceColumn: theme_id
+
+	column theme
+		dataType: string
+		lineageTag: 2a550c47-4285-4dcf-bd4f-897ad59c782c
+		summarizeBy: none
+		sourceColumn: theme
+		sortByColumn: sort_order
+
+	column definition
+		dataType: string
+		lineageTag: 12f6df9c-dbf4-4449-abaf-b07978be4d31
+		summarizeBy: none
+		sourceColumn: definition
+
+	column sort_order
+		dataType: int64
+		formatString: 0
+		lineageTag: f60c75da-a57f-43ff-ac79-871b0eb1f37a
+		summarizeBy: none
+		sourceColumn: sort_order
+
+	partition themes = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Data\customer-voice\themes.csv"), [Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"theme_id", type text}, {"theme", type text}, {"definition", type text}, {"sort_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

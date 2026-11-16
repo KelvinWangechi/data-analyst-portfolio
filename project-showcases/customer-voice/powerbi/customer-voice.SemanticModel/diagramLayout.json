@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334.21527469871393,
+            "y": 494.68889319435453
+          },
+          "nodeIndex": "assignments",
+          "nodeLineageTag": "0aa4932b-1aea-42b7-b49f-802ec7e0c0ef",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 487.19937753573475,
+            "y": 261.55851488942972
+          },
+          "nodeIndex": "customers",
+          "nodeLineageTag": "273ea701-6417-419b-9602-e9b6ffcc9067",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 907.27582600142046,
+            "y": 630.40238750424453
+          },
+          "nodeIndex": "invitations",
+          "nodeLineageTag": "52eea0b8-09ac-488e-adc7-bf4594817aa0",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 779.9854344926066,
+            "y": -50
+          },
+          "nodeIndex": "orders",
+          "nodeLineageTag": "2de19b60-3677-4cd4-bacb-723b324f964c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 619.33554334271344,
+            "y": 732.69214039624
+          },
+          "nodeIndex": "responses",
+          "nodeLineageTag": "add0f969-5379-499d-991e-c1c663508130",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 533.74802479529217
+          },
+          "nodeIndex": "themes",
+          "nodeLineageTag": "16486a77-0b28-4186-becb-fe605e377a24",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
