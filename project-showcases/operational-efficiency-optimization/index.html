@@ -12,28 +12,19 @@
 </head>
 <body>
 <a class="skip" href="#story">Skip to the story</a>
-<header class="site-header"><a class="brand" href="../../">Kelvin Wangechi</a><nav aria-label="Main"><a href="../../#projects">All projects</a><a href="#findings">Findings</a><a href="#inspect">Code &amp; data</a></nav></header>
+<header class="site-header"><a class="brand" href="../../">Kelvin Wangechi</a><nav aria-label="Main"><a href="../../#projects">All projects</a><a href="#findings">Findings</a><a href="#methods">Code &amp; methods</a></nav><button id="theme-toggle" type="button" hidden>Dark view</button></header>
 <main id="story">
 <section class="hero" aria-labelledby="title">
-<div><p class="eyebrow">Operations analytics · Python</p><h1 id="title">Faster onboarding. How much capacity?</h1><p class="dek">Customer onboarding averages 8.94 recorded hours in the first phase and 3.19 in the second. That is the largest time gap among the eight processes in this dataset.</p><a class="primary" href="#compare">See the first finding <span aria-hidden="true">↓</span></a></div>
-<section class="hero-evidence" aria-labelledby="figures-title"><h2 class="panel-title" id="figures-title">Key figures</h2>
-<div class="stat"><strong>8.94 → 3.19</strong><span>mean recorded hours for Customer Onboarding, first phase to second</span></div>
-<div class="stat"><strong>92 and 182</strong><span>days in the two phases</span></div>
-<div class="stat"><strong>599 vs 404</strong><span>rows in the employee file vs distinct employee-month keys</span></div>
+<div><p class="eyebrow">Operations analytics · Python</p><h1 id="title">Faster onboarding. <br>How much capacity?</h1><p class="dek">Customer onboarding averages 8.94 recorded hours in the first phase and 3.19 in the second. That is the largest time gap among the eight processes in this dataset.</p><a class="primary" href="#compare">See the first finding <span aria-hidden="true">↓</span></a></div>
+<figure class="hero-evidence"><figcaption>Key figures</figcaption><div class="hero-credit"><span>mean recorded hours, Customer Onboarding, first phase (92 days)</span><strong>8.94</strong></div><div class="hero-credit"><span>mean recorded hours, Customer Onboarding, second phase (182 days)</span><strong>3.19</strong></div><div class="hero-credit"><span>rows in the employee file</span><strong>599</strong></div><div class="hero-credit"><span>distinct employee-month keys among them</span><strong>404</strong></div><p>Simulated records; phase differences are descriptive.</p></figure>
 </section>
-</section>
-<section class="brief" id="findings"><h2>Faster onboarding is a clue. How much capacity does it create?</h2><p>It makes onboarding a sensible place to investigate first. The tempting next step is to multiply the difference by a labour rate and call it savings.</p><p>I stopped one step earlier: the file does not say how many cases those hours represent.</p><p class="small">This portfolio case uses simulated process and productivity records; it does not represent an implemented client transformation.</p></section>
+<section class="brief" id="findings"><h2>Faster onboarding is a clue. How much capacity does it create?</h2><p>It makes onboarding a sensible place to investigate first. The tempting next step is to multiply the difference by a labour rate and call it savings.</p><p>I stopped one step earlier: the file does not say how many cases those hours represent.</p><p class="small">This portfolio case uses simulated process and productivity records; it does not represent an implemented client transformation. <a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/data/README.md">Read the data and methodology.</a></p></section>
 <div class="reading-layout">
-<aside class="contents"><p class="side-title">In this case</p><nav aria-label="In this case"><a href="#compare">Like with like</a><a href="#people">The people data</a><a href="#review">Operational review</a><a href="#inspect">Inspect the work</a></nav></aside>
+<aside class="contents"><details open><summary>In this case</summary><nav aria-label="Chapters"><a href="#compare">Like with like</a><a href="#people">The people data</a><a href="#decision">The next decision</a><a href="#methods">Inspect the work</a></nav></details></aside>
 <div class="chapters">
-
-<section class="chapter" id="compare"><h2>Compare like with like before ranking the opportunity</h2>
-<figure class="card"><h3>Before and after mean recorded processing hours for eight processes</h3><img src="process_time_comparison.png" width="1800" height="1125" alt="Before and after mean recorded processing hours for eight processes. Customer onboarding has the largest absolute difference."></figure>
-<p>The process file has one row per process per day. Its first phase spans <strong>92 days</strong>, June–August 2023; the second spans <strong>182 days</strong>, September 2023–February 2024. A comparison of total hours would mix process performance with the length of the observation period.</p>
-<p>I compared means within each process instead. The result puts onboarding first by absolute difference, followed by performance reviews and report generation.</p>
-<div class="card"><h3>Mean recorded processing hours by process</h3><div class="table-scroll" tabindex="0" role="region" aria-label="Mean recorded processing hours by process, scrollable table"><table>
-<thead><tr><th scope="col">Process</th><th scope="col">Before mean hours</th><th scope="col">After mean hours</th><th scope="col">Difference in hours</th></tr></thead>
-<tbody>
+<section class="chapter" id="compare"><h2>Compare like with like before<br>ranking the opportunity.</h2><p>The process file has one row per process per day. Its first phase spans <strong>92 days</strong>, June–August 2023; the second spans <strong>182 days</strong>, September 2023–February 2024. A comparison of total hours would mix process performance with the length of the observation period.</p><p>I compared means within each process instead. The result puts onboarding first by absolute difference, followed by performance reviews and report generation.</p>
+<figure class="publication-figure"><img src="process_time_comparison.png" alt="Before and after mean recorded processing hours for eight processes. Customer onboarding has the largest absolute difference." loading="lazy" width="1800" height="1125"><figcaption>Before and after mean recorded processing hours for eight processes</figcaption></figure>
+<details><summary>Inspect the process table</summary><div class="table-scroll" role="region" aria-label="Mean recorded processing hours by process" tabindex="0"><table><caption>Mean recorded processing hours by process</caption><thead><tr><th scope="col">Process</th><th scope="col">Before mean hours</th><th scope="col">After mean hours</th><th scope="col">Difference in hours</th></tr></thead><tbody>
 <tr><th scope="row">Customer Onboarding</th><td>8.94</td><td>3.19</td><td>5.75</td></tr>
 <tr><th scope="row">Performance Reviews</th><td>6.63</td><td>2.39</td><td>4.25</td></tr>
 <tr><th scope="row">Report Generation</th><td>4.49</td><td>1.59</td><td>2.91</td></tr>
@@ -42,33 +33,13 @@
 <tr><th scope="row">Dashboard Updates</th><td>2.29</td><td>0.79</td><td>1.50</td></tr>
 <tr><th scope="row">Invoice Processing</th><td>1.73</td><td>0.60</td><td>1.13</td></tr>
 <tr><th scope="row">Client Communications</th><td>1.13</td><td>0.40</td><td>0.73</td></tr>
-</tbody></table></div>
-<p class="small">These are means of the source’s recorded process-day values. They are not validated hours per customer or hours saved per employee. Case volume, case complexity and the meaning of Processing_Time_Hours need to be established before making either claim.</p></div>
-</section>
-
-<section class="chapter" id="people"><h2>The people data asks a different question</h2>
-<p>The second file looks like an employee productivity panel. It has <strong>599 rows</strong>, but only <strong>404 distinct employee-month keys</strong>. There are <strong>158 keys with multiple records</strong>, leaving <strong>195 rows beyond one record per key</strong>.</p>
-<p>Those extra records might have a legitimate explanation, such as separate assignments. The file does not document one. Dropping them arbitrarily could remove real work; treating every row as a distinct employee could inflate headcount. I therefore report the issue and leave retention, individual productivity changes and overtime savings unestimated.</p>
-</section>
-
-<section class="chapter" id="review"><h2>Where I would start an operational review</h2>
-<p>Follow one onboarding case from request to completion. Agree whether the recorded time is hands-on work, elapsed time or a daily total, then collect completed-case counts and complexity alongside it. Check whether a faster process moves work to another team or increases rework.</p>
-<p>With that denominator in place, compare time per completed case and quality over matched periods. A small pilot with a comparable team or queue would provide a stronger basis for deciding whether to expand the change.</p>
-<p>The chart gives the review a starting point. The missing workload definition tells us what must be measured before promising capacity or cost savings.</p>
-</section>
-
-<section class="chapter" id="inspect"><h2>Inspect the work</h2>
-<pre tabindex="0"><code>python run_analysis.py</code></pre>
-<p class="small" style="margin-top:14px">Python 3 standard library only. Optional chart regeneration: <code>python run_analysis.py --chart</code> with matplotlib installed.</p>
-<p>The run checks 2,192 process-day records for unique keys, complete daily coverage, eight processes per day and numeric bounds. Phase differences are descriptive, without a control group. Error-rate averages in the output are unweighted because task volumes are absent. No ROI is calculated.</p>
-<ul class="file-links">
-<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/data/README.md">Data and methodology <span aria-hidden="true">↗</span></a></li>
-<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/run_analysis.py">Analysis <span aria-hidden="true">↗</span></a></li>
-<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/process_metrics.csv">Process results <span aria-hidden="true">↗</span></a></li>
-<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/summary.json">Checks and hashes <span aria-hidden="true">↗</span></a></li>
-</ul>
-</section>
-
+</tbody></table></div><p class="small">These are means of the source’s recorded process-day values. They are not validated hours per customer or hours saved per employee. Case volume, case complexity and the meaning of Processing_Time_Hours need to be established before making either claim. <a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/process_metrics.csv">Process results (CSV) on GitHub</a></p></details></section>
+<section class="chapter" id="people"><h2>The people data asks<br>a different question.</h2><p>The second file looks like an employee productivity panel. It has <strong>599 rows</strong>, but only <strong>404 distinct employee-month keys</strong>. There are <strong>158 keys with multiple records</strong>, leaving <strong>195 rows beyond one record per key</strong>.</p><p>Those extra records might have a legitimate explanation, such as separate assignments. The file does not document one. Dropping them arbitrarily could remove real work; treating every row as a distinct employee could inflate headcount. I therefore report the issue and leave retention, individual productivity changes and overtime savings unestimated.</p></section>
+<section class="chapter decision" id="decision"><p class="eyebrow">The next decision</p><h2>Where I would start<br>an operational review.</h2><p>Follow one onboarding case from request to completion. Agree whether the recorded time is hands-on work, elapsed time or a daily total, then collect completed-case counts and complexity alongside it. Check whether a faster process moves work to another team or increases rework.</p><p>With that denominator in place, compare time per completed case and quality over matched periods. A small pilot with a comparable team or queue would provide a stronger basis for deciding whether to expand the change.</p><p>The chart gives the review a starting point. The missing workload definition tells us what must be measured before promising capacity or cost savings.</p><a class="primary" href="https://www.linkedin.com/in/kelvinwangechi/">Discuss an operational reporting problem <span aria-hidden="true">↗</span></a></section>
+<section class="chapter methods" id="methods"><h2>Inspect the work.</h2><p>The run checks 2,192 process-day records for unique keys, complete daily coverage, eight processes per day and numeric bounds. Phase differences are descriptive, without a control group. Error-rate averages in the output are unweighted because task volumes are absent. No ROI is calculated.</p>
+<details><summary>See the run command</summary><pre><code>python run_analysis.py</code></pre><p class="small">Python 3 standard library only. Optional chart regeneration: <code>python run_analysis.py --chart</code> with matplotlib installed.</p></details>
+<div class="method-links"><a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/data/README.md">Data and methodology ↗</a><a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/run_analysis.py">Analysis ↗</a><a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/process_metrics.csv">Process results ↗</a><a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/operational-efficiency-optimization/summary.json">Checks and hashes ↗</a></div></section>
 </div></div></main>
-<footer class="site-footer"><a href="../../#projects">← All projects</a><span>© 2026 Kelvin Wangechi</span></footer>
+<footer class="site-footer"><a class="brand" href="../../">Kelvin Wangechi</a><span>© 2026 Kelvin Wangechi</span><a href="../../#projects">← All projects</a></footer>
+<script src="../case.js" defer></script>
 </body></html>
