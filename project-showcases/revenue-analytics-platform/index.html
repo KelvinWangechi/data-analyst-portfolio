@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Would you cut the channel costing 70 per lead? | Kelvin Wangechi</title>
+<meta name="description" content="LinkedIn Ads costs 70.00 per recorded lead and Email costs 2.14. Before reallocating the budget, check whether the comparison measures the outcome you actually want.">
+<link rel="canonical" href="https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/revenue-analytics-platform/">
+<meta property="og:title" content="Would you cut the channel costing 70 per lead?">
+<meta property="og:description" content="LinkedIn Ads costs 70.00 per recorded lead. Email costs 2.14. Check what each number actually measures.">
+<meta property="og:type" content="article"><meta property="og:image" content="https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/revenue-analytics-platform/channel_cost_per_lead.png">
+<link rel="icon" href="../../assets/favicon.svg"><link rel="stylesheet" href="../case.css">
+</head>
+<body>
+<a class="skip" href="#story">Skip to the story</a>
+<header class="site-header"><a class="brand" href="../../">Kelvin Wangechi</a><nav aria-label="Main"><a href="../../#projects">All projects</a><a href="#findings">Findings</a><a href="#inspect">Code &amp; data</a></nav></header>
+<main id="story">
+<section class="hero" aria-labelledby="title">
+<div><p class="eyebrow">Marketing analytics · SQL · Python</p><h1 id="title">Would you cut the channel costing 70 per lead?</h1><p class="dek">LinkedIn Ads costs 70.00 per recorded lead. Email costs 2.14.</p><a class="primary" href="#cost">See the first finding <span aria-hidden="true">↓</span></a></div>
+<section class="hero-evidence" aria-labelledby="figures-title"><h2 class="panel-title" id="figures-title">Key figures</h2>
+<div class="stat"><strong>70.00</strong><span>LinkedIn Ads, recorded spend per lead</span></div>
+<div class="stat"><strong>2.14</strong><span>Email Marketing, recorded spend per lead</span></div>
+<div class="stat"><strong>29.82</strong><span>overall: total spend divided by total leads</span></div>
+<div class="stat"><strong>18 of 18</strong><span>months where marketing and sales lead totals differ</span></div>
+</section>
+</section>
+<section class="brief" id="findings"><h2>The useful answer came from checking what each number actually measures.</h2><p>Put those two numbers in front of a marketing team and the budget conversation almost writes itself. I wanted to know whether that first impression would survive a closer look.</p><p>Email’s low lead cost is a reason to investigate its audience and downstream performance. It is not yet evidence that shifting paid acquisition spend into email will create more customers.</p><p class="small">This portfolio analysis uses simulated marketing and sales data; results describe the supplied dataset, not measured client outcomes. Currency is unspecified, so these are currency units, not dollars.</p></section>
+<div class="reading-layout">
+<aside class="contents"><p class="side-title">In this case</p><nav aria-label="In this case"><a href="#cost">Spend per lead</a><a href="#leads">What happened to the leads</a><a href="#decision">Budget decision</a><a href="#inspect">Inspect the work</a></nav></aside>
+<div class="chapters">
+
+<section class="chapter" id="cost"><h2>First, make the average answer the right question</h2>
+<figure class="card"><h3>Recorded spend per lead by channel, January 2023 to June 2024</h3><img src="channel_cost_per_lead.png" width="1920" height="1200" alt="Recorded spend per lead by channel, January 2023 to June 2024. LinkedIn Ads 70.00; Google Ads 61.81; TikTok Ads 46.29; Facebook Ads 35.77; Email Marketing 2.14; Organic Search 0.00."></figure>
+<p>The marketing file contains 108 channel-month rows. Together they record <strong>435,579.51 in spend</strong> and <strong>14,607 leads</strong>. Divide total spend by total leads and the result is <strong>29.82 per lead</strong>.</p>
+<p>Average the 108 row-level ratios instead and the answer is <strong>36.57</strong>. Neither operation is mysterious: they answer different questions. The second gives a small channel-month the same influence as a large one. For the cost of a recorded lead across the whole dataset, I use the ratio of totals.</p>
+<div class="card"><h3>Recorded spend per lead, by channel</h3><div class="table-scroll" tabindex="0" role="region" aria-label="Recorded spend per lead by channel, scrollable table"><table>
+<thead><tr><th scope="col">Channel</th><th scope="col">Recorded spend</th><th scope="col">Recorded leads</th><th scope="col">Spend per lead</th></tr></thead>
+<tbody>
+<tr><th scope="row">LinkedIn Ads</th><td>87,011.60</td><td>1,243</td><td>70.00</td></tr>
+<tr><th scope="row">Google Ads</th><td>150,506.26</td><td>2,435</td><td>61.81</td></tr>
+<tr><th scope="row">TikTok Ads</th><td>76,849.24</td><td>1,660</td><td>46.29</td></tr>
+<tr><th scope="row">Facebook Ads</th><td>112,633.24</td><td>3,149</td><td>35.77</td></tr>
+<tr><th scope="row">Email Marketing</th><td>8,579.17</td><td>4,006</td><td>2.14</td></tr>
+<tr><th scope="row">Organic Search</th><td>0.00</td><td>2,114</td><td>0.00</td></tr>
+</tbody></table></div>
+<p class="small">Currency is unspecified, so these are currency units, not dollars. Organic search has no recorded ad spend; content and labour costs are outside this comparison.</p></div>
+</section>
+
+<section class="chapter" id="leads"><h2>Then ask what happened to those leads</h2>
+<p>An expensive lead could still be valuable if it becomes a customer. That makes the sales file the obvious next place to look. It also reveals the main obstacle.</p>
+<p>Marketing is recorded by month and channel. Sales is recorded by day, with no channel or customer key connecting the files. Even after aggregating both to month, their lead totals differ in <strong>all 18 months</strong>. January 2023 has <strong>632 marketing leads</strong> and <strong>5,457 sales leads</strong>.</p>
+<p>Joining on month would make a table, but it would not establish attribution. Joining daily sales directly to monthly marketing would also repeat spend across days. I keep the reconciliation visible before attempting a conversion or revenue-per-channel calculation.</p>
+<p>There is a second naming problem: the source’s <code>Cost_Per_Acquisition</code> field has no acquired-customer count behind it. In <strong>71 of 108 rows</strong>, it differs from recomputed spend per lead by more than 0.01. I preserve the source field, but report the calculation I can define: recorded spend divided by recorded leads.</p>
+</section>
+
+<section class="chapter" id="decision"><h2>The budget decision I would make next</h2>
+<p>Use this comparison to prioritise investigation. Before moving spend, agree the lead and customer definitions, deduplicate identities, reconcile source counts, and connect channel exposure to a documented customer outcome. Then compare conversion and customer value over a consistent period.</p>
+<p>Email’s low lead cost is a reason to investigate its audience and downstream performance. It is not yet evidence that shifting paid acquisition spend into email will create more customers.</p>
+</section>
+
+<section class="chapter" id="inspect"><h2>Inspect the work</h2>
+<p>The analysis covers January 2023–June 2024: 108 marketing rows and 547 daily sales rows. Python and SQLite check source grains, date coverage, rate ranges and aggregate totals. The <code>Before</code> and <code>After</code> phase labels are descriptive; they do not establish a revenue lift or platform ROI.</p>
+<h3>SQL: spend per lead by channel</h3>
+<pre tabindex="0"><code>-- SQLite. One row per channel across the supplied 18-month sample.
+-- These are simulated data. The spend currency is not documented.
+SELECT Channel,
+       COUNT(*) AS months,
+       ROUND(SUM(Ad_Spend), 2) AS recorded_spend,
+       SUM(Leads_Generated) AS recorded_leads,
+       ROUND(SUM(Ad_Spend) / NULLIF(SUM(Leads_Generated), 0), 2)
+           AS recorded_spend_per_lead
+FROM marketing
+GROUP BY Channel
+ORDER BY recorded_spend_per_lead DESC;</code></pre>
+<h3>Run it</h3>
+<pre tabindex="0"><code>python run_analysis.py</code></pre>
+<p class="small" style="margin-top:14px">Python 3 standard library only. Optional chart regeneration: <code>python run_analysis.py --chart</code> with matplotlib installed.</p>
+<ul class="file-links">
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/revenue-analytics-platform/data/README.md">Data and methodology <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/revenue-analytics-platform/run_analysis.py">Python analysis <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/revenue-analytics-platform/channel_metrics.sql">SQL <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/revenue-analytics-platform/channel_metrics.csv">Channel results <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/revenue-analytics-platform/monthly_reconciliation.csv">Monthly reconciliation <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/revenue-analytics-platform/summary.json">Checks and hashes <span aria-hidden="true">↗</span></a></li>
+</ul>
+</section>
+
+</div></div></main>
+<footer class="site-footer"><a href="../../#projects">← All projects</a><span>© 2026 Kelvin Wangechi</span></footer>
+</body></html>

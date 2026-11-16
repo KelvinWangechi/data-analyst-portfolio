@@ -622,6 +622,18 @@
   .contact-secondary a { color:var(--text); text-underline-offset:4px; padding:.35rem 0; }
   @media(max-width:900px) { #contact { grid-template-columns:1fr; gap:1.5rem; padding-block:3rem; } .contact-headline { margin-bottom:1rem; } }
   @media(max-width:480px) { .contact-providers { grid-template-columns:1fr; } .contact-email-row { flex-direction:column; } .contact-email-row button { width:100%; } .contact-intro { font-size:1.05rem; } }
+  .more-heading { font-family:var(--font-body); font-size:.9rem; font-weight:600; letter-spacing:0; color:var(--text-muted); margin:4rem 0 .75rem; }
+  .more-list { list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
+  .more-row { display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:.5rem clamp(1rem,2.5vw,2rem); align-items:center; padding:clamp(1.1rem,2.2vw,1.6rem) 0; border-bottom:1px solid var(--border); color:var(--text); text-decoration:none; }
+  .more-main { display:flex; flex-direction:column; gap:.35rem; min-width:0; }
+  .more-name { font-family:var(--font-display); font-size:clamp(.95rem,1.5vw,1.1rem); font-weight:700; line-height:1.3; }
+  .more-desc { font-family:var(--font-body); font-size:1.1rem; line-height:1.55; color:var(--text-muted); max-width:60ch; }
+  .more-tag { font-family:var(--font-mono); font-size:.8rem; color:var(--text-muted); white-space:nowrap; }
+  .more-arrow { font-family:var(--font-body); font-size:1.25rem; color:var(--accent); text-align:right; }
+  .more-row:hover .more-name { color:var(--accent); }
+  .more-row:focus-visible { outline:2px solid var(--accent2); outline-offset:4px; }
+  @media (prefers-reduced-motion:no-preference) { .more-row { transition:transform .2s; } .more-row:hover { transform:translateY(-2px); } }
+  @media(max-width:767px) { .more-row { grid-template-columns:minmax(0,1fr) auto; } .more-main { grid-column:1; grid-row:1; } .more-arrow { grid-column:2; grid-row:1; align-self:start; } .more-tag { grid-column:1; grid-row:2; } }
 </style>
 </head>
 <body>
@@ -721,11 +733,11 @@
       <a class="project-link" href="project-showcases/marketing-attribution/">Explore the attribution case</a></div>
 </article>
     <article class="project-card reveal" data-category="python">
-<div class="project-figure"><a href="project-showcases/kenya-schooling-histories/figures/schooling_composition.png" aria-label="Open schooling chart at full size"><img class="project-preview" src="project-showcases/kenya-schooling-histories/figures/schooling_composition.png" alt="Weighted shares of children out of school, split by never attended and attended before, across location and sample" loading="lazy" width="1980" height="1314"></a></div>
+<div class="project-figure"><a href="project-showcases/kenya-schooling-histories/" aria-label="Read the schooling findings"><img class="project-preview" src="project-showcases/kenya-schooling-histories/figures/schooling_composition.png" alt="Weighted shares of children out of school, split by never attended and attended before, across location and sample" loading="lazy" width="1980" height="1314"></a></div>
 <div class="project-copy"><div class="project-tag">Survey analysis · Python · Weighted estimates</div>
 <h3 class="project-title">Out of school: never enrolled, or left?</h3>
       <p class="project-desc">A World Bank survey of 16,472 children in Kenya’s refugee-hosting communities. In Dadaab most excluded children never attended. In Turkana nearby hosts fare worse than refugees. Among Nairobi refugee teenagers, previous attendance matters more.</p>
-      <a class="project-link" href="https://github.com/KelvinWangechi/data-analyst-portfolio/tree/main/project-showcases/kenya-schooling-histories/">Read the schooling findings</a></div>
+      <a class="project-link" href="project-showcases/kenya-schooling-histories/">Read the schooling findings</a></div>
 </article>
     <article class="project-card reveal" data-category="r sql">
 <div class="project-figure"><a href="project-showcases/customer-voice/" aria-label="Explore the customer voice case"><img class="project-preview" src="project-showcases/customer-voice/assets/kitchen.png" alt="An illustrated meal bag and receipt on a kitchen counter" loading="lazy" width="1536" height="1024"></a></div>
@@ -735,28 +747,13 @@
       <a class="project-link" href="project-showcases/customer-voice/">Explore the customer voice case</a><br>
       <a class="project-link" href="project-showcases/customer-voice/powerbi/customer-voice-report.pdf">View the Power BI report (PDF)</a></div>
 </article>
-    <article class="project-card reveal" data-category="sql salesforce">
-<div class="project-figure"><a href="project-showcases/cleaning-enquiry-job-profit/" aria-label="Explore the cleaning enquiry to job profit case"><img class="project-preview" src="project-showcases/cleaning-enquiry-job-profit/preview.svg" alt="Cleaning workflow: twelve completed jobs, ten with verified costs, and two needing follow-up" loading="lazy" width="960" height="600"></a></div>
-<div class="project-copy"><div class="project-tag">CRM automation · Salesforce · SQL · Connected workflow</div>
-<h3 class="project-title">We finished the jobs. Did we make money?</h3>
-      <p class="project-desc">Twelve jobs bring in $9,500. Two are missing costs. Follow a customer from enquiry to approved job, then see what the owner can safely call profit.</p>
-      <a class="project-link" href="project-showcases/cleaning-enquiry-job-profit/">Explore the cleaning business case</a></div>
-</article>
-    <article class="project-card reveal" data-category="python sql">
-<div class="project-figure"><a href="project-showcases/revenue-analytics-platform/channel_cost_per_lead.png" aria-label="Open revenue chart at full size"><img class="project-preview" src="project-showcases/revenue-analytics-platform/channel_cost_per_lead.png" alt="Recorded spend per lead across six marketing channels" loading="lazy" width="1920" height="1200"></a></div>
-<div class="project-copy"><div class="project-tag">Marketing analytics · SQL · Python</div>
-<h3 class="project-title">Would you cut the channel costing 70 per lead?</h3>
-      <p class="project-desc">Email looks cheaper. The sales records complicate the story. Follow the aggregation and reconciliation checks before moving the budget.</p>
-      <a class="project-link" href="https://github.com/KelvinWangechi/data-analyst-portfolio/tree/main/project-showcases/revenue-analytics-platform/">Read the revenue case</a></div>
-</article>
-    <article class="project-card reveal" data-category="python">
-<div class="project-figure"><a href="project-showcases/operational-efficiency-optimization/process_time_comparison.png" aria-label="Open operations chart at full size"><img class="project-preview" src="project-showcases/operational-efficiency-optimization/process_time_comparison.png" alt="Mean recorded processing hours before and after, across eight processes" loading="lazy" width="1800" height="1125"></a></div>
-<div class="project-copy"><div class="project-tag">Operations analytics · Python</div>
-<h3 class="project-title">Faster onboarding. How much capacity?</h3>
-      <p class="project-desc">Onboarding has the largest recorded time gap. The analysis identifies what to investigate and which workload measure is needed before estimating savings.</p>
-      <a class="project-link" href="https://github.com/KelvinWangechi/data-analyst-portfolio/tree/main/project-showcases/operational-efficiency-optimization/">Read the operations case</a></div>
-</article>
   </div>
+  <h3 class="more-heading">More cases</h3>
+  <ul class="more-list">
+    <li><a class="more-row" href="project-showcases/cleaning-enquiry-job-profit/"><span class="more-main"><span class="more-name">We finished the jobs. Did we make money?</span><span class="more-desc">Twelve jobs bring in $9,500. Two are missing costs.</span></span><span class="more-tag">Salesforce · SQL</span><span class="more-arrow" aria-hidden="true">→</span></a></li>
+    <li><a class="more-row" href="project-showcases/revenue-analytics-platform/"><span class="more-main"><span class="more-name">Would you cut the channel costing 70 per lead?</span><span class="more-desc">Email looks cheaper. The sales records complicate the story.</span></span><span class="more-tag">SQL · Python</span><span class="more-arrow" aria-hidden="true">→</span></a></li>
+    <li><a class="more-row" href="project-showcases/operational-efficiency-optimization/"><span class="more-main"><span class="more-name">Faster onboarding. How much capacity?</span><span class="more-desc">Onboarding has the largest recorded time gap. A workload measure is needed before estimating savings.</span></span><span class="more-tag">Python</span><span class="more-arrow" aria-hidden="true">→</span></a></li>
+  </ul>
 </section>
 
 <!-- EXPERIENCE -->

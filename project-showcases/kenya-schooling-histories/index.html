@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Out of school: never enrolled, or left? | Kelvin Wangechi</title>
+<meta name="description" content="An analysis of 16,472 children aged 6–17 in the World Bank K-LSRH survey: never-attendance dominates in Dadaab, nearby hosts face higher exclusion in Turkana, and previous attendance matters more among Nairobi refugee teenagers.">
+<link rel="canonical" href="https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/kenya-schooling-histories/">
+<meta property="og:title" content="Out of school: never enrolled, or left?">
+<meta property="og:description" content="Schooling exclusion follows different patterns across Kenya’s refugee-hosting communities. One pooled refugee–host average would obscure them.">
+<meta property="og:type" content="article"><meta property="og:image" content="https://kelvinwangechi.github.io/data-analyst-portfolio/project-showcases/kenya-schooling-histories/figures/schooling_composition.png">
+<link rel="icon" href="../../assets/favicon.svg"><link rel="stylesheet" href="../case.css">
+</head>
+<body>
+<a class="skip" href="#story">Skip to the story</a>
+<header class="site-header"><a class="brand" href="../../">Kelvin Wangechi</a><nav aria-label="Main"><a href="../../#projects">All projects</a><a href="#findings">Findings</a><a href="#inspect">Code &amp; data</a></nav></header>
+<main id="story">
+<section class="hero" aria-labelledby="title">
+<div><p class="eyebrow">Survey analysis · Python · Weighted estimates</p><h1 id="title">Out of school: never enrolled, or left?</h1><p class="dek">I analysed 16,472 children aged 6–17 in the K-LSRH household roster, separating children out of school with no previous attendance from those who had attended before.</p><a class="primary" href="#exclusion">See the first finding <span aria-hidden="true">↓</span></a></div>
+<section class="hero-evidence" aria-labelledby="figures-title"><h2 class="panel-title" id="figures-title">Key figures</h2>
+<div class="stat"><strong>16,472</strong><span>children aged 6–17 analysed</span></div>
+<div class="stat"><strong>59.9% vs 57.5%</strong><span>out of school in Dadaab: refugee sample vs host sample</span></div>
+<div class="stat"><strong>40.4% vs 3.9%</strong><span>out of school in Turkana: nearby hosts vs pooled Kakuma/Kalobeyei refugee sample</span></div>
+</section>
+</section>
+<section class="brief" id="findings"><h2>Schooling exclusion follows different patterns across Kenya’s refugee-hosting communities</h2><p><strong>Dadaab’s exclusion is predominantly a first-entry problem. Turkana’s largest disadvantage is among nearby host children.</strong></p><p>In Nairobi’s refugee sample, previous attendance accounts for most exclusion among older teenagers. The results point to different priorities for outreach and follow-up; one pooled refugee–host average would obscure them.</p><p class="small">Data: the World Bank K-LSRH Wave 1 household roster (KEN_2022_K-LSRH_v01_M), covering 2022–2023. No simulated observations enter the findings. I used the survey’s household weights and compared refugee and host samples within each supported location. <a href="#data">Dataset citation.</a></p></section>
+<div class="reading-layout">
+<aside class="contents"><p class="side-title">In this case</p><nav aria-label="In this case"><a href="#exclusion">Exclusion by location</a><a href="#history">Schooling history</a><a href="#gaps">Location matters</a><a href="#checks">Checks</a><a href="#inspect">Inspect the work</a></nav></aside>
+<div class="chapters">
+
+<section class="chapter" id="exclusion"><h2>High exclusion can coexist with a small refugee–host gap</h2>
+<p>In Dadaab, <strong>59.9% of refugee-sample children and 57.5% of host-sample children</strong> were out of school. The gap was only <strong>2.4 percentage points</strong>, but both groups faced high exclusion. Never-attendance accounted for <strong>95.2% and 93.4%</strong>, respectively, of their out-of-school populations. A programme focused only on returning former pupils would miss most excluded children in these samples.</p>
+<p>Turkana showed a different comparison: <strong>40.4% among nearby hosts versus 3.9% in the pooled Kakuma/Kalobeyei refugee sample</strong>. Never-attendance contributed <strong>33.4 points of the 36.4-point host disadvantage</strong>. The descriptive priority is to include host communities explicitly in first-entry outreach; these data do not establish why the gap exists.</p>
+<figure class="card"><h3>Weighted schooling-history components by location and sample</h3><img src="figures/schooling_composition.png" width="1980" height="1314" alt="Weighted shares of children out of school, split by never attended and attended before, across location and sample"></figure>
+<div class="card"><h3>Out of school by location and sample</h3><div class="table-scroll" tabindex="0" role="region" aria-label="Out of school by location and sample, scrollable table"><table>
+<thead><tr><th scope="col">Location and sample</th><th scope="col">Children analysed*</th><th scope="col">Out of school: never attended</th><th scope="col">Out of school: attended before</th><th scope="col">Total out of school</th></tr></thead>
+<tbody>
+<tr><th scope="row">Turkana — refugees</th><td>6,409</td><td>2.6%</td><td>1.4%</td><td><strong>3.9%</strong></td></tr>
+<tr><th scope="row">Turkana — hosts</th><td>1,441</td><td>35.9%</td><td>4.5%</td><td><strong>40.4%</strong></td></tr>
+<tr><th scope="row">Dadaab — refugees</th><td>2,933</td><td>57.0%</td><td>2.9%</td><td><strong>59.9%</strong></td></tr>
+<tr><th scope="row">Dadaab — hosts</th><td>2,726</td><td>53.7%</td><td>3.8%</td><td><strong>57.5%</strong></td></tr>
+<tr><th scope="row">Nairobi — refugees</th><td>1,147</td><td>7.4%</td><td>8.7%</td><td><strong>16.0%</strong></td></tr>
+<tr><th scope="row">Nairobi — hosts</th><td>549</td><td>Withheld</td><td>Withheld</td><td><strong>4.4%</strong></td></tr>
+<tr><th scope="row">Other Urban — refugees</th><td>727</td><td>2.9%</td><td>6.7%</td><td><strong>9.6%</strong></td></tr>
+<tr><th scope="row">Other Urban — hosts</th><td>539</td><td>Withheld</td><td>Withheld</td><td><strong>3.2%</strong></td></tr>
+</tbody></table></div>
+<p class="small">*Unweighted classified denominators; percentages are weighted. One additional Turkana host child remains unclassified. Both components are withheld for urban host samples because of small cells; totals remain available. Rounded components may not sum to the rounded total. “Other Urban” combines the survey’s Nakuru/Mombasa coverage. <a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/outputs/schooling_estimates.csv">Estimates (CSV) on GitHub</a>.</p></div>
+</section>
+
+<section class="chapter" id="history"><h2>Schooling history changes the practical response</h2>
+<p>Among Dadaab refugee children aged 6–11, <strong>72.3% had never attended and were out of school</strong>, compared with <strong>1.3% who had attended before</strong>. In the host sample, these components were <strong>64.7% and 2.3%</strong>. First-entry assessment therefore deserves a distinct place in the response, including checking placement needs and the barriers families report.</p>
+<p>Nairobi refugee teenagers aged 15–17 had a different profile: <strong>25.3% were out of school</strong>, comprising <strong>20.0% with previous attendance</strong> and <strong>5.2% with none</strong>. Previous attendance accounted for <strong>79.3%</strong> of exclusion in this age group. That makes re-entry support and investigation of interrupted schooling particularly relevant alongside first-entry work.</p>
+<figure class="card"><h3>Schooling-history components across age groups in Dadaab and Nairobi</h3><img src="figures/schooling_by_age.png" width="2160" height="1080" alt="Schooling-history components across age groups in Dadaab and Nairobi"></figure>
+<p>These age groups contain different children observed in one survey wave. The lower never-attendance share among older Dadaab children does not show that the younger children subsequently entered school. Nor does previous attendance establish when, where or why schooling stopped, or that a child will remain out permanently.</p>
+</section>
+
+<section class="chapter" id="gaps"><h2>Location matters more than a single headline gap</h2>
+<figure class="card"><h3>Refugee-minus-host out-of-school rate gaps</h3><img src="figures/refugee_host_gaps.png" width="1800" height="954" alt="Refugee-minus-host out-of-school rate gaps"></figure>
+<div class="card"><h3>Planning implications and what the evidence does not establish</h3><div class="table-scroll" tabindex="0" role="region" aria-label="Planning implications, scrollable table"><table class="table-text">
+<thead><tr><th scope="col">Planning implication</th><th scope="col">Evidence behind it</th><th scope="col">What the evidence does not establish</th></tr></thead>
+<tbody>
+<tr><th scope="row">Include both refugee and host children in Dadaab first-entry outreach</th><td>High exclusion and predominantly never-attendance in both samples</td><td>The cause of non-entry or the effectiveness of an intervention</td></tr>
+<tr><th scope="row">Include nearby Turkana hosts explicitly in access planning</th><td>Host exclusion exceeds refugee-sample exclusion by 36.4 points</td><td>A causal benefit of camp residence or a county-wide rate</td></tr>
+<tr><th scope="row">Give Nairobi refugee teenagers a separate re-entry pathway</th><td>Previous attendance accounts for 20.0 of the 25.3 percentage points of exclusion at ages 15–17</td><td>A longitudinal dropout rate, timing of exit, or individual eligibility</td></tr>
+</tbody></table></div></div>
+<p>These are priorities for assessment and programme design, not measured programme outcomes. The survey does not justify allocating budgets from percentage gaps alone: the size of the target population, current service capacity and implementation costs also matter.</p>
+</section>
+
+<section class="chapter" id="checks"><h2>Checks that affect interpretation</h2>
+<ul>
+<li><strong>Enrolment is not attendance on interview day.</strong> The primary measure uses the released out-of-school-system indicator. Current enrolment and plans to enrol at reopening are included in the school system, even when a child was not attending at interview.</li>
+<li><strong>The main findings survive a stricter exit definition.</strong> Including reported permanent exits or no plan to return after holidays adds 59 children to the out-of-school category. Across the eight location/sample groups, rates change by at most <strong>1.2 percentage points</strong>, with no reversal in the direction of a refugee–host gap.</li>
+<li><strong>Sample labels are taken from the released location strata.</strong> Six children have a conflicting household-respondent status label. Excluding them changes any overall rate by less than <strong>0.02 percentage points</strong>.</li>
+<li><strong>The unresolved record has little numerical influence.</strong> The Turkana host out-of-school rate lies between <strong>40.34% and 40.43%</strong> if that record is assigned either way. This is a missing-classification bound, not a confidence interval.</li>
+</ul>
+<p>The estimates describe the survey’s supported populations in 2022–2023, not all Kenyan children or current conditions. They are weighted point estimates; no statistical-significance or causal claims are made. The World Bank’s original report already discussed never-attendance. This analysis adds a fixed 6–17 population, a common-denominator decomposition, age comparisons and explicit sensitivity checks.</p>
+</section>
+
+<section class="chapter" id="inspect"><h2>Inspect the work</h2>
+<p id="data">This analysis uses the actual anonymised household-member roster (<code>hhm.dta</code>) from K-LSRH Wave 1, <strong>KEN_2022_K-LSRH_v01_M</strong>, covering 2022–2023. The release contains 45,011 roster members in 9,304 households; 16,472 members in 5,605 households have recorded ages 6–17. Raw data remain local and are not redistributed.</p>
+<p class="citation"><strong>Dataset citation:</strong> Precious Zikhali, Nistha Sinha, Utz Pape, Theresa Beltramo and Edward Miguel. <em>Kenya — Longitudinal Socioeconomic Study of Refugees and Host Communities 2022–2023, Wave 1</em>. Ref. KEN_2022_K-LSRH_v01_M. <a href="https://microdata.worldbank.org/catalog/6409">World Bank Microdata Library</a>, <a href="https://doi.org/10.48529/x4g6-9k44">DOI</a>. Downloaded 4 October 2026.</p>
+<p>Obtain the data through the <a href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/raw/README.md">free World Bank access process</a>; microdata are not distributed in this repository. Use Python 3.12 from this directory:</p>
+<pre tabindex="0"><code>python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+# Complete the evidence-based validation file for your approved local release.
+cp validation.example.json validation.json
+python scripts/analyze.py --data raw/release/hhm.dta --validation validation.json --out outputs/private_run01
+python scripts/robustness.py --data raw/release/hhm.dta --validation validation.json --out outputs/private_run01
+# Review diagnostics and disclosure before preparing public tables and figures.
+python scripts/build_release.py --private outputs/private_run01
+python scripts/verify_release.py --data raw/release/hhm.dta --private outputs/private_run01</code></pre>
+<ul class="file-links">
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/README.md">Case README <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/tree/main/project-showcases/kenya-schooling-histories/scripts">Analysis scripts <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/docs/methodology.md">Definitions, provenance and limitations <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/docs/qa.md">Quality checks <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/docs/protocol.md">Calculation specification <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/docs/evidence_review.md">Source evidence <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/outputs/schooling_estimates.csv">Schooling estimates (CSV) <span aria-hidden="true">↗</span></a></li>
+<li><a class="link-card" href="https://github.com/KelvinWangechi/data-analyst-portfolio/blob/main/project-showcases/kenya-schooling-histories/outputs/release_manifest.json">Input and output hashes <span aria-hidden="true">↗</span></a></li>
+</ul>
+<p class="small" style="margin-top:26px">The figures are generated directly from the weighted estimates. AI assisted with code and drafting; claims are tied to the released data and reproducible calculations.</p>
+</section>
+
+</div></div></main>
+<footer class="site-footer"><a href="../../#projects">← All projects</a><span>© 2026 Kelvin Wangechi</span></footer>
+</body></html>
